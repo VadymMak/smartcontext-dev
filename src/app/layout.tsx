@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import ChatWidgetLoader from "@/components/chat/ChatWidgetLoader";
 import "@/styles/globals.css";
 
 const inter = Inter({
@@ -55,6 +56,7 @@ export default function RootLayout({
           {children}
           <Footer />
         </div>
+        <ChatWidgetLoader />
       </body>
     </html>
   );
