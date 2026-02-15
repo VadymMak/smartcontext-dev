@@ -1,0 +1,116 @@
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: min(80vh, 700px);
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.greeting {
+  font-size: var(--text-lg);
+  color: var(--color-accent);
+  font-weight: 500;
+}
+
+.headline {
+  font-size: var(--text-4xl);
+  line-height: 1.2;
+  color: var(--color-text-primary);
+  min-height: 2.4em;
+}
+
+.cursor {
+  color: var(--color-accent);
+  animation: blink 0.8s step-end infinite;
+  font-weight: 400;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.description {
+  font-size: var(--text-lg);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+  max-width: 560px;
+}
+
+.actions {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: var(--space-2);
+}
+
+.social {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.socialLink {
+  font-size: var(--text-sm);
+  color: var(--color-text-tertiary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.socialLink:hover {
+  color: var(--color-accent);
+}
+
+.socialDot {
+  color: var(--color-text-tertiary);
+  font-size: var(--text-sm);
+}
+
+/* Subtle background grid */
+.bgGrid {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1.5s ease;
+  background-image:
+    linear-gradient(var(--color-border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-border) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse at center, rgba(0,0,0,0.3) 0%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,0.3) 0%, transparent 70%);
+}
+
+.bgVisible {
+  opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .hero {
+    min-height: auto;
+    padding: var(--space-6) var(--space-3) var(--space-5);
+  }
+
+  .headline {
+    font-size: var(--text-3xl);
+    min-height: 3em;
+  }
+
+  .description {
+    font-size: var(--text-base);
+  }
+}

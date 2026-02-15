@@ -237,6 +237,11 @@ pre code {
   outline-offset: 2px;
 }
 
+/* --- Alternating section backgrounds --- */
+.section-alt {
+  background: var(--color-surface);
+}
+
 /* --- Responsive Font Sizes --- */
 @media (max-width: 640px) {
   h1 {
