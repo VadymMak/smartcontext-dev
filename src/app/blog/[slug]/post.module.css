@@ -1,0 +1,132 @@
+.breadcrumbs {
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.maxWidth {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-3);
+}
+
+.breadcrumbLink {
+  font-size: var(--text-sm);
+  color: var(--color-text-tertiary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.breadcrumbLink:hover {
+  color: var(--color-accent);
+}
+
+.breadcrumbSep {
+  margin: 0 var(--space-1);
+  color: var(--color-text-tertiary);
+  font-size: var(--text-sm);
+}
+
+.breadcrumbCurrent {
+  font-size: var(--text-sm);
+  color: var(--color-text-tertiary);
+  text-transform: capitalize;
+}
+
+/* Header */
+.header {
+  padding: var(--space-6) 0 var(--space-4);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  margin-bottom: var(--space-3);
+}
+
+.title {
+  font-size: var(--text-4xl);
+  line-height: 1.15;
+  margin-bottom: var(--space-3);
+  max-width: 800px;
+}
+
+.description {
+  font-size: var(--text-lg);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+  max-width: 680px;
+  margin-bottom: var(--space-3);
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--color-text-tertiary);
+}
+
+.dot {
+  color: var(--color-text-tertiary);
+}
+
+/* Layout: sidebar + article */
+.layout {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-3);
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: var(--space-6);
+  align-items: start;
+}
+
+.sidebar {
+  /* Sticky is handled by TOC component */
+}
+
+.article {
+  max-width: var(--content-width);
+  padding-bottom: var(--space-5);
+}
+
+/* Related posts */
+.related {
+  padding: var(--space-6) 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.relatedTitle {
+  font-size: var(--text-2xl);
+  margin-bottom: var(--space-4);
+}
+
+.relatedGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .sidebar {
+    order: -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .title {
+    font-size: var(--text-3xl);
+  }
+
+  .meta {
+    flex-wrap: wrap;
+  }
+}
