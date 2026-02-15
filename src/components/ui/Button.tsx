@@ -6,8 +6,9 @@ interface ButtonProps {
   size?: "sm" | "md" | "lg";
   href?: string;
   onClick?: () => void;
-  disabled?: boolean;
   className?: string;
+  type?: "button" | "submit" | "reset";
+  disabled?: boolean;
 }
 
 export default function Button({
@@ -16,6 +17,7 @@ export default function Button({
   size = "md",
   href,
   onClick,
+  type = "button",
   disabled = false,
   className = "",
 }: ButtonProps) {
@@ -30,7 +32,7 @@ export default function Button({
   }
 
   return (
-    <button className={classes} onClick={onClick} disabled={disabled}>
+    <button className={classes} onClick={onClick} type={type} disabled={disabled}>
       {children}
     </button>
   );
