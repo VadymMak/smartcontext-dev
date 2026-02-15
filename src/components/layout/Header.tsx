@@ -11,7 +11,7 @@ import styles from "./Header.module.css";
 export default function Header() {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -46,7 +46,7 @@ export default function Header() {
     <>
       <header
         className={`${styles.header} ${isScrolled ? styles.scrolled : ""} ${
-          isVisible ? styles.hidden : styles.visible
+          !isVisible ? styles.hidden : styles.visible
         }`}
       >
         <div className={styles.container}>
