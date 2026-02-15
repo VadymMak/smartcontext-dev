@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 import "@/styles/globals.css";
 
 const inter = Inter({
@@ -46,9 +48,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-theme="dark">
+    <html lang="en" data-theme="dark" suppressHydrationWarning>
       <body className={`${inter.variable} ${jetbrainsMono.variable}`}>
-        {children}
+        <Header />
+        <div style={{ paddingTop: "var(--header-height)", minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+          {children}
+          <Footer />
+        </div>
       </body>
     </html>
   );
