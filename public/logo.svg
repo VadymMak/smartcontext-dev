@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" fill="none">
+  <text x="0" y="46" font-family="'JetBrains Mono', 'Fira Code', Consolas, monospace" font-size="42" font-weight="700">
+    <tspan fill="#3b82f6">{</tspan><tspan fill="#e4e4e7">SC</tspan><tspan fill="#3b82f6">}</tspan>
+  </text>
+</svg>
