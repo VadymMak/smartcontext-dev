@@ -8,6 +8,7 @@ import TableOfContents from "@/components/blog/TableOfContents";
 import ShareButtons from "@/components/blog/ShareButtons";
 import PostCard from "@/components/blog/PostCard";
 import CTABanner from "@/components/layout/CTABanner";
+import { ArticleSchema, BreadcrumbSchema } from "@/components/shared/JsonLd";
 import styles from "./post.module.css";
 
 interface BlogPostPageProps {
@@ -41,6 +42,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   return (
     <main>
+    <ArticleSchema title={post.title} description={post.description} date={post.date} slug={post.slug} />
+    <BreadcrumbSchema items={[
+    { name: "Blog", url: "https://smartcontext.dev/blog" },
+    { name: post.title, url: `https://smartcontext.dev/blog/${post.slug}` },
+    ]} />
       {/* Breadcrumbs */}
       <div className={styles.breadcrumbs}>
         <div className={styles.maxWidth}>

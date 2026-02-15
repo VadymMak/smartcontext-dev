@@ -3,6 +3,7 @@ import Tag from "@/components/ui/Tag";
 import CTABanner from "@/components/layout/CTABanner";
 import AnimatedSection from "@/components/shared/AnimatedSection";
 import SectionHeading from "@/components/shared/SectionHeading";
+import { FAQSchema } from "@/components/shared/JsonLd";
 import FAQ from "@/components/services/FAQ";
 import styles from "./services.module.css";
 

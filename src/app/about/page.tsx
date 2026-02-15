@@ -3,6 +3,7 @@ import Tag from "@/components/ui/Tag";
 import CTABanner from "@/components/layout/CTABanner";
 import AnimatedSection from "@/components/shared/AnimatedSection";
 import SectionHeading from "@/components/shared/SectionHeading";
+import { PersonSchema } from "@/components/shared/JsonLd";
 import styles from "./about.module.css";
 
 export const metadata: Metadata = {
@@ -54,7 +55,7 @@ const TECH_GROUPS = [
 export default function AboutPage() {
   return (
     <main>
-      {/* Intro */}
+      <PersonSchema />
       <section className={styles.intro}>
         <div className={styles.container}>
           <div className={styles.introGrid}>
