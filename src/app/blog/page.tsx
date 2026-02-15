@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
-import { getAllPosts } from "@/data/blog";
-import PostCard from "@/components/blog/PostCard";
 import TagFilter from "@/components/blog/TagFilter";
 import CTABanner from "@/components/layout/CTABanner";
-import AnimatedSection from "@/components/shared/AnimatedSection";
 import BlogList from "./BlogList";
 import styles from "./blog.module.css";
 
