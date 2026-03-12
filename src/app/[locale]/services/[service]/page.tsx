@@ -10,7 +10,7 @@ import { FAQ } from "@/components/ui";
 import { serviceFaqs } from "@/data/serviceFaqs";
 import { ScrollReveal } from "@/components/ui";
 
-const SERVICES = ["web-design", "seo", "ai-chat"] as const;
+const SERVICES = ["web-development", "seo", "ai-chat"] as const;
 type ServiceSlug = (typeof SERVICES)[number];
 
 interface ServicePageProps {

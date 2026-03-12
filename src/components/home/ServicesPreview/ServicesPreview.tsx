@@ -9,7 +9,7 @@ import styles from "./ServicesPreview.module.css";
 
 const SERVICES = [
   {
-    slug: "web-design",
+    slug: "web-development",
     icon: "🎨",
     titleKey: "web_design_title",
     descKey: "web_design_desc",
