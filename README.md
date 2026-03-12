@@ -171,9 +171,87 @@ src/
 
 ---
 
-## Locales
+## Removing Optional Features
 
-Default locales: `en`, `sk`. To add a new locale:
+When starting a new project, delete what you don't need **before writing any code**.
+
+### AnnouncementBar
+
+```bash
+rm -rf src/components/ui/AnnouncementBar
+# Remove from src/components/ui/index.ts:
+# export { AnnouncementBar } from './AnnouncementBar/AnnouncementBar'
+# Remove from [locale]/layout.tsx: <AnnouncementBar />
+```
+
+### WhatsApp Button
+
+```bash
+rm -rf src/components/ui/WhatsAppButton
+# Remove from src/components/ui/index.ts:
+# export { WhatsAppButton } from './WhatsAppButton/WhatsAppButton'
+# Remove from [locale]/layout.tsx: <WhatsAppButton />
+# Remove from .env.local: NEXT_PUBLIC_WHATSAPP_NUMBER
+```
+
+### Protected Image
+
+```bash
+rm -rf src/components/ui/ProtectedImage
+# Remove from src/components/ui/index.ts:
+# export { ProtectedImage } from './ProtectedImage/ProtectedImage'
+```
+
+### Gallery + Lightbox
+
+```bash
+rm -rf src/components/ui/Gallery
+# Remove from src/components/ui/index.ts:
+# export { Gallery } from './Gallery/Gallery'
+```
+
+### AI Chat Widget
+
+```bash
+rm -rf src/components/ui/ChatWidget
+# Remove from src/components/ui/index.ts:
+# export { ChatWidget } from './ChatWidget/ChatWidget'
+# Remove from [locale]/layout.tsx: <ChatWidget />
+```
+
+### AI Chat + RAG
+
+```bash
+rm -rf src/app/api/chat
+rm -rf src/lib/rag.ts
+rm -rf data/chunks.ts data/scripts data/embeddings.json
+# Remove from package.json scripts: "embeddings": "..."
+# Remove from .env.local: OPENAI_API_KEY
+```
+
+### Telegram Notifications
+
+```bash
+# Remove from src/app/api/contact/route.ts: sendTelegram() call
+# Remove from .env.local: TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID
+```
+
+### Cookie Banner + GA4
+
+```bash
+rm -rf src/components/ui/CookieBanner
+rm -rf src/components/ui/GoogleAnalytics
+# Remove from src/components/ui/index.ts both exports
+# Remove from [locale]/layout.tsx: <CookieBanner /> <GoogleAnalytics />
+# Remove from .env.local: NEXT_PUBLIC_GA_ID
+```
+
+> ⚠️ Always remove the export from `ui/index.ts` alongside the folder —
+> otherwise TypeScript will throw a module not found error.
+
+---
+
+## Locales
 
 1. Add locale to `src/i18n/routing.ts`
 2. Copy `src/messages/_template.json` → `src/messages/[locale].json`

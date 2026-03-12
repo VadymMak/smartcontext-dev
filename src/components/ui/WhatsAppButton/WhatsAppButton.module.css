@@ -1,0 +1,26 @@
+/* src/components/ui/WhatsAppButton/WhatsAppButton.module.css */
+/* [optional] — delete if not needed */
+
+.button {
+  position: fixed;
+  bottom: var(--space-xl);
+  right: var(--space-lg);
+  z-index: var(--z-fixed);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: #25d366;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.button:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 24px rgba(37, 211, 102, 0.5);
+}

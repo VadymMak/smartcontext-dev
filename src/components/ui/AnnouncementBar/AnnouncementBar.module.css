@@ -1,0 +1,46 @@
+/* src/components/ui/AnnouncementBar/AnnouncementBar.module.css */
+/* [optional] — delete if not needed */
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  background-color: var(--accent);
+  color: #fff;
+  position: relative;
+}
+
+.text {
+  font-size: var(--font-size-sm);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin: 0;
+}
+
+.link {
+  color: #fff;
+  font-weight: var(--font-weight-medium);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.close {
+  position: absolute;
+  right: var(--space-md);
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: var(--space-xs);
+  opacity: 0.8;
+  transition: opacity var(--transition-fast);
+}
+
+.close:hover {
+  opacity: 1;
+}

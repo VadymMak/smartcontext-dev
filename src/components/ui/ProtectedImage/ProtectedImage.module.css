@@ -1,0 +1,35 @@
+/* src/components/ui/ProtectedImage/ProtectedImage.module.css */
+/* [optional] — delete if not needed */
+
+.wrapper {
+  position: relative;
+  display: inline-block;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.image {
+  display: block;
+  pointer-events: none; /* prevents drag on the img element itself */
+}
+
+/* Transparent overlay on top — catches right-click and drag events */
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: transparent;
+}
+
+/* Watermark */
+.watermark {
+  position: absolute;
+  bottom: var(--space-sm);
+  right: var(--space-sm);
+  z-index: 2;
+  font-size: var(--font-size-xs);
+  color: rgba(255, 255, 255, 0.6);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+  user-select: none;
+}

@@ -1,0 +1,133 @@
+/* src/components/ui/Gallery/Gallery.module.css */
+/* [optional] — delete if not needed */
+
+/* --- Grid -------------------------------------------------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(var(--columns, 3), 1fr);
+  gap: var(--space-sm);
+}
+
+.thumb {
+  all: unset;
+  cursor: pointer;
+  display: block;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  aspect-ratio: 1 / 1;
+}
+
+.thumbImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-base);
+}
+
+.thumb:hover .thumbImage,
+.thumb:focus-visible .thumbImage {
+  transform: scale(1.04);
+}
+
+.thumb:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* --- Lightbox ---------------------------------------------- */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal);
+  background: rgba(0, 0, 0, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 200ms ease both;
+}
+
+.lightboxInner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 90vw;
+  max-height: 90vh;
+}
+
+.lightboxImage {
+  max-width: 90vw;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: var(--border-radius);
+  animation: scaleIn 200ms ease both;
+}
+
+/* --- Buttons ----------------------------------------------- */
+.closeBtn {
+  position: absolute;
+  top: calc(-1 * var(--space-xl));
+  right: 0;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: var(--space-xs);
+  opacity: 0.8;
+  transition: opacity var(--transition-fast);
+}
+
+.closeBtn:hover {
+  opacity: 1;
+}
+
+.navBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: var(--space-sm);
+  border-radius: var(--border-radius);
+  backdrop-filter: blur(4px);
+  transition: background var(--transition-fast);
+}
+
+.navBtn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.prevBtn {
+  left: calc(-1 * var(--space-2xl));
+}
+.nextBtn {
+  right: calc(-1 * var(--space-2xl));
+}
+
+/* --- Counter ----------------------------------------------- */
+.counter {
+  position: absolute;
+  bottom: calc(-1 * var(--space-xl));
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.6);
+  font-size: var(--font-size-sm);
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* --- Responsive ------------------------------------------- */
+@media (max-width: 767px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .prevBtn {
+    left: var(--space-sm);
+  }
+  .nextBtn {
+    right: var(--space-sm);
+  }
+}
