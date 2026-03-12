@@ -1,0 +1,216 @@
+/* src/components/home/Hero/Hero.module.css */
+
+.section {
+  padding-block: var(--space-2xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+/* --- Quick Answer ------------------------------------------ */
+/* Above fold — +37% AI citation probability */
+.quickAnswer {
+  display: inline-block;
+  padding: var(--space-sm) var(--space-md);
+  background-color: var(--accent-subtle);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  animation: fadeUp 500ms ease both;
+}
+
+.quickAnswer p {
+  max-width: none;
+  color: inherit;
+  line-height: var(--line-height-normal);
+}
+
+/* --- Intro ------------------------------------------------- */
+.intro {
+  animation: fadeUp 500ms ease both;
+  animation-delay: 80ms;
+}
+
+.role {
+  font-size: var(--font-size-lg);
+  color: var(--accent);
+  font-weight: var(--font-weight-medium);
+  margin-bottom: var(--space-sm);
+  max-width: none;
+}
+
+.heading {
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  line-height: var(--line-height-tight);
+  color: var(--text-primary);
+  max-width: 14ch;
+}
+
+/* --- Trust bar --------------------------------------------- */
+.trustBar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  animation: fadeUp 500ms ease both;
+  animation-delay: 160ms;
+}
+
+.trustItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.trustIcon {
+  font-size: var(--font-size-lg);
+}
+
+.trustLabel {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-secondary);
+}
+
+/* --- Pricing cards ----------------------------------------- */
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+.card {
+  position: relative;
+  padding: var(--space-lg);
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+
+  /* Staggered animation via CSS --i prop */
+  animation: fadeUp 400ms ease both;
+  animation-delay: calc(240ms + var(--i, 0) * 80ms);
+}
+
+.cardFeatured {
+  border-color: var(--accent);
+  background-color: var(--accent-subtle);
+}
+
+.badge {
+  position: absolute;
+  top: -12px;
+  left: var(--space-lg);
+  padding: 2px var(--space-sm);
+  background-color: var(--accent);
+  color: var(--text-inverse);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  border-radius: var(--border-radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.cardTitle {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  max-width: none;
+}
+
+.cardPrice {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  max-width: none;
+  line-height: 1;
+}
+
+.cardDesc {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  line-height: var(--line-height-normal);
+  flex: 1;
+  max-width: none;
+}
+
+.cardCta {
+  display: block;
+  text-align: center;
+  padding: var(--space-sm) var(--space-md);
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.cardCta:hover {
+  background-color: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+.cardCtaFeatured {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: var(--text-inverse);
+}
+
+.cardCtaFeatured:hover {
+  background-color: var(--accent-hover);
+  border-color: var(--accent-hover);
+  color: var(--text-inverse);
+}
+
+/* --- Actions ----------------------------------------------- */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  animation: fadeUp 400ms ease both;
+  animation-delay: 480ms;
+}
+
+.primaryCta {
+  padding: var(--space-md) var(--space-xl);
+  background-color: var(--accent);
+  color: var(--text-inverse);
+  border-radius: var(--border-radius);
+  font-weight: var(--font-weight-semibold);
+  transition: background-color var(--transition-fast);
+}
+
+.primaryCta:hover {
+  background-color: var(--accent-hover);
+  color: var(--text-inverse);
+}
+
+.secondaryCta {
+  padding: var(--space-md) var(--space-xl);
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius);
+  color: var(--text-secondary);
+  font-weight: var(--font-weight-medium);
+  transition:
+    color var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.secondaryCta:hover {
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+}
+
+/* --- Responsive ------------------------------------------- */
+@media (min-width: 640px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

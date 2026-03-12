@@ -1,0 +1,60 @@
+/* src/components/home/ServicesPreview/ServicesPreview.module.css */
+
+.section {
+  padding-block: var(--space-2xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-xl);
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius-lg);
+  transition:
+    border-color var(--transition-fast),
+    transform var(--transition-base);
+}
+
+.card:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+}
+
+.icon {
+  font-size: 2rem;
+}
+
+.cardTitle {
+  font-size: var(--font-size-xl);
+  color: var(--text-primary);
+  text-transform: capitalize;
+}
+
+.cardDesc {
+  font-size: var(--font-size-sm);
+  color: var(--accent);
+  max-width: none;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

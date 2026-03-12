@@ -10,7 +10,6 @@ export { ScrollReveal } from "./ScrollReveal/ScrollReveal";
 export { FAQ } from "./FAQ/FAQ";
 export { ContactForm } from "./ContactForm/ContactForm";
 
-// Added in later steps:
-// export { CookieBanner }    from './CookieBanner/CookieBanner';
-// export { GoogleAnalytics } from './GoogleAnalytics/GoogleAnalytics';
-// export { AnnouncementBar } from './AnnouncementBar/AnnouncementBar';
+export { CookieBanner } from "./CookieBanner/CookieBanner";
+export { GoogleAnalytics } from "./GoogleAnalytics/GoogleAnalytics";
+// export { AnnouncementBar } from "./AnnouncementBar/AnnouncementBar";

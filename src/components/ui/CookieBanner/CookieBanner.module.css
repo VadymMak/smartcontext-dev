@@ -1,0 +1,80 @@
+/* src/components/ui/CookieBanner/CookieBanner.module.css */
+
+.banner {
+  position: fixed;
+  bottom: var(--space-lg);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: var(--z-toast);
+  width: calc(100% - var(--space-xl));
+  max-width: 640px;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+  animation: fadeUp 300ms ease both;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  padding: var(--space-lg);
+}
+
+.message {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  line-height: var(--line-height-normal);
+  max-width: none;
+}
+
+/* --- Actions ---------------------------------------------- */
+.actions {
+  display: flex;
+  gap: var(--space-sm);
+  justify-content: flex-end;
+}
+
+.declineBtn {
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-secondary);
+  transition:
+    color var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.declineBtn:hover {
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+}
+
+.acceptBtn {
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--border-radius);
+  background-color: var(--accent);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-inverse);
+  transition: background-color var(--transition-fast);
+}
+
+.acceptBtn:hover {
+  background-color: var(--accent-hover);
+}
+
+/* --- Responsive ------------------------------------------- */
+@media (min-width: 640px) {
+  .inner {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .message {
+    flex: 1;
+  }
+}

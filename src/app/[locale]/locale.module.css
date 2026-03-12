@@ -1,0 +1,11 @@
+/* src/app/[locale]/locale.module.css */
+
+.pageWrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+
+.main {
+  flex: 1;
+}
