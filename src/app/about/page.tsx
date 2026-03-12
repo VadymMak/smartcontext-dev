@@ -32,7 +32,7 @@ export default function AboutPage() {
 
         <div className={styles.content}>
           <div className={styles.bio}>
-            <h2>Hi, I'm Vadym</h2>
+            <h2>Hi, I&apos;m Vadym</h2>
             <p>
               I build fast, conversion-focused websites for studios and B2B
               companies. My focus is on performance (Lighthouse 95–100), SEO,
