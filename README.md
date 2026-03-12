@@ -27,7 +27,9 @@
 
 ```bash
 # 1. Use this template on GitHub
-# GitHub → nextjs-studio-template → "Use this template"
+# GitHub → nextjs-studio-template → "Use this template" → "Create a new repository"
+# This creates a clean repo with all files but NO commit history (not a fork)
+# Each new client project gets its own independent repository
 
 # 2. Clone your new repo
 git clone https://github.com/YOUR_USERNAME/your-project.git
