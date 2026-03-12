@@ -7,13 +7,15 @@
 // ✅ Import ui components from barrel @/components/ui
 // ============================================================
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { ThemeToggle } from "@/components/ui";
 // import { LanguageSwitcher } from "../LanguageSwitcher/LanguageSwitcher";
 import { MobileMenu } from "../MobileMenu/MobileMenu";
 import styles from "./Header.module.css";
+
+const SCROLL_THRESHOLD = 15;
 
 const NAV_LINKS = [
   { href: "/", key: "home" },
@@ -28,15 +30,38 @@ export function Header() {
   const t = useTranslations("nav");
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
+  const [visible, setVisible] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
+  const lastScrollY = useRef(0);
+  const ticking = useRef(false);
+
+  const updateHeader = useCallback(() => {
+    const current = window.scrollY;
+    const delta = current - lastScrollY.current;
+
+    if (current < 80) {
+      setVisible(true);
+    } else if (delta > SCROLL_THRESHOLD) {
+      setVisible(false);
+    } else if (delta < -SCROLL_THRESHOLD) {
+      setVisible(true);
+    }
+
+    setScrolled(current > 8);
+    lastScrollY.current = current;
+    ticking.current = false;
+  }, []);
 
   useEffect(() => {
-    function onScroll() {
-      setScrolled(window.scrollY > 8);
-    }
+    const onScroll = () => {
+      if (ticking.current) return;
+      ticking.current = true;
+      requestAnimationFrame(updateHeader);
+    };
+
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [updateHeader]);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
@@ -47,7 +72,9 @@ export function Header() {
 
   return (
     <>
-      <header className={`${styles.header} ${scrolled ? styles.scrolled : ""}`}>
+      <header
+        className={`${styles.header} ${scrolled ? styles.scrolled : ""} ${!visible ? styles.headerHidden : ""}`}
+      >
         <div className={`container ${styles.inner}`}>
           <Link href="/" className={styles.logo} aria-label="Go to homepage">
             <span className={styles.logoBracket}>{"{ "}</span>
