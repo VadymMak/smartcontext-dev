@@ -176,6 +176,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-md);
+  justify-content: center;
   animation: fadeUp 400ms ease both;
   animation-delay: 480ms;
 }
