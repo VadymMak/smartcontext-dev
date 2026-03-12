@@ -4,31 +4,42 @@
 // ⚠️ metadataBase CRITICAL — without it OG URLs are relative
 // ⚠️ display: 'swap' on fonts — prevents 380ms font-blocking
 // ============================================================
-
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "../styles/globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-body",
-  display: "swap", // CRITICAL — prevents 380ms font-blocking penalty
+  display: "swap",
 });
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://example.com";
-const SITE_NAME = process.env.NEXT_PUBLIC_SITE_NAME ?? "Studio";
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-heading",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
+});
+
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://smartcontext.dev";
+const SITE_NAME = process.env.NEXT_PUBLIC_SITE_NAME ?? "SmartContext";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(BASE_URL), // CRITICAL — without this OG URLs are relative
+  metadataBase: new URL(BASE_URL),
   title: {
     default: SITE_NAME,
     template: `%s | ${SITE_NAME}`,
   },
-  description: "Fast, multilingual websites for studios and B2B.",
+  description:
+    "Fast, AI-powered websites for studios and B2B. Next.js · TypeScript · Lighthouse 95+.",
   openGraph: {
     siteName: SITE_NAME,
     type: "website",
-    // ⚠️ OG image must be JPG 1200×630px — Facebook rejects WebP
     images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
   },
   twitter: {
@@ -45,7 +56,11 @@ export default function RootLayout({
 }) {
   return (
     <html suppressHydrationWarning>
-      <body className={inter.variable}>{children}</body>
+      <body
+        className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
+      >
+        {children}
+      </body>
     </html>
   );
 }
