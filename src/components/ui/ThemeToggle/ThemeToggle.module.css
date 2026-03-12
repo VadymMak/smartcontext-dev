@@ -1,0 +1,28 @@
+/* src/components/ui/ThemeToggle/ThemeToggle.module.css */
+
+.toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--border-radius);
+  color: var(--text-secondary);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition:
+    color var(--transition-fast),
+    background-color var(--transition-fast);
+}
+
+.toggle:hover {
+  color: var(--text-primary);
+  background-color: var(--bg-hover);
+}
+
+/* Placeholder matches button size — prevents layout shift */
+.placeholder {
+  width: 36px;
+  height: 36px;
+}

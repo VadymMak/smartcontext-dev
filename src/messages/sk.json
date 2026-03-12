@@ -1,0 +1,72 @@
+{
+  "nav": {
+    "home": "Domov",
+    "services": "Služby",
+    "blog": "Blog",
+    "contact": "Kontakt"
+  },
+  "hero": {
+    "role": "Web dizajnér & vývojár",
+    "cta_primary": "Zobraziť ceny",
+    "cta_secondary": "Moje práce",
+    "trust_projects": "50+ projektov",
+    "trust_score": "95 Lighthouse",
+    "trust_seo": "100 SEO skóre",
+    "trust_support": "30-dňová podpora"
+  },
+  "services": {
+    "title": "Služby",
+    "subtitle": "Čo pre vás dokážem vytvoriť",
+    "cta": "Zistiť viac"
+  },
+  "pricing": {
+    "starter_title": "Štarter",
+    "starter_price": "€799",
+    "starter_desc": "Úvodná stránka, mobilná verzia, kontaktný formulár",
+    "business_title": "Business",
+    "business_price": "€1 499",
+    "business_desc": "Viacstránkový web, blog, SEO, analytika",
+    "growth_title": "Rast",
+    "growth_price": "€2 499",
+    "growth_desc": "Kompletný web + AI chat, viacjazyčnosť, RAG",
+    "cta": "Začať"
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Poznatky o web dizajne a vývoji",
+    "read_more": "Čítať viac",
+    "all_posts": "Všetky články",
+    "published": "Publikované",
+    "minutes_read": "min čítania"
+  },
+  "contact": {
+    "title": "Kontaktujte ma",
+    "subtitle": "Porozprávajme sa o vašom projekte",
+    "name_label": "Vaše meno",
+    "name_placeholder": "Ján Novák",
+    "email_label": "E-mailová adresa",
+    "email_placeholder": "jan@priklad.sk",
+    "message_label": "Správa",
+    "message_placeholder": "Povedzte mi o svojom projekte...",
+    "submit": "Odoslať správu",
+    "success": "Správa odoslaná! Ozvem sa do 24 hodín.",
+    "error": "Niečo sa pokazilo. Skúste znova alebo mi napíšte priamo."
+  },
+  "footer": {
+    "rights": "Všetky práva vyhradené.",
+    "privacy": "Ochrana súkromia",
+    "terms": "Obchodné podmienky"
+  },
+  "cookie": {
+    "message": "Táto stránka používa cookies na zlepšenie zážitku a analýzu návštevnosti.",
+    "accept": "Prijať",
+    "decline": "Odmietnuť"
+  },
+  "common": {
+    "loading": "Načítava sa...",
+    "back": "Späť",
+    "home": "Domov",
+    "error_title": "Niečo sa pokazilo",
+    "error_message": "Obnovte stránku alebo skúste neskôr."
+  }
+}

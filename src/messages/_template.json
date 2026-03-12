@@ -1,0 +1,72 @@
+{
+  "nav": {
+    "home": "",
+    "services": "",
+    "blog": "",
+    "contact": ""
+  },
+  "hero": {
+    "role": "",
+    "cta_primary": "",
+    "cta_secondary": "",
+    "trust_projects": "",
+    "trust_score": "",
+    "trust_seo": "",
+    "trust_support": ""
+  },
+  "services": {
+    "title": "",
+    "subtitle": "",
+    "cta": ""
+  },
+  "pricing": {
+    "starter_title": "",
+    "starter_price": "",
+    "starter_desc": "",
+    "business_title": "",
+    "business_price": "",
+    "business_desc": "",
+    "growth_title": "",
+    "growth_price": "",
+    "growth_desc": "",
+    "cta": ""
+  },
+  "blog": {
+    "title": "",
+    "subtitle": "",
+    "read_more": "",
+    "all_posts": "",
+    "published": "",
+    "minutes_read": ""
+  },
+  "contact": {
+    "title": "",
+    "subtitle": "",
+    "name_label": "",
+    "name_placeholder": "",
+    "email_label": "",
+    "email_placeholder": "",
+    "message_label": "",
+    "message_placeholder": "",
+    "submit": "",
+    "success": "",
+    "error": ""
+  },
+  "footer": {
+    "rights": "",
+    "privacy": "",
+    "terms": ""
+  },
+  "cookie": {
+    "message": "",
+    "accept": "",
+    "decline": ""
+  },
+  "common": {
+    "loading": "",
+    "back": "",
+    "home": "",
+    "error_title": "",
+    "error_message": ""
+  }
+}

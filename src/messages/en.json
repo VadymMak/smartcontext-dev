@@ -1,0 +1,72 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "hero": {
+    "role": "Web Designer & Developer",
+    "cta_primary": "View Pricing",
+    "cta_secondary": "See My Work",
+    "trust_projects": "50+ Projects",
+    "trust_score": "95 Lighthouse",
+    "trust_seo": "100 SEO Score",
+    "trust_support": "30-day Support"
+  },
+  "services": {
+    "title": "Services",
+    "subtitle": "What I can build for you",
+    "cta": "Learn More"
+  },
+  "pricing": {
+    "starter_title": "Starter",
+    "starter_price": "€799",
+    "starter_desc": "Landing page, mobile-ready, contact form",
+    "business_title": "Business",
+    "business_price": "€1 499",
+    "business_desc": "Multi-page site, blog, SEO, analytics",
+    "growth_title": "Growth",
+    "growth_price": "€2 499",
+    "growth_desc": "Full site + AI chat, multilingual, RAG",
+    "cta": "Get Started"
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Insights on web design and development",
+    "read_more": "Read More",
+    "all_posts": "All Posts",
+    "published": "Published",
+    "minutes_read": "min read"
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "Let's talk about your project",
+    "name_label": "Your Name",
+    "name_placeholder": "John Smith",
+    "email_label": "Email Address",
+    "email_placeholder": "john@example.com",
+    "message_label": "Message",
+    "message_placeholder": "Tell me about your project...",
+    "submit": "Send Message",
+    "success": "Message sent! I'll get back to you within 24 hours.",
+    "error": "Something went wrong. Please try again or email me directly."
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  },
+  "cookie": {
+    "message": "This site uses cookies to improve your experience and analyse traffic.",
+    "accept": "Accept",
+    "decline": "Decline"
+  },
+  "common": {
+    "loading": "Loading...",
+    "back": "Back",
+    "home": "Home",
+    "error_title": "Something went wrong",
+    "error_message": "Please refresh the page or try again later."
+  }
+}

@@ -1,0 +1,96 @@
+/* src/components/layout/LanguageSwitcher/LanguageSwitcher.module.css */
+
+/* --- Dropdown mode (desktop) ------------------------------- */
+.wrapper {
+  position: relative;
+}
+
+.trigger {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--border-radius);
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  transition:
+    color var(--transition-fast),
+    background-color var(--transition-fast);
+}
+
+.trigger:hover {
+  color: var(--text-primary);
+  background-color: var(--bg-hover);
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+  transition: transform var(--transition-fast);
+}
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + var(--space-xs));
+  right: 0;
+  min-width: 140px;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  z-index: var(--z-dropdown);
+  animation: fadeDown 150ms ease both;
+}
+
+.option {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: var(--space-sm) var(--space-md);
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  transition:
+    color var(--transition-fast),
+    background-color var(--transition-fast);
+}
+
+.option:hover {
+  color: var(--text-primary);
+  background-color: var(--bg-hover);
+}
+
+.optionActive {
+  color: var(--accent);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* --- Inline mode (mobile menu) ----------------------------- */
+.inlineRow {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.inlineBtn {
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-secondary);
+  transition:
+    color var(--transition-fast),
+    border-color var(--transition-fast),
+    background-color var(--transition-fast);
+}
+
+.inlineBtn:hover {
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+}
+
+.inlineActive {
+  color: var(--accent);
+  border-color: var(--accent);
+  background-color: var(--accent-subtle);
+}

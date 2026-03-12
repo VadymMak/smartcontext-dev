@@ -1,0 +1,26 @@
+/* src/components/ui/TypedText/TypedText.module.css */
+
+.typed {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+
+  /* Cursor */
+  border-right: 2px solid currentColor;
+
+  /* Start at zero width — animate to full text width */
+  width: 0;
+
+  /* CRITICAL: font: inherit ensures steps() accuracy
+     If font differs from parent, character width calculation breaks */
+  font: inherit;
+
+  animation:
+    typing var(--typed-duration, 2s) steps(var(--typed-steps, 20))
+      var(--typed-delay, 0s) forwards,
+    blink 0.75s step-end var(--cursor-hide, 3s) forwards;
+}
+
+/* @keyframes are defined in src/styles/animations.css */
+/* typing: to { width: var(--typed-chars); }         */
+/* blink:  50% { border-color: transparent; }        */

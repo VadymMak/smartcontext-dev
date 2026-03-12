@@ -1,0 +1,136 @@
+/* src/components/layout/MobileMenu/MobileMenu.module.css */
+
+/* --- Backdrop --------------------------------------------- */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-overlay);
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-base);
+}
+
+.backdropOpen {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* --- Panel ------------------------------------------------- */
+/* ⚠️ CRITICAL iOS Safari Liquid Glass fix:
+   background-color must be TRANSPARENT on the fixed element.
+   Safari samples fixed elements to tint browser toolbars.
+   Transparent = Safari ignores it for tinting. */
+.menuPanel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(320px, 85vw);
+  z-index: var(--z-modal);
+  background-color: transparent;
+
+  display: flex;
+  flex-direction: column;
+
+  /* Slide animation */
+  transform: translateX(100%);
+  transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.open {
+  transform: translateX(0);
+}
+
+/* ⚠️ CRITICAL: Background lives on the CHILD element
+   Uses CSS variable so it works for both light and dark themes */
+.menuPanelBackground {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-color: var(--bg-primary);
+  border-left: 1px solid var(--border);
+}
+
+/* --- Panel header ----------------------------------------- */
+.panelHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-height);
+  padding-inline: var(--space-lg);
+  border-bottom: 1px solid var(--divider);
+  flex-shrink: 0;
+}
+
+.logoText {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+}
+
+.panelActions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.closeBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--border-radius);
+  color: var(--text-secondary);
+  transition:
+    color var(--transition-fast),
+    background-color var(--transition-fast);
+}
+
+.closeBtn:hover {
+  color: var(--text-primary);
+  background-color: var(--bg-hover);
+}
+
+/* --- Nav links -------------------------------------------- */
+.nav {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-lg);
+  gap: var(--space-xs);
+  flex: 1;
+}
+
+/* Staggered slide-in animation using --i CSS prop */
+.link {
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-secondary);
+  transition:
+    color var(--transition-fast),
+    background-color var(--transition-fast);
+
+  animation: slideInLink 300ms ease both;
+  animation-delay: calc(var(--i, 0) * 50ms);
+}
+
+.link:hover {
+  color: var(--text-primary);
+  background-color: var(--bg-hover);
+}
+
+.linkActive {
+  color: var(--text-primary);
+  font-weight: var(--font-weight-semibold);
+  background-color: var(--bg-hover);
+}
+
+/* --- Panel footer ----------------------------------------- */
+.panelFooter {
+  padding: var(--space-lg);
+  border-top: 1px solid var(--divider);
+  flex-shrink: 0;
+}

@@ -1,0 +1,61 @@
+/* ============================================================
+   themes.css — Light / Dark color tokens
+   Applied via data-theme="light" | "dark" on <html>
+   To customize per-project: change values here only.
+   ============================================================ */
+
+[data-theme="light"] {
+  --bg-primary: #f5f0e8;
+  --bg-secondary: #ede8df;
+  --bg-card: #ffffff;
+  --bg-hover: rgba(0, 0, 0, 0.04);
+  --bg-overlay: rgba(245, 240, 232, 0.92);
+
+  --text-primary: #1a1a1a;
+  --text-secondary: #555555;
+  --text-muted: #888888;
+  --text-inverse: #ffffff;
+
+  --accent: #1d4ed8;
+  --accent-hover: #1e40af;
+  --accent-subtle: rgba(29, 78, 216, 0.08);
+
+  --success: #16a34a;
+  --warning: #d97706;
+  --error: #dc2626;
+
+  --divider: rgba(0, 0, 0, 0.1);
+  --border: rgba(0, 0, 0, 0.12);
+  --border-strong: rgba(0, 0, 0, 0.24);
+
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --code-bg: #f0ebe1;
+}
+
+[data-theme="dark"] {
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #242424;
+  --bg-card: #2a2a2a;
+  --bg-hover: rgba(255, 255, 255, 0.06);
+  --bg-overlay: rgba(26, 26, 26, 0.92);
+
+  --text-primary: #f0ebe1;
+  --text-secondary: #a0998e;
+  --text-muted: #666666;
+  --text-inverse: #1a1a1a;
+
+  --accent: #3b82f6;
+  --accent-hover: #60a5fa;
+  --accent-subtle: rgba(59, 130, 246, 0.1);
+
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --error: #ef4444;
+
+  --divider: rgba(255, 255, 255, 0.1);
+  --border: rgba(255, 255, 255, 0.12);
+  --border-strong: rgba(255, 255, 255, 0.24);
+
+  --shadow-color: rgba(0, 0, 0, 0.4);
+  --code-bg: #2f2f2f;
+}

@@ -1,0 +1,85 @@
+/* src/components/layout/Footer/Footer.module.css */
+
+.footer {
+  background-color: var(--bg-secondary);
+  border-top: 1px solid var(--divider);
+  margin-top: auto;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+  padding-block: var(--space-xl);
+}
+
+/* --- Brand ------------------------------------------------- */
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.logo {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+}
+
+.tagline {
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+  max-width: 28ch;
+  line-height: var(--line-height-normal);
+}
+
+/* --- Columns ----------------------------------------------- */
+.columns {
+  display: flex;
+  gap: var(--space-xl);
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.columnTitle {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: var(--space-xs);
+}
+
+.columnLink {
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+  transition: color var(--transition-fast);
+}
+
+.columnLink:hover {
+  color: var(--text-primary);
+}
+
+/* --- Bottom bar ------------------------------------------- */
+.bottom {
+  border-top: 1px solid var(--divider);
+  padding-block: var(--space-md);
+}
+
+.copyright {
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+  max-width: none;
+}
+
+/* --- Responsive ------------------------------------------- */
+@media (min-width: 768px) {
+  .inner {
+    grid-template-columns: 1fr auto;
+    align-items: start;
+  }
+}
