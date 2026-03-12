@@ -1,6 +1,6 @@
 // ============================================================
-// src/app/[locale]/blog/[slug]/page.tsx
-// Article + FAQ JSON-LD + speakable schema
+// src/app/blog/[slug]/page.tsx
+// Article + FAQ JSON-LD + speakable schema — EN only
 // ============================================================
 
 import type { Metadata } from "next";
@@ -11,32 +11,28 @@ import { extractFAQs } from "@/lib/extractFAQs";
 import styles from "./slug.module.css";
 
 interface BlogPostPageProps {
-  params: Promise<{ locale: string; slug: string }>;
+  params: Promise<{ slug: string }>;
 }
 
-export async function generateStaticParams({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
-  return getAllSlugs(locale).map((slug) => ({ slug }));
+export async function generateStaticParams() {
+  return getAllSlugs("en").map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({
   params,
 }: BlogPostPageProps): Promise<Metadata> {
-  const { locale, slug } = await params;
-  const post = getPostBySlug(slug, locale);
+  const { slug } = await params;
+  const post = getPostBySlug(slug, "en");
   if (!post) return {};
 
-  const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://example.com";
+  const BASE_URL =
+    process.env.NEXT_PUBLIC_BASE_URL ?? "https://smartcontext.dev";
 
   return {
     title: post.title,
     description: post.description,
     alternates: {
-      canonical: `${BASE_URL}/${locale}/blog/${slug}`,
+      canonical: `${BASE_URL}/blog/${slug}`,
     },
     openGraph: {
       type: "article",
@@ -44,7 +40,6 @@ export async function generateMetadata({
       description: post.description,
       publishedTime: post.datePublished,
       modifiedTime: post.dateModified,
-      // ⚠️ coverOg must match THIS post — common bug
       images: [{ url: post.coverOg, width: 1200, height: 630 }],
     },
     twitter: {
@@ -55,18 +50,17 @@ export async function generateMetadata({
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
-  const { locale, slug } = await params;
-  const post = getPostBySlug(slug, locale);
+  const { slug } = await params;
+  const post = getPostBySlug(slug, "en");
   if (!post) notFound();
 
-  const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://example.com";
-  const SITE_NAME = process.env.NEXT_PUBLIC_SITE_NAME ?? "Studio";
-  const AUTHOR = process.env.NEXT_PUBLIC_AUTHOR_NAME ?? "Your Name";
+  const BASE_URL =
+    process.env.NEXT_PUBLIC_BASE_URL ?? "https://smartcontext.dev";
+  const SITE_NAME = process.env.NEXT_PUBLIC_SITE_NAME ?? "SmartContext";
+  const AUTHOR = process.env.NEXT_PUBLIC_AUTHOR_NAME ?? "Vadym Mak";
 
-  // Extract FAQs from markdown headings ending with ?
   const faqs = extractFAQs(post.content);
 
-  // Article JSON-LD
   const articleJsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -89,7 +83,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `${BASE_URL}/${locale}/blog/${slug}`,
+      "@id": `${BASE_URL}/blog/${slug}`,
     },
     speakable: {
       "@type": "SpeakableSpecification",
@@ -106,11 +100,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
       <div className="container">
         <article className={styles.article}>
-          {/* Header */}
           <header className={styles.header}>
             <div className={styles.meta}>
               <time dateTime={post.datePublished} className={styles.date}>
-                {new Date(post.datePublished).toLocaleDateString(locale, {
+                {new Date(post.datePublished).toLocaleDateString("en", {
                   year: "numeric",
                   month: "long",
                   day: "numeric",
@@ -133,13 +126,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             </div>
           </header>
 
-          {/* Content — rendered as HTML from markdown */}
           <div
             className={styles.content}
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
 
-          {/* FAQ section — auto-extracted from ## headings ending with ? */}
           {faqs.length > 0 && (
             <ScrollReveal>
               <div className={styles.faqSection}>
