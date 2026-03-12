@@ -1,6 +1,6 @@
 // ============================================================
 // src/data/serviceFaqs.ts
-// FAQ content per service per locale
+// FAQ content per service — EN only
 // ⚠️ This is RUNTIME data — NOT UI strings (those go in messages/)
 // ⚠️ FAQPage JSON-LD is generated FROM this file in each service page
 // ============================================================
@@ -19,59 +19,62 @@ export interface AllServiceFAQs {
 }
 
 export const serviceFaqs: AllServiceFAQs = {
-  "web-design": {
+  "web-development": {
     en: [
       {
         question: "How long does a website project take?",
         answer:
-          "A typical project takes 2–4 weeks depending on scope. A landing page is usually 1–2 weeks. A multi-page business site with blog takes 3–4 weeks.",
+          "A typical project takes 1–4 weeks depending on scope. A landing page (Starter) is 1–2 weeks. A multi-page business site with blog takes 3–4 weeks. A full site with AI chat and SEO audit takes 4–6 weeks.",
       },
       {
         question: "What is included in the Starter package?",
         answer:
-          "The Starter package (€799) includes a single landing page, mobile-responsive design, contact form with email notifications, basic SEO setup, and 30 days of post-launch support.",
+          "The Starter package ($1,500–$2,500) includes a landing page or business card site of 1–3 pages, mobile-responsive design, contact form with email notifications, Google Analytics, and Lighthouse 95+ performance.",
       },
       {
-        question: "Do you build multilingual websites?",
+        question: "What is included in the Business package?",
         answer:
-          "Yes. All sites are built with next-intl for full multilingual support. English + Slovak is the default. Additional languages can be added for an extra fee.",
+          "The Business package ($3,000–$5,000) includes a corporate site of 5–8 pages, MDX blog system, structured data & SEO, CSS animations, and an optional AI chat add-on. Delivery: 3–4 weeks.",
+      },
+      {
+        question: "What is included in the Growth package?",
+        answer:
+          "The Growth package ($5,000–$8,000) includes a full site plus AI chatbot with RAG, smart search, content strategy, first 3 blog posts, and a full SEO audit. Delivery: 4–6 weeks.",
       },
       {
         question: "What is your revision policy?",
         answer:
-          "Each package includes 2 rounds of revisions after the initial concept. Additional revision rounds are billed at €75/hour.",
+          "Each package includes 2 rounds of revisions after the initial concept. Additional revision rounds are billed at $85/hour.",
       },
       {
         question: "Will my site rank on Google?",
         answer:
-          "All sites are built with a 100 Lighthouse SEO score, structured data (JSON-LD), hreflang for multilingual, canonical URLs, and a valid sitemap. SEO results depend on content quality and competition.",
+          "All sites are built with a 100 Lighthouse SEO score, structured data (JSON-LD), canonical URLs, and a valid sitemap. Proven on akillustrator.com — SEO score 100, 40+ indexed URLs. Results depend on content quality and competition.",
       },
     ],
-    sk: [
+  },
+
+  "ai-integration": {
+    en: [
       {
-        question: "Ako dlho trvá projekt webstránky?",
+        question: "What AI features can you add to my website?",
         answer:
-          "Typický projekt trvá 2–4 týždne v závislosti od rozsahu. Úvodná stránka zvyčajne 1–2 týždne. Viacstránkový firemný web s blogom trvá 3–4 týždne.",
+          "I build AI chat assistants with RAG (Retrieval-Augmented Generation) using OpenAI GPT-4o-mini. The chatbot answers visitor questions based on your site content — services, pricing, process — 24/7 with streaming responses.",
       },
       {
-        question: "Čo je zahrnuté v balíku Štarter?",
+        question: "How much does an AI chat widget cost?",
         answer:
-          "Balík Štarter (€799) zahŕňa jednu úvodnú stránku, responzívny dizajn, kontaktný formulár s e-mailovými notifikáciami, základné SEO nastavenie a 30 dní podpory po spustení.",
+          "The AI chat widget is included in the Growth package ($5,000–$8,000). It can also be added to an existing site as a standalone feature. OpenAI API usage costs approximately $1–2/month at typical traffic levels.",
       },
       {
-        question: "Vytvárate viacjazyčné webstránky?",
+        question: "What is RAG and why does it matter?",
         answer:
-          "Áno. Všetky stránky sú postavené s next-intl pre plnú viacjazyčnú podporu. Angličtina + slovenčina je predvolená. Ďalšie jazyky je možné pridať za príplatok.",
+          "RAG (Retrieval-Augmented Generation) means the AI searches your specific content before answering — not generic internet knowledge. The result: accurate, brand-consistent answers about your services and pricing. No hallucinations about your business.",
       },
       {
-        question: "Aká je vaša politika revízií?",
+        question: "Do you integrate other AI tools?",
         answer:
-          "Každý balík zahŕňa 2 kola revízií po počiatočnom koncepte. Ďalšie kola revízií sa fakturujú na €75/hodinu.",
-      },
-      {
-        question: "Bude môj web dobre hodnotený na Google?",
-        answer:
-          "Všetky stránky sú postavené so skóre 100 Lighthouse SEO, štruktúrovanými dátami (JSON-LD), hreflang pre viacjazyčnosť, kanonickými URL a platnou sitemapou.",
+          "Yes. Beyond chat widgets, I build AI-powered email automation, content generation pipelines, and custom LLM integrations using the OpenAI API and embeddings.",
       },
     ],
   },
@@ -81,24 +84,22 @@ export const serviceFaqs: AllServiceFAQs = {
       {
         question: "What SEO services do you offer?",
         answer:
-          "Technical SEO audit, structured data (JSON-LD) implementation, sitemap and robots.txt setup, Core Web Vitals optimisation, and GEO/AEO optimisation for AI citation in 2026.",
+          "Technical SEO audit, structured data (JSON-LD) implementation, sitemap and robots.txt setup, Core Web Vitals optimisation, and GEO/AEO optimisation for AI citation — based on Princeton KDD 2024 research.",
       },
       {
         question: "How long before I see SEO results?",
         answer:
           "Technical SEO improvements (speed, structured data) are visible in Google Search Console within days. Ranking improvements typically take 2–4 months depending on competition.",
       },
-    ],
-    sk: [
       {
-        question: "Aké SEO služby ponúkate?",
+        question: "What is GEO and AEO optimisation?",
         answer:
-          "Technický SEO audit, implementácia štruktúrovaných dát (JSON-LD), nastavenie sitemapy a robots.txt, optimalizácia Core Web Vitals a GEO/AEO optimalizácia pre AI citácie.",
+          "GEO (Generative Engine Optimization) and AEO (Answer Engine Optimization) prepare your content to be cited by AI search engines like ChatGPT, Perplexity, and Google AI Mode. Pages with specific numbers and FAQ structure are cited 37% more often (Princeton, KDD 2024).",
       },
       {
-        question: "Za ako dlho uvidím výsledky SEO?",
+        question: "Do you have proven SEO results?",
         answer:
-          "Technické SEO vylepšenia sú viditeľné v Google Search Console v priebehu dní. Zlepšenie pozícií zvyčajne trvá 2–4 mesiace v závislosti od konkurencie.",
+          "Yes. akillustrator.com — built and maintained by SmartContext — achieves Lighthouse SEO 100, has 40+ indexed URLs across 5 languages, and is verified in both Google Search Console and Yandex Webmaster.",
       },
     ],
   },

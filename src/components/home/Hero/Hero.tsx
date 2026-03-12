@@ -33,8 +33,8 @@ export function Hero() {
       {/* ### Quick Answer block — +37% AI citation (Princeton GEO 2024) */}
       <div className={styles.quickAnswer}>
         <p>
-          <strong>Quick Answer:</strong> Professional web design from €799.
-          Delivery: 2–4 weeks. Lighthouse score: 95+. Multilingual ready.
+          <strong>Quick Answer:</strong> Full-stack web development from $1,500.
+          Delivery: 1–4 weeks. Lighthouse 95–100. AI integration available.
         </p>
       </div>
 
@@ -85,7 +85,7 @@ export function Hero() {
 
       {/* ONE primary CTA + ONE secondary CTA — no more */}
       <div className={styles.actions}>
-        <Link href="/contact" className={styles.primaryCta}>
+        <Link href="/projects" className={styles.primaryCta}>
           {t("cta_primary")}
         </Link>
         <Link href="/services" className={styles.secondaryCta}>

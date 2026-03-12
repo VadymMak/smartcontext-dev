@@ -11,7 +11,7 @@ import { useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { ThemeToggle } from "@/components/ui";
-import { LanguageSwitcher } from "../LanguageSwitcher/LanguageSwitcher";
+// import { LanguageSwitcher } from "../LanguageSwitcher/LanguageSwitcher";
 import styles from "./MobileMenu.module.css";
 
 const NAV_LINKS = [
@@ -103,7 +103,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
 
         {/* Footer row */}
         <div className={styles.panelFooter}>
-          <LanguageSwitcher inline />
+          {/* <LanguageSwitcher inline /> */}
         </div>
       </div>
     </>

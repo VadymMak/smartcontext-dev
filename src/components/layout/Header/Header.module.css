@@ -116,6 +116,31 @@
   transition: transform var(--transition-fast);
 }
 
+/* --- Logo SC branding ------------------------------------- */
+.logoBracket {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--accent);
+  letter-spacing: -0.02em;
+}
+
+.logoSC {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.logoText {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-secondary);
+  margin-left: var(--space-xs);
+  letter-spacing: -0.01em;
+}
+
 /* --- Responsive ------------------------------------------- */
 @media (min-width: 768px) {
   .ctaBtn {

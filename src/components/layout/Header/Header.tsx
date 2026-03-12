@@ -11,14 +11,16 @@ import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { ThemeToggle } from "@/components/ui";
-import { LanguageSwitcher } from "../LanguageSwitcher/LanguageSwitcher";
+// import { LanguageSwitcher } from "../LanguageSwitcher/LanguageSwitcher";
 import { MobileMenu } from "../MobileMenu/MobileMenu";
 import styles from "./Header.module.css";
 
 const NAV_LINKS = [
   { href: "/", key: "home" },
+  { href: "/projects", key: "projects" },
   { href: "/services", key: "services" },
   { href: "/blog", key: "blog" },
+  { href: "/about", key: "about" },
   { href: "/contact", key: "contact" },
 ] as const;
 
@@ -48,7 +50,10 @@ export function Header() {
       <header className={`${styles.header} ${scrolled ? styles.scrolled : ""}`}>
         <div className={`container ${styles.inner}`}>
           <Link href="/" className={styles.logo} aria-label="Go to homepage">
-            <span className={styles.logoText}>Studio</span>
+            <span className={styles.logoBracket}>{"{ "}</span>
+            <span className={styles.logoSC}>SC</span>
+            <span className={styles.logoBracket}>{" }"}</span>
+            <span className={styles.logoText}>SmartContext</span>
           </Link>
 
           <nav className={styles.nav} aria-label="Main navigation">
@@ -64,7 +69,7 @@ export function Header() {
           </nav>
 
           <div className={styles.actions}>
-            <LanguageSwitcher />
+            {/* <LanguageSwitcher /> */}
             <ThemeToggle />
             <Link href="/contact" className={styles.ctaBtn}>
               {t("contact")}
