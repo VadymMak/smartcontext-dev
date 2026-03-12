@@ -16,8 +16,10 @@ import styles from "./MobileMenu.module.css";
 
 const NAV_LINKS = [
   { href: "/", key: "home" },
+  { href: "/projects", key: "projects" },
   { href: "/services", key: "services" },
   { href: "/blog", key: "blog" },
+  { href: "/about", key: "about" },
   { href: "/contact", key: "contact" },
 ] as const;
 
@@ -60,7 +62,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
 
         {/* Header row */}
         <div className={styles.panelHeader}>
-          <span className={styles.logoText}>Studio</span>
+          <span className={styles.logoText}>{"{SC}"} SmartContext</span>
           <div className={styles.panelActions}>
             <ThemeToggle />
             <button
