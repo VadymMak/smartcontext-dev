@@ -30,6 +30,7 @@
 .intro {
   animation: fadeUp 500ms ease both;
   animation-delay: 80ms;
+  text-align: center;
 }
 
 .role {
@@ -45,6 +46,7 @@
   line-height: var(--line-height-tight);
   color: var(--text-primary);
   max-width: 14ch;
+  margin-inline: auto;
 }
 
 /* --- Trust bar --------------------------------------------- */
