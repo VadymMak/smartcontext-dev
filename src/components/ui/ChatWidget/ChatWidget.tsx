@@ -24,8 +24,6 @@ export function ChatWidget() {
   const bottomRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  if (!process.env.NEXT_PUBLIC_ENABLE_AI_CHAT) return null;
-
   // Scroll to bottom on new message
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -35,6 +33,9 @@ export function ChatWidget() {
   useEffect(() => {
     if (open) inputRef.current?.focus();
   }, [open]);
+
+  // Early return AFTER all hooks
+  if (!process.env.NEXT_PUBLIC_ENABLE_AI_CHAT) return null;
 
   async function sendMessage() {
     const text = input.trim();
@@ -54,7 +55,7 @@ export function ChatWidget() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           messages: updated,
-          honeypot: "", // LAYER 1: always empty for real users
+          honeypot: "",
         }),
       });
 
@@ -86,14 +87,12 @@ export function ChatWidget() {
 
   return (
     <div className={styles.wrapper}>
-      {/* Chat panel */}
       {open && (
         <div className={styles.panel} role="dialog" aria-label="Chat assistant">
-          {/* Header */}
           <div className={styles.header}>
             <div className={styles.headerInfo}>
               <span className={styles.dot} aria-hidden="true" />
-              <span className={styles.headerTitle}>Assistant</span>
+              <span className={styles.headerTitle}>SmartContext AI</span>
             </div>
             <button
               className={styles.closeBtn}
@@ -117,14 +116,12 @@ export function ChatWidget() {
             </button>
           </div>
 
-          {/* Messages */}
           <div className={styles.messages} aria-live="polite">
             {messages.length === 0 && (
               <p className={styles.emptyState}>
-                Hi! Ask me anything about our services, pricing, or process.
+                Hi! Ask me anything about services, pricing, or tech stack.
               </p>
             )}
-
             {messages.map((msg, i) => (
               <div
                 key={i}
@@ -133,7 +130,6 @@ export function ChatWidget() {
                 {msg.content}
               </div>
             ))}
-
             {loading && (
               <div
                 className={`${styles.message} ${styles.assistantMessage} ${styles.typingIndicator}`}
@@ -143,15 +139,11 @@ export function ChatWidget() {
                 <span />
               </div>
             )}
-
             {error && <p className={styles.errorMessage}>{error}</p>}
-
             <div ref={bottomRef} />
           </div>
 
-          {/* Input */}
           <div className={styles.inputRow}>
-            {/* LAYER 1: Honeypot — hidden from real users, bots fill it */}
             <input
               type="text"
               name="website"
@@ -201,7 +193,6 @@ export function ChatWidget() {
         </div>
       )}
 
-      {/* Bubble toggle button */}
       <button
         className={styles.bubble}
         onClick={() => setOpen((v) => !v)}
