@@ -19,6 +19,7 @@
 | Vercel      | —       | Deployment target                       |
 | Resend      | 4+      | Email delivery                          |
 | gray-matter | 4+      | Blog Markdown frontmatter               |
+| openai      | 4+      | AI Chat + RAG embeddings                |
 
 ---
 
@@ -42,6 +43,21 @@ cp .env.example .env.local
 # 5. Start development
 pnpm dev
 ```
+
+---
+
+## Scripts
+
+```bash
+pnpm dev          # Start development server
+pnpm build        # Production build
+pnpm start        # Start production server
+pnpm lint         # ESLint check
+pnpm embeddings   # Generate RAG embeddings (run after content changes)
+```
+
+> ⚠️ `pnpm embeddings` requires `OPENAI_API_KEY` in `.env.local`.
+> Regenerate after: new blog posts, pricing changes, content updates.
 
 ---
 
@@ -126,6 +142,30 @@ TELEGRAM_CHAT_ID=
 # AI Chat (optional)
 OPENAI_API_KEY=
 ```
+
+---
+
+## AI Chat + RAG
+
+All files are included in the repo by default. The feature activates only when `OPENAI_API_KEY` is set.
+
+```
+data/
+├── chunks.ts                        # Your site content as text chunks — edit this
+└── scripts/
+    └── generate-embeddings.ts       # Run once to generate embeddings
+
+src/
+├── app/api/chat/route.ts            # Chat API endpoint
+└── lib/rag.ts                       # Cosine similarity search
+```
+
+**Setup:**
+
+1. Fill in `data/chunks.ts` with your real content (services, pricing, process)
+2. Add `OPENAI_API_KEY` to `.env.local`
+3. Run `pnpm embeddings` to generate `data/embeddings.json`
+4. Add `data/embeddings.json` to `.gitignore` (can exceed 1MB)
 
 ---
 
