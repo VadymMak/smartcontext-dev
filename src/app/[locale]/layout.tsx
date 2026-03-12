@@ -1,13 +1,13 @@
 // ============================================================
-// src/app/[locale]/layout.tsx — Locale layout
+// src/app/[locale]/layout.tsx
+// ⚠️ NO <html> or <body> tags here — only in root src/app/layout.tsx
 // ⚠️ Providers must wrap everything ABOVE Header
-// ⚠️ suppressHydrationWarning on <html> prevents next-themes flash
 // ============================================================
 
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages, getTranslations } from "next-intl/server";
+import { getMessages } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import Providers from "@/components/Providers";
 import { Header, Footer } from "@/components/layout";
@@ -19,29 +19,28 @@ interface LocaleLayoutProps {
   params: Promise<{ locale: string }>;
 }
 
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
 export async function generateMetadata({
   params,
 }: LocaleLayoutProps): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "nav" });
   const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://example.com";
 
   return {
     alternates: {
       canonical: `${BASE_URL}/${locale}`,
       languages: Object.fromEntries(
-        // ⚠️ ua locale → uk hreflang (ISO 639-1 — Google requirement)
         routing.locales.map((l) => [
+          // ⚠️ ua → uk hreflang (ISO 639-1 — Google requirement)
           (l as string) === "ua" ? "uk" : l,
           `${BASE_URL}/${l}`,
         ]),
       ),
     },
   };
-}
-
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
 }
 
 export default async function LocaleLayout({
@@ -55,25 +54,19 @@ export default async function LocaleLayout({
     notFound();
   }
 
-  // Load messages for this locale
-  const messages = await getMessages({ locale });
+  const messages = await getMessages();
 
   return (
-    <html lang={locale} suppressHydrationWarning>
-      <body>
-        <NextIntlClientProvider messages={messages} locale={locale}>
-          {/* ⚠️ Providers must be ABOVE Header */}
-          <Providers>
-            <div className={styles.pageWrapper}>
-              <Header />
-              <main className={styles.main}>{children}</main>
-              <Footer />
-            </div>
-            <CookieBanner />
-            <GoogleAnalytics />
-          </Providers>
-        </NextIntlClientProvider>
-      </body>
-    </html>
+    <NextIntlClientProvider messages={messages} locale={locale}>
+      <Providers>
+        <div className={styles.pageWrapper}>
+          <Header />
+          <main className={styles.main}>{children}</main>
+          <Footer />
+        </div>
+        <CookieBanner />
+        <GoogleAnalytics />
+      </Providers>
+    </NextIntlClientProvider>
   );
 }

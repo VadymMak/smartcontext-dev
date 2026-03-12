@@ -6,7 +6,12 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { getAllPosts } from "@/lib/blog";
-import { Hero, ServicesPreview, LatestPosts } from "@/components/home";
+import {
+  Hero,
+  ServicesPreview,
+  FeaturedProjects,
+  LatestPosts,
+} from "@/components/home";
 
 interface HomePageProps {
   params: Promise<{ locale: string }>;
@@ -32,8 +37,6 @@ export async function generateMetadata({
 
 export default async function HomePage({ params }: HomePageProps) {
   const { locale } = await params;
-
-  // Fetch latest posts server-side
   const posts = getAllPosts(locale);
 
   const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://example.com";
@@ -67,12 +70,11 @@ export default async function HomePage({ params }: HomePageProps) {
 
   return (
     <>
-      {/* WebSite schema */}
+      {/* Separate script tags — never merge schemas */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
       />
-      {/* Person schema — separate script tag */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
@@ -81,6 +83,7 @@ export default async function HomePage({ params }: HomePageProps) {
       <div className="container">
         <Hero />
         <ServicesPreview />
+        <FeaturedProjects />
         <LatestPosts posts={posts} />
       </div>
     </>
