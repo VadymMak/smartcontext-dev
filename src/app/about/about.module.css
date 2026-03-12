@@ -1,0 +1,53 @@
+/* src/app/about/about.module.css */
+
+.section {
+  padding-block: var(--space-2xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
+  max-width: 720px;
+}
+
+.bio {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.bio h2 {
+  font-size: var(--font-size-2xl);
+}
+
+.stackSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.stackItem {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+  color: var(--accent);
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--divider);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--border-radius);
+}

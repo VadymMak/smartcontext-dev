@@ -1,0 +1,89 @@
+/* src/app/projects/projects.module.css */
+
+.section {
+  padding-block: var(--space-2xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-xl);
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--divider);
+  border-radius: var(--border-radius-lg);
+  transition:
+    border-color var(--transition-fast),
+    transform var(--transition-fast);
+  text-decoration: none;
+}
+
+.card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cardTitle {
+  font-size: var(--font-size-xl);
+  color: var(--text-primary);
+}
+
+.cardArrow {
+  color: var(--accent);
+  font-size: var(--font-size-xl);
+  transition: transform var(--transition-fast);
+}
+
+.card:hover .cardArrow {
+  transform: translateX(4px);
+}
+
+.cardDesc {
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  max-width: none;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-top: auto;
+  padding-top: var(--space-sm);
+}
+
+.tag {
+  font-size: var(--font-size-xs);
+  font-family: var(--font-mono);
+  color: var(--accent);
+  background-color: var(--bg-hover);
+  padding: 2px var(--space-xs);
+  border-radius: var(--border-radius-sm);
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
