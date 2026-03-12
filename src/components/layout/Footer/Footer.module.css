@@ -26,6 +26,25 @@
   color: var(--text-primary);
 }
 
+.logoBracket {
+  font-family: var(--font-mono);
+  font-weight: var(--font-weight-bold);
+  color: var(--accent);
+}
+
+.logoSC {
+  font-family: var(--font-mono);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+}
+
+.logoName {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-secondary);
+  margin-left: var(--space-xs);
+}
+
 .tagline {
   font-size: var(--font-size-sm);
   color: var(--text-muted);

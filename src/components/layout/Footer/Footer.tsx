@@ -16,10 +16,14 @@ export function Footer() {
         {/* Brand */}
         <div className={styles.brand}>
           <Link href="/" className={styles.logo}>
-            Studio
+            <span className={styles.logoBracket}>{"{ "}</span>
+            <span className={styles.logoSC}>SC</span>
+            <span className={styles.logoBracket}>{" }"}</span>
+            <span className={styles.logoName}>SmartContext</span>
           </Link>
           <p className={styles.tagline}>
-            Building fast, multilingual websites for studios and B2B.
+            Fast, AI-powered websites for studios and B2B. Next.js · TypeScript
+            · Lighthouse 95+.
           </p>
         </div>
 
@@ -30,11 +34,17 @@ export function Footer() {
             <Link href="/" className={styles.columnLink}>
               Home
             </Link>
+            <Link href="/projects" className={styles.columnLink}>
+              Projects
+            </Link>
             <Link href="/services" className={styles.columnLink}>
               Services
             </Link>
             <Link href="/blog" className={styles.columnLink}>
               Blog
+            </Link>
+            <Link href="/about" className={styles.columnLink}>
+              About
             </Link>
             <Link href="/contact" className={styles.columnLink}>
               Contact
@@ -57,7 +67,7 @@ export function Footer() {
       <div className={styles.bottom}>
         <div className="container">
           <p className={styles.copyright}>
-            © {year} Studio. {t("rights")}
+            © {year} SmartContext.dev. {t("rights")}
           </p>
         </div>
       </div>
