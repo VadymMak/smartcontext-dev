@@ -4,7 +4,9 @@
 /* --- Wrapper ----------------------------------------------- */
 .wrapper {
   position: fixed;
-  bottom: var(--space-xl);
+  bottom: calc(
+    var(--space-xl) + 64px
+  ); /* 64px = WhatsApp button height + gap */
   right: var(--space-xl);
   z-index: var(--z-fixed);
   display: flex;
@@ -230,7 +232,7 @@
 /* --- Mobile ------------------------------------------------ */
 @media (max-width: 480px) {
   .wrapper {
-    bottom: var(--space-lg);
+    bottom: calc(var(--space-lg) + 64px);
     right: var(--space-md);
   }
 

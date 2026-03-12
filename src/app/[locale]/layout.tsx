@@ -11,7 +11,12 @@ import { getMessages } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import Providers from "@/components/Providers";
 import { Header, Footer } from "@/components/layout";
-import { CookieBanner, GoogleAnalytics } from "@/components/ui";
+import {
+  CookieBanner,
+  GoogleAnalytics,
+  ChatWidget,
+  WhatsAppButton,
+} from "@/components/ui";
 import styles from "./locale.module.css";
 
 interface LocaleLayoutProps {
@@ -63,6 +68,8 @@ export default async function LocaleLayout({
           <Header />
           <main className={styles.main}>{children}</main>
           <Footer />
+          <ChatWidget />
+          <WhatsAppButton />
         </div>
         <CookieBanner />
         <GoogleAnalytics />

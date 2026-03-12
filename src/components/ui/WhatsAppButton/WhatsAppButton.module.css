@@ -4,7 +4,7 @@
 .button {
   position: fixed;
   bottom: var(--space-xl);
-  right: var(--space-lg);
+  right: var(--space-xl);
   z-index: var(--z-fixed);
   width: 56px;
   height: 56px;

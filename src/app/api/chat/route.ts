@@ -1,14 +1,18 @@
 // ============================================================
 // src/app/api/chat/route.ts
-// [optional] AI Chat endpoint with RAG
-// Model: gpt-4o-mini (~$0.001/req, fast, sufficient)
-// Rate limit: 10 messages / IP / minute
-// Context window: last 6 messages (3 exchanges)
-// RAG: top 3 chunks by cosine similarity
+// [optional] AI Chat endpoint with RAG + 3-layer spam protection
+// LAYER 1: Honeypot field
+// LAYER 2: reCAPTCHA v3
+// LAYER 3: Custom spam scoring
 // ============================================================
 
 import { NextRequest, NextResponse } from "next/server";
 import { searchEmbeddings } from "@/lib/rag";
+import {
+  checkHoneypot,
+  checkRecaptcha,
+  checkSpamScore,
+} from "@/lib/spamFilter";
 
 // Rate limit: 10 messages / IP / minute
 const rateMap = new Map<string, { count: number; ts: number }>();
@@ -18,7 +22,6 @@ const RATE_WINDOW = 60_000;
 function checkRateLimit(ip: string): boolean {
   const now = Date.now();
   const entry = rateMap.get(ip);
-
   if (!entry || now - entry.ts > RATE_WINDOW) {
     rateMap.set(ip, { count: 1, ts: now });
     return true;
@@ -54,7 +57,41 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  const { messages } = (await req.json()) as { messages: Message[] };
+  const body = await req.json();
+  const { messages, honeypot, recaptchaToken } = body as {
+    messages: Message[];
+    honeypot?: string;
+    recaptchaToken?: string;
+  };
+
+  // LAYER 1: Honeypot — silent 200 (bot thinks it succeeded)
+  if (checkHoneypot(honeypot)) {
+    return NextResponse.json({ reply: "Thank you!" });
+  }
+
+  // LAYER 2: reCAPTCHA v3 (skipped if RECAPTCHA_SECRET_KEY not set)
+  const recaptchaFailed = await checkRecaptcha(recaptchaToken);
+  if (recaptchaFailed) {
+    return NextResponse.json(
+      { error: "Verification failed." },
+      { status: 403 },
+    );
+  }
+
+  // LAYER 3: Spam scoring on last user message
+  const lastUserMsg = [...(messages ?? [])]
+    .reverse()
+    .find((m) => m.role === "user");
+  if (lastUserMsg) {
+    const spam = checkSpamScore({
+      name: "",
+      email: "",
+      message: lastUserMsg.content,
+    });
+    if (spam.isSpam) {
+      return NextResponse.json({ reply: "Thank you for your message!" }); // silent reject
+    }
+  }
 
   if (!messages?.length) {
     return NextResponse.json(
@@ -63,12 +100,8 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  // Get last user message for RAG search
-  const lastUserMessage =
-    [...messages].reverse().find((m) => m.role === "user")?.content ?? "";
-
   // RAG: find relevant content chunks
-  const context = await searchEmbeddings(lastUserMessage, 3);
+  const context = await searchEmbeddings(lastUserMsg?.content ?? "", 3);
 
   const SITE_NAME = process.env.NEXT_PUBLIC_SITE_NAME ?? "Studio";
 
@@ -85,16 +118,14 @@ ${context}`;
   const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
   const completion = await openai.chat.completions.create({
-    model: "gpt-4o-mini", // cheap (~$0.001/req), fast, sufficient for FAQ
+    model: "gpt-4o-mini",
     max_tokens: 300,
     messages: [
       { role: "system", content: systemPrompt },
-      // Keep last 6 messages (3 exchanges) for context
       ...messages.slice(-6),
     ],
   });
 
   const reply = completion.choices[0]?.message?.content ?? "";
-
   return NextResponse.json({ reply });
 }

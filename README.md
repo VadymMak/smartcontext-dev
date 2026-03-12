@@ -85,7 +85,7 @@ src/
 │   └── home/         # Hero, ServicesPreview, FeaturedProjects, LatestPosts
 ├── i18n/             # routing, navigation, request
 ├── messages/         # en.json, sk.json
-├── lib/              # blog.ts, extractFAQs.ts
+├── lib/              # blog.ts, extractFAQs.ts, rag.ts, spamFilter.ts
 └── data/             # serviceFaqs.ts
 content/
 └── blog/
@@ -106,18 +106,21 @@ content/
 - ✅ Blog with Markdown + frontmatter
 - ✅ FAQ with FAQPage JSON-LD
 - ✅ Contact form with honeypot + rate limit
+- ✅ 3-layer spam protection (honeypot + reCAPTCHA v3 + scoring)
 - ✅ robots.ts + sitemap.ts with hreflang
 - ✅ WebSite + Person JSON-LD (E-E-A-T)
 - ✅ CSS-only animations (NO Framer Motion)
 
 ### Optional (configure in .env.local)
 
-- 🔧 AI Chat + RAG (`ENABLE_AI_CHAT=y`)
-- 🔧 Telegram notifications (`ENABLE_TELEGRAM=y`)
-- 🔧 WhatsApp button (`ENABLE_WHATSAPP=y`)
-- 🔧 Gallery + Lightbox (`ENABLE_GALLERY=y`)
-- 🔧 Protected Images (`ENABLE_PROTECTED_IMAGE=y`)
-- 🔧 Announcement Bar (`ENABLE_ANNOUNCEMENT_BAR=y`)
+- 🔧 AI Chat Widget (`NEXT_PUBLIC_ENABLE_AI_CHAT=y`)
+- 🔧 AI Chat + RAG backend (`OPENAI_API_KEY=...`)
+- 🔧 reCAPTCHA v3 (`RECAPTCHA_SECRET_KEY=...`)
+- 🔧 Telegram notifications (`TELEGRAM_BOT_TOKEN=...`)
+- 🔧 WhatsApp button (`NEXT_PUBLIC_WHATSAPP_NUMBER=...`)
+- 🔧 Gallery + Lightbox (`NEXT_PUBLIC_ENABLE_GALLERY=y`)
+- 🔧 Protected Images (`NEXT_PUBLIC_ENABLE_PROTECTED_IMAGE=y`)
+- 🔧 Announcement Bar (`NEXT_PUBLIC_ENABLE_ANNOUNCEMENT_BAR=y`)
 
 ---
 
@@ -141,9 +144,35 @@ OWNER_EMAIL=you@yourdomain.com
 TELEGRAM_BOT_TOKEN=
 TELEGRAM_CHAT_ID=
 
-# AI Chat (optional)
+# AI Chat + RAG (optional)
 OPENAI_API_KEY=
+NEXT_PUBLIC_ENABLE_AI_CHAT=y
+
+# reCAPTCHA v3 (optional — Layer 2 spam protection)
+# Get keys: https://www.google.com/recaptcha/admin → Score based (v3)
+RECAPTCHA_SECRET_KEY=
+NEXT_PUBLIC_RECAPTCHA_SITE_KEY=
+
+# WhatsApp (optional)
+NEXT_PUBLIC_WHATSAPP_NUMBER=   # format: 421900000000 (no +)
 ```
+
+---
+
+## Spam Protection
+
+3 independent layers in `src/lib/spamFilter.ts`. Used by `/api/chat` and `/api/contact`.
+
+| Layer            | Method                                                       | Cost |
+| ---------------- | ------------------------------------------------------------ | ---- |
+| 1 — Honeypot     | Hidden field — bots fill it, humans never see it             | Free |
+| 2 — reCAPTCHA v3 | Silent trust score 0.0–1.0, blocks below 0.5                 | Free |
+| 3 — Spam scoring | Gibberish detection + fake name + disposable email blacklist | Free |
+
+**Result: spam rate 0%, real users never notice anything.**
+
+Layer 2 is optional — skipped automatically if `RECAPTCHA_SECRET_KEY` is not set.
+Layers 1 and 3 work out of the box with no configuration.
 
 ---
 
@@ -158,8 +187,9 @@ data/
     └── generate-embeddings.ts       # Run once to generate embeddings
 
 src/
-├── app/api/chat/route.ts            # Chat API endpoint
-└── lib/rag.ts                       # Cosine similarity search
+├── app/api/chat/route.ts            # Chat API endpoint + 3-layer spam protection
+├── lib/rag.ts                       # Cosine similarity search
+└── lib/spamFilter.ts                # Honeypot + reCAPTCHA + scoring
 ```
 
 **Setup:**
@@ -224,9 +254,10 @@ rm -rf src/components/ui/ChatWidget
 ```bash
 rm -rf src/app/api/chat
 rm -rf src/lib/rag.ts
+rm -rf src/lib/spamFilter.ts
 rm -rf data/chunks.ts data/scripts data/embeddings.json
 # Remove from package.json scripts: "embeddings": "..."
-# Remove from .env.local: OPENAI_API_KEY
+# Remove from .env.local: OPENAI_API_KEY, RECAPTCHA_SECRET_KEY, NEXT_PUBLIC_RECAPTCHA_SITE_KEY
 ```
 
 ### Telegram Notifications

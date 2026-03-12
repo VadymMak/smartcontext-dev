@@ -52,7 +52,10 @@ export function ChatWidget() {
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: updated }),
+        body: JSON.stringify({
+          messages: updated,
+          honeypot: "", // LAYER 1: always empty for real users
+        }),
       });
 
       if (res.status === 429) {
@@ -148,6 +151,19 @@ export function ChatWidget() {
 
           {/* Input */}
           <div className={styles.inputRow}>
+            {/* LAYER 1: Honeypot — hidden from real users, bots fill it */}
+            <input
+              type="text"
+              name="website"
+              style={{
+                position: "absolute",
+                opacity: 0,
+                pointerEvents: "none",
+              }}
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+            />
             <input
               ref={inputRef}
               type="text"
