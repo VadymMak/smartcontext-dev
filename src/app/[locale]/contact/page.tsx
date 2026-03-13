@@ -15,7 +15,7 @@ export default function ContactPage() {
   return (
     <div className="container">
       <section className={styles.hero}>
-        <h1 className={styles.title}>Let's Work Together</h1>
+        <h1 className={styles.title}>Let&apos;s Work Together</h1>
         <p className={styles.subtitle}>
           Tell me about your project. Free 30-min discovery call — I respond
           within 24 hours.

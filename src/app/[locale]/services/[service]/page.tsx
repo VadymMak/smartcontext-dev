@@ -5,7 +5,6 @@
 
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getTranslations } from "next-intl/server";
 import { FAQ } from "@/components/ui";
 import { serviceFaqs } from "@/data/serviceFaqs";
 import { ScrollReveal } from "@/components/ui";
