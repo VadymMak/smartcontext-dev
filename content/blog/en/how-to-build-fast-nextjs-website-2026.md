@@ -21,6 +21,7 @@ Building a fast Next.js website in 2026 requires the right architectural decisio
 App Router + static generation = TTFB under 100ms from CDN edge.
 CSS Modules keep total CSS under 15KB — no Tailwind runtime overhead.
 next/image with explicit dimensions eliminates CLS (target: below 0.1).
+A 1-second delay in page load reduces conversions by 7% (Ahrefs, 2024).
 Lighthouse 95–100 is achievable in 2–4 weeks on any modern project.
 
 ---
