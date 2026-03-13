@@ -32,18 +32,11 @@ export async function generateMetadata({
   params,
 }: LocaleLayoutProps): Promise<Metadata> {
   const { locale } = await params;
-  const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://example.com";
+  const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://smartctx.dev";
 
   return {
     alternates: {
-      canonical: `${BASE_URL}/${locale}`,
-      languages: Object.fromEntries(
-        routing.locales.map((l) => [
-          // ⚠️ ua → uk hreflang (ISO 639-1 — Google requirement)
-          (l as string) === "ua" ? "uk" : l,
-          `${BASE_URL}/${l}`,
-        ]),
-      ),
+      canonical: BASE_URL,
     },
   };
 }
