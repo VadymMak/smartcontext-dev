@@ -1,0 +1,93 @@
+/* src/components/home/FAQ/FAQ.module.css */
+
+.section {
+  padding-block: var(--space-2xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+  animation: fadeUp 500ms ease both;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.eyebrow {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.heading {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.sub {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  max-width: 52ch;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--border);
+}
+
+.item {
+  border-bottom: 1px solid var(--border);
+}
+
+.question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-md);
+  padding-block: var(--space-md);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-secondary);
+  transition: color var(--transition-fast);
+  font-family: inherit;
+}
+
+.question:hover {
+  color: var(--text-primary);
+}
+
+.questionOpen {
+  color: var(--text-primary);
+}
+
+.icon {
+  flex-shrink: 0;
+  font-size: var(--font-size-xl);
+  color: var(--accent);
+  line-height: 1;
+  width: 20px;
+  text-align: center;
+}
+
+.answer {
+  padding-bottom: var(--space-md);
+  animation: fadeDown 200ms ease both;
+}
+
+.answer p {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  line-height: var(--line-height-relaxed);
+  max-width: 68ch;
+}
