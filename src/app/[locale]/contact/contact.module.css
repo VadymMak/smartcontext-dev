@@ -37,6 +37,9 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-md);
+  align-self: start; /* ← добавить */
+  position: sticky; /* ← бонус: прилипает при скролле */
+  top: 100px;
 }
 
 .infoCard {
