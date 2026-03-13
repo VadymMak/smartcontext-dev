@@ -55,8 +55,7 @@ export function Hero() {
           Sites that rank in Google
           <br />
           <span className={styles.headingAccent}>
-            and get cited by{" "}
-            <TypedText text="ChatGPT." duration={2} delay={0.4} />
+            and get cited by ChatGPT.
           </span>
         </h1>
         <p className={styles.subheading}>{t("subheading")}</p>
