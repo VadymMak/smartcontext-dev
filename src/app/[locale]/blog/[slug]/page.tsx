@@ -7,6 +7,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import Link from "next/link";
 import { getAllSlugs, getPostBySlug } from "@/lib/blog";
 import styles from "./post.module.css";
 
@@ -125,9 +126,9 @@ export default async function PostPage({ params }: PostPageProps) {
             <p className={styles.authorLine}>
               Written by <strong>{post.author}</strong>
             </p>
-            <a href="/blog" className={styles.back}>
+            <Link href="/blog" className={styles.back}>
               ← All posts
-            </a>
+            </Link>
           </footer>
         </article>
       </div>
