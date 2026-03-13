@@ -9,12 +9,14 @@
   },
   "hero": {
     "role": "Full-Stack Developer & AI Integrator",
-    "cta_primary": "View Projects",
-    "cta_secondary": "Get in Touch",
-    "trust_projects": "4+ Production Sites",
     "trust_score": "95–100 Lighthouse",
     "trust_seo": "SEO 100 Proven",
-    "trust_support": "24/7 AI Chatbot"
+    "trust_support": "24/7 AI Chatbot",
+    "subheading": "Next.js developer specializing in fast, multilingual sites with AI features and GEO-optimized content. 4 production sites. Lighthouse 95–100.",
+    "trust_projects": "Production sites live",
+    "trust_langs": "Languages per site",
+    "cta_primary": "Book a free discovery call",
+    "cta_secondary": "See projects"
   },
   "services": {
     "title": "Services",

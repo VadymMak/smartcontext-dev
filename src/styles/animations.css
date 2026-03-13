@@ -2,7 +2,6 @@
    animations.css — Shared @keyframes Library
    NO Framer Motion. All animations are pure CSS.
    ============================================================ */
-
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -13,7 +12,6 @@
     transform: none;
   }
 }
-
 @keyframes fadeDown {
   from {
     opacity: 0;
@@ -24,7 +22,6 @@
     transform: none;
   }
 }
-
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -33,7 +30,6 @@
     opacity: 1;
   }
 }
-
 @keyframes fadeOut {
   from {
     opacity: 1;
@@ -42,7 +38,6 @@
     opacity: 0;
   }
 }
-
 @keyframes slideInRight {
   from {
     opacity: 0;
@@ -53,7 +48,6 @@
     transform: none;
   }
 }
-
 @keyframes slideInLeft {
   from {
     opacity: 0;
@@ -64,7 +58,6 @@
     transform: none;
   }
 }
-
 @keyframes slideInLink {
   from {
     opacity: 0;
@@ -75,7 +68,6 @@
     transform: none;
   }
 }
-
 @keyframes scaleIn {
   from {
     opacity: 0;
@@ -86,27 +78,28 @@
     transform: scale(1);
   }
 }
-
 /* TypedText component */
 @keyframes typing {
   to {
     width: var(--typed-chars);
   }
 }
-
 @keyframes blink {
   50% {
     border-color: transparent;
   }
 }
-
+@keyframes cursorHide {
+  to {
+    border-color: transparent;
+  }
+}
 /* Utilities */
 @keyframes spin {
   to {
     transform: rotate(360deg);
   }
 }
-
 @keyframes pulse {
   0%,
   100% {
@@ -116,7 +109,6 @@
     opacity: 0.5;
   }
 }
-
 @keyframes bounce {
   0%,
   100% {

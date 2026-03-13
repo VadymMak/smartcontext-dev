@@ -1,4 +1,7 @@
-/* src/components/home/Hero/Hero.module.css */
+/* ============================================================
+   src/components/home/Hero/Hero.module.css
+   Editorial Dark — conversion-first hero
+   ============================================================ */
 
 .section {
   padding-block: var(--space-2xl);
@@ -8,7 +11,8 @@
 }
 
 /* --- Quick Answer ------------------------------------------ */
-/* Above fold — +37% AI citation probability */
+/* SSR block — AI crawlers index prices on first load          */
+/* Princeton GEO KDD 2024: +37% citation with numbers above fold */
 .quickAnswer {
   display: inline-block;
   padding: var(--space-sm) var(--space-md);
@@ -17,7 +21,7 @@
   border-radius: 0 var(--border-radius) var(--border-radius) 0;
   font-size: var(--font-size-sm);
   color: var(--text-secondary);
-  animation: fadeUp 500ms ease both;
+  animation: fadeUp 400ms ease both;
 }
 
 .quickAnswer p {
@@ -26,159 +30,204 @@
   line-height: var(--line-height-normal);
 }
 
-/* --- Intro ------------------------------------------------- */
-.intro {
-  animation: fadeUp 500ms ease both;
-  animation-delay: 80ms;
-  text-align: center;
+/* --- Eyebrow ----------------------------------------------- */
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--font-size-xs);
+  animation: fadeUp 400ms ease both;
+  animation-delay: 60ms;
 }
 
-.role {
-  font-size: var(--font-size-lg);
-  color: var(--accent);
+.availDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #4ade80;
+  flex-shrink: 0;
+}
+
+.availText {
   font-weight: var(--font-weight-medium);
-  margin-bottom: var(--space-sm);
-  max-width: none;
+  color: #4ade80;
+  letter-spacing: 0.03em;
+}
+
+.eyebrowDivider {
+  color: var(--text-tertiary, var(--text-secondary));
+  opacity: 0.4;
+}
+
+.eyebrowRole {
+  color: var(--text-secondary);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 11px;
+}
+
+/* --- Intro ------------------------------------------------- */
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  animation: fadeUp 400ms ease both;
+  animation-delay: 120ms;
 }
 
 .heading {
-  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-size: clamp(2rem, 5vw, 3.4rem);
   line-height: var(--line-height-tight);
   color: var(--text-primary);
-  max-width: 14ch;
-  margin-inline: auto;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: -0.03em;
+  max-width: 22ch;
 }
 
-/* --- Trust bar --------------------------------------------- */
-.trustBar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-md);
-  animation: fadeUp 500ms ease both;
-  animation-delay: 160ms;
+.headingAccent {
+  color: var(--accent);
 }
 
-.trustItem {
-  display: flex;
-  align-items: center;
-  gap: var(--space-xs);
-}
-
-.trustIcon {
-  font-size: var(--font-size-lg);
-}
-
-.trustLabel {
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
+.subheading {
+  font-size: var(--font-size-base);
   color: var(--text-secondary);
+  line-height: var(--line-height-relaxed);
+  max-width: 52ch;
 }
 
 /* --- Pricing cards ----------------------------------------- */
 .cards {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-md);
+  gap: var(--space-sm);
+  animation: fadeUp 400ms ease both;
+  animation-delay: 200ms;
 }
 
 .card {
   position: relative;
   padding: var(--space-lg);
-  background-color: var(--bg-card);
-  border: 1px solid var(--border);
   border-radius: var(--border-radius-lg);
+  border: 1px solid var(--border);
+  background-color: var(--bg-card);
   display: flex;
   flex-direction: column;
-  gap: var(--space-sm);
-
-  /* Staggered animation via CSS --i prop */
+  gap: 4px;
   animation: fadeUp 400ms ease both;
-  animation-delay: calc(240ms + var(--i, 0) * 80ms);
+  animation-delay: calc(200ms + var(--i, 0) * 60ms);
+  transition: border-color var(--transition-fast);
 }
 
-.cardFeatured {
+.card:hover {
+  border-color: var(--accent);
+}
+
+/* Starter — subtle blue tint */
+.card_starter {
+  border-color: color-mix(in srgb, var(--accent) 25%, var(--border));
+}
+
+/* Business — accent border, highlighted */
+.card_business {
   border-color: var(--accent);
   background-color: var(--accent-subtle);
 }
 
+/* Growth — purple/muted tint */
+.card_growth {
+  border-color: color-mix(in srgb, var(--accent) 15%, var(--border));
+}
+
 .badge {
   position: absolute;
-  top: -12px;
-  left: var(--space-lg);
+  top: -11px;
+  right: var(--space-lg);
   padding: 2px var(--space-sm);
   background-color: var(--accent);
   color: var(--text-inverse);
-  font-size: var(--font-size-xs);
+  font-size: 10px;
   font-weight: var(--font-weight-semibold);
   border-radius: var(--border-radius-full);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
+}
+
+.cardFrom {
+  font-size: 10px;
+  color: var(--text-secondary);
+  opacity: 0.6;
+  line-height: 1;
+  margin-bottom: 2px;
+}
+
+.cardPrice {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  max-width: none;
 }
 
 .cardTitle {
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
-  color: var(--text-secondary);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  max-width: none;
-}
-
-.cardPrice {
-  font-size: var(--font-size-3xl);
-  font-weight: var(--font-weight-bold);
   color: var(--text-primary);
+  margin-top: var(--space-xs);
   max-width: none;
-  line-height: 1;
 }
 
 .cardDesc {
   font-size: var(--font-size-sm);
   color: var(--text-secondary);
   line-height: var(--line-height-normal);
-  flex: 1;
   max-width: none;
+  margin-top: 2px;
 }
 
-.cardCta {
-  display: block;
-  text-align: center;
-  padding: var(--space-sm) var(--space-md);
+/* --- Trust bar --------------------------------------------- */
+/* Omniconvert/NNG: trust signals near CTA = +42% conversion   */
+.trustBar {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-sm);
+  animation: fadeUp 400ms ease both;
+  animation-delay: 360ms;
+}
+
+.trustItem {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: var(--space-md);
+  background-color: var(--bg-secondary);
   border: 1px solid var(--border);
-  border-radius: var(--border-radius);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-semibold);
+  border-radius: var(--border-radius-lg);
+}
+
+.trustValue {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
   color: var(--text-primary);
-  transition:
-    background-color var(--transition-fast),
-    border-color var(--transition-fast);
+  letter-spacing: -0.03em;
+  line-height: 1;
 }
 
-.cardCta:hover {
-  background-color: var(--bg-hover);
-  color: var(--text-primary);
-}
-
-.cardCtaFeatured {
-  background-color: var(--accent);
-  border-color: var(--accent);
-  color: var(--text-inverse);
-}
-
-.cardCtaFeatured:hover {
-  background-color: var(--accent-hover);
-  border-color: var(--accent-hover);
-  color: var(--text-inverse);
+.trustLabel {
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+  line-height: var(--line-height-normal);
 }
 
 /* --- Actions ----------------------------------------------- */
+/* ONE primary CTA — Prismic: multiple CTAs = -266% conversion */
 .actions {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: var(--space-md);
-  justify-content: center;
   animation: fadeUp 400ms ease both;
-  animation-delay: 480ms;
+  animation-delay: 440ms;
 }
 
 .primaryCta {
@@ -187,7 +236,9 @@
   color: var(--text-inverse);
   border-radius: var(--border-radius);
   font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-sm);
   transition: background-color var(--transition-fast);
+  white-space: nowrap;
 }
 
 .primaryCta:hover {
@@ -196,24 +247,31 @@
 }
 
 .secondaryCta {
-  padding: var(--space-md) var(--space-xl);
-  border: 1px solid var(--border);
-  border-radius: var(--border-radius);
+  font-size: var(--font-size-sm);
   color: var(--text-secondary);
   font-weight: var(--font-weight-medium);
-  transition:
-    color var(--transition-fast),
-    border-color var(--transition-fast);
+  transition: color var(--transition-fast);
 }
 
 .secondaryCta:hover {
   color: var(--text-primary);
-  border-color: var(--border-strong);
 }
 
-/* --- Responsive ------------------------------------------- */
+/* --- Responsive -------------------------------------------- */
+@media (min-width: 480px) {
+  .trustBar {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
 @media (min-width: 640px) {
   .cards {
     grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .heading {
+    font-size: clamp(2.8rem, 5vw, 3.8rem);
   }
 }

@@ -1,9 +1,9 @@
 // ============================================================
 // src/components/home/Hero/Hero.tsx
-// ⚠️ Conversion-first pattern — NO classic hero with big image
+// Editorial Dark — conversion-first
+// Princeton GEO KDD 2024: prices + numbers in first 150 words = +37% citation
 // NNG: 57% viewing time above fold
-// Prismic: multiple CTAs = -266% conversion
-// Structure: Name + role → Trust bar → Pricing cards → ONE CTA
+// Prismic: ONE primary CTA per section
 // ============================================================
 
 import { useTranslations } from "next-intl";
@@ -18,10 +18,10 @@ const PRICING_CARDS = [
 ] as const;
 
 const TRUST_ITEMS = [
-  { key: "trust_score", icon: "⚡" },
-  { key: "trust_projects", icon: "🚀" },
-  { key: "trust_seo", icon: "📈" },
-  { key: "trust_support", icon: "🛡️" },
+  { key: "trust_projects", value: "4+" },
+  { key: "trust_score", value: "98" },
+  { key: "trust_langs", value: "6" },
+  { key: "trust_seo", value: "100" },
 ] as const;
 
 export function Hero() {
@@ -30,66 +30,74 @@ export function Hero() {
 
   return (
     <section className={styles.section} aria-label="Hero">
-      {/* ### Quick Answer block — +37% AI citation (Princeton GEO 2024) */}
+      {/* Quick Answer — SSR, AI crawlers index on first load */}
+      {/* Princeton GEO: prices in first 150 words = +37% citation probability */}
       <div className={styles.quickAnswer}>
         <p>
-          <strong>Quick Answer:</strong> Full-stack web development from $1,500.
-          Delivery: 1–4 weeks. Lighthouse 95–100. AI integration available.
+          <strong>Quick Answer:</strong> Full-stack web development from $1,200.
+          Delivery: 2–6 weeks. Lighthouse 95–100. AI integration available.
         </p>
       </div>
 
-      {/* Intro — name + role + typed heading */}
-      <div className={styles.intro}>
-        <p className={styles.role}>{t("role")}</p>
-        <h1 className={styles.heading}>
-          Fast websites that{" "}
-          <TypedText text="convert visitors." duration={2} delay={0.3} />
-        </h1>
+      {/* Eyebrow — availability badge */}
+      <div className={styles.eyebrow}>
+        <span className={styles.availDot} aria-hidden="true" />
+        <span className={styles.availText}>Available for projects</span>
+        <span className={styles.eyebrowDivider} aria-hidden="true">
+          ·
+        </span>
+        <span className={styles.eyebrowRole}>{t("role")}</span>
       </div>
 
-      {/* Trust bar — 4 concrete metrics */}
+      {/* H1 — two explicit lines */}
+      <div className={styles.intro}>
+        <h1 className={styles.heading}>
+          Sites that rank in Google
+          <br />
+          <span className={styles.headingAccent}>
+            and get cited by{" "}
+            <TypedText text="ChatGPT." duration={2} delay={0.4} />
+          </span>
+        </h1>
+        <p className={styles.subheading}>{t("subheading")}</p>
+      </div>
+
+      {/* Pricing cards — staggered fadeUp via CSS --i */}
+      <div className={styles.cards}>
+        {PRICING_CARDS.map(({ key, i }) => (
+          <div
+            key={key}
+            className={`${styles.card} ${styles[`card_${key}`]}`}
+            style={{ "--i": i } as React.CSSProperties}
+          >
+            {key === "business" && (
+              <span className={styles.badge}>Popular</span>
+            )}
+            <div className={styles.cardFrom}>from</div>
+            <p className={styles.cardPrice}>{tp(`${key}_price`)}</p>
+            <p className={styles.cardTitle}>{tp(`${key}_title`)}</p>
+            <p className={styles.cardDesc}>{tp(`${key}_desc`)}</p>
+          </div>
+        ))}
+      </div>
+
+      {/* Trust metrics — Omniconvert/NNG: near CTA = +42% conversion */}
       <div className={styles.trustBar}>
-        {TRUST_ITEMS.map(({ key, icon }) => (
+        {TRUST_ITEMS.map(({ key, value }) => (
           <div key={key} className={styles.trustItem}>
-            <span className={styles.trustIcon} aria-hidden="true">
-              {icon}
-            </span>
+            <span className={styles.trustValue}>{value}</span>
             <span className={styles.trustLabel}>{t(key)}</span>
           </div>
         ))}
       </div>
 
-      {/* Pricing cards — staggered fadeUp via CSS --i prop */}
-      <div className={styles.cards}>
-        {PRICING_CARDS.map(({ key, i }) => (
-          <div
-            key={key}
-            className={`${styles.card} ${key === "business" ? styles.cardFeatured : ""}`}
-            style={{ "--i": i } as React.CSSProperties}
-          >
-            {key === "business" && (
-              <span className={styles.badge}>Most Popular</span>
-            )}
-            <p className={styles.cardTitle}>{tp(`${key}_title`)}</p>
-            <p className={styles.cardPrice}>{tp(`${key}_price`)}</p>
-            <p className={styles.cardDesc}>{tp(`${key}_desc`)}</p>
-            <Link
-              href="/contact"
-              className={`${styles.cardCta} ${key === "business" ? styles.cardCtaFeatured : ""}`}
-            >
-              {tp("cta")}
-            </Link>
-          </div>
-        ))}
-      </div>
-
-      {/* ONE primary CTA + ONE secondary CTA — no more */}
+      {/* ONE primary CTA — Prismic: multiple CTAs = -266% conversion */}
       <div className={styles.actions}>
-        <Link href="/projects" className={styles.primaryCta}>
+        <Link href="/contact" className={styles.primaryCta}>
           {t("cta_primary")}
         </Link>
-        <Link href="/services" className={styles.secondaryCta}>
-          {t("cta_secondary")}
+        <Link href="/projects" className={styles.secondaryCta}>
+          {t("cta_secondary")} →
         </Link>
       </div>
     </section>

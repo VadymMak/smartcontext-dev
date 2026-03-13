@@ -27,10 +27,11 @@ export function TypedText({
     if (!el) return;
 
     const charCount = text.length;
-    const cursorHide = delay + duration + 0.5;
+    const blinkStart = delay;
+    const blinkEnd = delay + duration;
+    const hideAt = blinkEnd + 0.8; // cursor hides 0.8s after typing ends
 
     const start = () => {
-      // Measure full width after fonts loaded
       el.style.width = "auto";
       el.style.overflow = "visible";
       const w = el.scrollWidth;
@@ -38,10 +39,13 @@ export function TypedText({
       el.style.width = "0px";
       el.style.overflow = "hidden";
 
-      // Inject animation with literal steps count (not CSS var)
+      // 1. typing — reveals text character by character
+      // 2. blink  — cursor blinks during typing
+      // 3. cursorHide — cursor permanently disappears after typing
       el.style.animation = [
         `typing ${duration}s steps(${charCount}) ${delay}s forwards`,
-        `blink 0.75s step-end ${cursorHide}s forwards`,
+        `blink 0.75s step-end ${blinkStart}s ${Math.ceil(duration / 0.75)}`,
+        `cursorHide 0.1s ${hideAt}s forwards`,
       ].join(", ");
     };
 
