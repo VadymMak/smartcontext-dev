@@ -26,8 +26,19 @@ export async function generateMetadata({
   const { locale, service } = await params;
   const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://example.com";
 
+  const descriptions: Record<string, string> = {
+    "web-development":
+      "Next.js web development from $1,200. Lighthouse 95–100, SEO-ready, multilingual. 2–6 weeks delivery.",
+    "ai-chat":
+      "AI chat integration from $500. RAG-powered assistant trained on your content. OpenAI GPT-4o-mini, streaming responses.",
+    seo: "SEO & GEO optimization from $600. Lighthouse SEO 100, structured data, AI search citations. 1–3 weeks.",
+  };
+
   return {
     title: service.replace("-", " "),
+    description:
+      descriptions[service] ??
+      "Professional web development service by SmartContext.",
     alternates: {
       canonical: `${BASE_URL}/${locale}/services/${service}`,
     },
