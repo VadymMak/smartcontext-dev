@@ -3,7 +3,6 @@
 // WebSite + Person JSON-LD for E-E-A-T signals
 // ============================================================
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
 import { getAllPosts } from "@/lib/blog";
 import {
   Hero,
