@@ -1,4 +1,7 @@
-/* src/components/home/ServicesPreview/ServicesPreview.module.css */
+/* ============================================================
+   src/components/home/ServicesPreview/ServicesPreview.module.css
+   Bento Grid layout — wide + 2 narrow cards
+   ============================================================ */
 
 .section {
   padding-block: var(--space-2xl);
@@ -7,56 +10,159 @@
   gap: var(--space-xl);
 }
 
+/* Header */
 .header {
   display: flex;
   flex-direction: column;
   gap: var(--space-sm);
-  align-items: center;
-  text-align: center;
 }
 
-.grid {
+.title {
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  font-size: var(--font-size-base);
+  color: var(--text-muted);
+  max-width: 480px;
+}
+
+/* Bento Grid */
+.bento {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-md);
+  align-items: stretch;
 }
 
+@media (min-width: 768px) {
+  .bento {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Card base */
 .card {
   display: flex;
   flex-direction: column;
-  gap: var(--space-sm);
+  gap: var(--space-md);
+  height: 100%;
   padding: var(--space-xl);
   background-color: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--border-radius-lg);
   transition:
     border-color var(--transition-fast),
-    transform var(--transition-base);
+    background-color var(--transition-fast);
+  text-decoration: none;
 }
 
 .card:hover {
   border-color: var(--accent);
-  transform: translateY(-4px);
+  background-color: var(--bg-card-hover, var(--bg-secondary));
 }
 
-.icon {
-  font-size: 2rem;
+/* Wide card gets extra visual weight */
+.cardWide {
+  background: linear-gradient(
+    135deg,
+    var(--bg-card) 0%,
+    color-mix(in srgb, var(--accent) 4%, var(--bg-card)) 100%
+  );
 }
 
+.cardWide:hover {
+  background: linear-gradient(
+    135deg,
+    var(--bg-card) 0%,
+    color-mix(in srgb, var(--accent) 8%, var(--bg-card)) 100%
+  );
+}
+
+/* Card Top Row */
+.cardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Icon */
+.iconWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--border-radius-md);
+  background-color: color-mix(in srgb, var(--accent) 12%, transparent);
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+/* Badge */
+.badge {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  background-color: color-mix(in srgb, var(--accent) 12%, transparent);
+  padding: 3px 10px;
+  border-radius: var(--border-radius-full);
+}
+
+/* Text */
 .cardTitle {
   font-size: var(--font-size-xl);
+  font-weight: 600;
   color: var(--text-primary);
-  text-transform: capitalize;
+  letter-spacing: -0.01em;
 }
 
 .cardDesc {
   font-size: var(--font-size-sm);
-  color: var(--accent);
-  max-width: none;
+  color: var(--text-muted);
+  line-height: var(--line-height-relaxed);
+  flex: 1;
 }
 
-@media (min-width: 768px) {
-  .grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
+/* Meta — price + timeline */
+.cardMeta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-top: auto;
+}
+
+.price {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.divider {
+  width: 1px;
+  height: 14px;
+  background-color: var(--border);
+  flex-shrink: 0;
+}
+
+.timeline {
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+}
+
+/* CTA Link */
+.cta {
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--accent);
+  transition: opacity var(--transition-fast);
+}
+
+.card:hover .cta {
+  opacity: 0.8;
 }

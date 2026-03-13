@@ -29,17 +29,17 @@ export const serviceFaqs: AllServiceFAQs = {
       {
         question: "What is included in the Starter package?",
         answer:
-          "The Starter package ($1,500–$2,500) includes a landing page or business card site of 1–3 pages, mobile-responsive design, contact form with email notifications, Google Analytics, and Lighthouse 95+ performance.",
+          "The Starter package ($1,200–$2,500) includes a landing page or business card site of 1–3 pages, mobile-responsive design, contact form with email notifications, Google Analytics, and Lighthouse 95+ performance.",
       },
       {
         question: "What is included in the Business package?",
         answer:
-          "The Business package ($3,000–$5,000) includes a corporate site of 5–8 pages, MDX blog system, structured data & SEO, CSS animations, and an optional AI chat add-on. Delivery: 3–4 weeks.",
+          "The Business package ($2,500–$5,000) includes a corporate site of 5–8 pages, MDX blog system, structured data & SEO, CSS animations, and an optional AI chat add-on. Delivery: 3–4 weeks.",
       },
       {
         question: "What is included in the Growth package?",
         answer:
-          "The Growth package ($5,000–$8,000) includes a full site plus AI chatbot with RAG, smart search, content strategy, first 3 blog posts, and a full SEO audit. Delivery: 4–6 weeks.",
+          "The Growth package ($800/month) includes monthly GEO-optimized blog posts, content strategy, performance monitoring, and priority support. Minimum 3-month commitment.",
       },
       {
         question: "What is your revision policy?",
@@ -54,7 +54,7 @@ export const serviceFaqs: AllServiceFAQs = {
     ],
   },
 
-  "ai-integration": {
+  "ai-chat": {
     en: [
       {
         question: "What AI features can you add to my website?",
@@ -64,7 +64,12 @@ export const serviceFaqs: AllServiceFAQs = {
       {
         question: "How much does an AI chat widget cost?",
         answer:
-          "The AI chat widget is included in the Growth package ($5,000–$8,000). It can also be added to an existing site as a standalone feature. OpenAI API usage costs approximately $1–2/month at typical traffic levels.",
+          "AI chat integration starts from $500 as an add-on to any existing site, or is included in the full project packages. OpenAI API usage costs approximately $1–2/month at typical traffic levels.",
+      },
+      {
+        question: "How long does AI chat integration take?",
+        answer:
+          "A standalone AI chat widget integration takes 1–2 weeks. This includes RAG setup, embedding generation from your content, streaming API route, and the chat UI component.",
       },
       {
         question: "What is RAG and why does it matter?",
@@ -72,7 +77,12 @@ export const serviceFaqs: AllServiceFAQs = {
           "RAG (Retrieval-Augmented Generation) means the AI searches your specific content before answering — not generic internet knowledge. The result: accurate, brand-consistent answers about your services and pricing. No hallucinations about your business.",
       },
       {
-        question: "Do you integrate other AI tools?",
+        question: "Will the chatbot answer questions about my pricing?",
+        answer:
+          "Yes — that is the main use case. The chatbot is trained on your content: services, pricing packages, process, and FAQ. Visitors get instant accurate answers instead of leaving to find information elsewhere.",
+      },
+      {
+        question: "Do you integrate other AI tools beyond chat?",
         answer:
           "Yes. Beyond chat widgets, I build AI-powered email automation, content generation pipelines, and custom LLM integrations using the OpenAI API and embeddings.",
       },
@@ -95,6 +105,11 @@ export const serviceFaqs: AllServiceFAQs = {
         question: "What is GEO and AEO optimisation?",
         answer:
           "GEO (Generative Engine Optimization) and AEO (Answer Engine Optimization) prepare your content to be cited by AI search engines like ChatGPT, Perplexity, and Google AI Mode. Pages with specific numbers and FAQ structure are cited 37% more often (Princeton, KDD 2024).",
+      },
+      {
+        question: "How much does SEO optimisation cost?",
+        answer:
+          "SEO & GEO optimisation starts from $600 for a technical audit and implementation. Timeline: 1–3 weeks. Ongoing SEO support is available from $800/month as part of the Growth package.",
       },
       {
         question: "Do you have proven SEO results?",
