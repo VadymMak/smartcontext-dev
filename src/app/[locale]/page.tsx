@@ -22,12 +22,12 @@ export async function generateMetadata({
   params,
 }: HomePageProps): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "hero" });
   const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://example.com";
   const SITE_NAME = process.env.NEXT_PUBLIC_SITE_NAME ?? "Studio";
   return {
-    title: SITE_NAME,
-    description: t("role"),
+    title: `${SITE_NAME} — Next.js Developer & AI Integrator`,
+    description:
+      "Next.js web development from $1,200. AI chat integration from $500. SEO & GEO optimization. Lighthouse 95–100. 5 production sites. Fast delivery, fixed price.",
     openGraph: {
       url: `${BASE_URL}/${locale}`,
       images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
