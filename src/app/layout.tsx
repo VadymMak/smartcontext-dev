@@ -37,6 +37,9 @@ export const metadata: Metadata = {
   },
   description:
     "Fast, AI-powered websites for studios and B2B. Next.js · TypeScript · Lighthouse 95+.",
+  verification: {
+    google: "qYyYGvjrOzBnlf7ls1ahbtCCAkfBPnthcgN0xwtUjtQ",
+  },
   openGraph: {
     siteName: SITE_NAME,
     type: "website",
