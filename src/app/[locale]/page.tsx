@@ -11,6 +11,7 @@ import {
   FeaturedProjects,
   LatestPosts,
   FAQ,
+  CTABand,
 } from "@/components/home";
 
 interface HomePageProps {
@@ -89,6 +90,7 @@ export default async function HomePage({ params }: HomePageProps) {
         <FeaturedProjects />
         <LatestPosts posts={posts} />
         <FAQ />
+        <CTABand />
       </div>
     </>
   );
