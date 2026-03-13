@@ -3,6 +3,16 @@
    Editorial Dark — conversion-first hero
    ============================================================ */
 
+/* fadeIn only — no translateY to avoid CLS (was 0.123) */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .section {
   padding-block: var(--space-2xl);
   display: flex;
@@ -21,7 +31,7 @@
   border-radius: 0 var(--border-radius) var(--border-radius) 0;
   font-size: var(--font-size-sm);
   color: var(--text-secondary);
-  animation: fadeUp 400ms ease both;
+  animation: fadeIn 400ms ease both;
 }
 
 .quickAnswer p {
@@ -36,7 +46,7 @@
   align-items: center;
   gap: var(--space-sm);
   font-size: var(--font-size-xs);
-  animation: fadeUp 400ms ease both;
+  animation: fadeIn 400ms ease both;
   animation-delay: 60ms;
 }
 
@@ -71,7 +81,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-md);
-  animation: fadeUp 400ms ease both;
+  animation: fadeIn 400ms ease both;
   animation-delay: 120ms;
 }
 
@@ -100,7 +110,7 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-sm);
-  animation: fadeUp 400ms ease both;
+  animation: fadeIn 400ms ease both;
   animation-delay: 200ms;
 }
 
@@ -113,7 +123,7 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
-  animation: fadeUp 400ms ease both;
+  animation: fadeIn 400ms ease both;
   animation-delay: calc(200ms + var(--i, 0) * 60ms);
   transition: border-color var(--transition-fast);
 }
@@ -190,7 +200,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--space-sm);
-  animation: fadeUp 400ms ease both;
+  animation: fadeIn 400ms ease both;
   animation-delay: 360ms;
 }
 
@@ -225,7 +235,7 @@
   flex-wrap: wrap;
   align-items: center;
   gap: var(--space-md);
-  animation: fadeUp 400ms ease both;
+  animation: fadeIn 400ms ease both;
   animation-delay: 440ms;
 }
 
