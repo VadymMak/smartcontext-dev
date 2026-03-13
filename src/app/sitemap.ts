@@ -25,7 +25,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date().toISOString();
 
   // --- Static pages ----------------------------------------
-  const staticPages = ["", "/services", "/blog", "/contact"];
+  const staticPages = [
+    "",
+    "/services",
+    "/services/web-development",
+    "/services/ai-chat",
+    "/services/seo",
+    "/blog",
+    "/contact",
+    "/about",
+  ];
 
   for (const page of staticPages) {
     entries.push({
