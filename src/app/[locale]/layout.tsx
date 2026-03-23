@@ -4,7 +4,6 @@
 // ⚠️ Providers must wrap everything ABOVE Header
 // ============================================================
 
-import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
@@ -28,18 +27,9 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-export async function generateMetadata({
-  params,
-}: LocaleLayoutProps): Promise<Metadata> {
-  const { locale } = await params;
-  const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://smartctx.dev";
-
-  return {
-    alternates: {
-      canonical: BASE_URL,
-    },
-  };
-}
+// ✅ generateMetadata removed from layout intentionally
+// canonical in layout overrides ALL pages with homepage URL
+// each page.tsx handles its own canonical via generateMetadata
 
 export default async function LocaleLayout({
   children,
