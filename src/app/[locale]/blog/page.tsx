@@ -7,6 +7,8 @@ import Link from "next/link";
 import { getAllPosts } from "@/lib/blog";
 import styles from "./blog.module.css";
 
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://smartctx.dev";
+
 interface BlogPageProps {
   params: Promise<{ locale: string }>;
 }
@@ -15,6 +17,9 @@ export const metadata: Metadata = {
   title: "Blog — Web Development, AI & SEO",
   description:
     "Practical guides on Next.js development, AI integration, SEO and GEO optimization. Real techniques from 5 production sites with Lighthouse 95–100.",
+  alternates: {
+    canonical: `${BASE_URL}/blog`,
+  },
 };
 
 export default async function BlogPage({ params }: BlogPageProps) {

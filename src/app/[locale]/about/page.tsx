@@ -7,10 +7,15 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./about.module.css";
 
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://smartctx.dev";
+
 export const metadata: Metadata = {
   title: "About Vadym Mak — SmartContext",
   description:
     "Full-Stack Developer & AI Integrator. 5+ years experience. React Native (iOS/Android), Next.js, enterprise CRM systems. 4+ production sites. Lighthouse 95–100.",
+  alternates: {
+    canonical: `${BASE_URL}/about`,
+  },
 };
 
 const STACK = [
@@ -63,8 +68,6 @@ const TIMELINE = [
 ];
 
 export default function AboutPage() {
-  const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://example.com";
-
   const personJsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -99,10 +102,8 @@ export default function AboutPage() {
       />
 
       <div className="container">
-        {/* Hero — photo + intro */}
         <section className={styles.hero}>
           <div className={styles.photoWrap}>
-            {/* Replace /about/photo.jpg with your real photo — JPG, min 400x400px */}
             <Image
               src="/about/photo.jpg"
               alt="Vadym Mak — Full-Stack Developer"
@@ -153,7 +154,6 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Stats bar */}
         <section className={styles.statsBar}>
           {STATS.map(({ value, label }) => (
             <div key={label} className={styles.statItem}>
@@ -163,7 +163,6 @@ export default function AboutPage() {
           ))}
         </section>
 
-        {/* What I do */}
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>What I do</h2>
           <div className={styles.whatGrid}>
@@ -194,7 +193,6 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Tech Stack */}
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>Tech Stack</h2>
           <div className={styles.stack}>
@@ -206,7 +204,6 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Timeline */}
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>Timeline</h2>
           <div className={styles.timeline}>

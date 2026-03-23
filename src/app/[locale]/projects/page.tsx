@@ -4,10 +4,15 @@
 import type { Metadata } from "next";
 import styles from "./projects.module.css";
 
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://smartctx.dev";
+
 export const metadata: Metadata = {
-  title: "Projects",
+  title: "Projects — SmartContext",
   description:
-    "Selected client work — Next.js, TypeScript, AI integration, SEO.",
+    "Selected client work — Next.js, TypeScript, AI integration, SEO. 4 production sites with Lighthouse 95–100.",
+  alternates: {
+    canonical: `${BASE_URL}/projects`,
+  },
 };
 
 const PROJECTS = [

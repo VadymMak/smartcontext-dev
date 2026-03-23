@@ -5,10 +5,15 @@ import type { Metadata } from "next";
 import { ContactForm } from "@/components/ui";
 import styles from "./contact.module.css";
 
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://smartctx.dev";
+
 export const metadata: Metadata = {
   title: "Contact — SmartContext",
   description:
     "Book a free 30-min discovery call. I respond within 24 hours. Next.js development, AI integration, SEO optimization.",
+  alternates: {
+    canonical: `${BASE_URL}/contact`,
+  },
 };
 
 export default function ContactPage() {
