@@ -13,22 +13,24 @@ import {
   CTABand,
 } from "@/components/home";
 
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://smartctx.dev";
+const SITE_NAME = process.env.NEXT_PUBLIC_SITE_NAME ?? "SmartContext";
+const AUTHOR = process.env.NEXT_PUBLIC_AUTHOR_NAME ?? "Vadym Mak";
+
 interface HomePageProps {
   params: Promise<{ locale: string }>;
 }
 
-export async function generateMetadata({
-  params,
-}: HomePageProps): Promise<Metadata> {
-  const { locale } = await params;
-  const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://example.com";
-  const SITE_NAME = process.env.NEXT_PUBLIC_SITE_NAME ?? "Studio";
+export async function generateMetadata(): Promise<Metadata> {
   return {
     title: `${SITE_NAME} — Next.js Developer & AI Integrator`,
     description:
       "Next.js web development from $1,200. AI chat integration from $500. SEO & GEO optimization. Lighthouse 95–100. 5 production sites. Fast delivery, fixed price.",
+    alternates: {
+      canonical: BASE_URL,
+    },
     openGraph: {
-      url: `${BASE_URL}/${locale}`,
+      url: BASE_URL,
       images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
     },
   };
@@ -37,9 +39,6 @@ export async function generateMetadata({
 export default async function HomePage({ params }: HomePageProps) {
   const { locale } = await params;
   const posts = getAllPosts(locale);
-  const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://example.com";
-  const SITE_NAME = process.env.NEXT_PUBLIC_SITE_NAME ?? "Studio";
-  const AUTHOR = process.env.NEXT_PUBLIC_AUTHOR_NAME ?? "Your Name";
 
   const websiteJsonLd = {
     "@context": "https://schema.org",

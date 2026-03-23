@@ -10,10 +10,15 @@ import { serviceFaqs } from "@/data/serviceFaqs";
 import { CTABand } from "@/components/home";
 import styles from "./services.module.css";
 
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://smartctx.dev";
+
 export const metadata: Metadata = {
   title: "Services — SmartContext",
   description:
     "Next.js web development from $1,200. AI chat integration from $500. SEO & GEO optimization from $600. Fast delivery, Lighthouse 95–100.",
+  alternates: {
+    canonical: `${BASE_URL}/services`,
+  },
 };
 
 const SERVICES = [
@@ -65,13 +70,11 @@ const SERVICES = [
 ];
 
 export default function ServicesPage() {
-  // Use web-development FAQs for the services index page
   const faqs = serviceFaqs["web-development"]?.["en"] ?? [];
 
   return (
     <>
       <div className="container">
-        {/* Header */}
         <ScrollReveal>
           <section className={styles.header}>
             <h1 className={styles.title}>Services</h1>
@@ -82,7 +85,6 @@ export default function ServicesPage() {
           </section>
         </ScrollReveal>
 
-        {/* Service cards */}
         <div className={styles.list}>
           {SERVICES.map((service, i) => (
             <ScrollReveal key={service.slug} delay={i * 80}>
@@ -117,7 +119,6 @@ export default function ServicesPage() {
           ))}
         </div>
 
-        {/* FAQ */}
         {faqs.length > 0 && (
           <ScrollReveal>
             <div className={styles.faqWrap}>
