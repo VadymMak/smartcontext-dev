@@ -36,9 +36,9 @@ async function sendEmail(name: string, email: string, message: string) {
   const resend = new Resend(process.env.RESEND_API_KEY);
 
   await resend.emails.send({
-    from: process.env.FROM_EMAIL ?? "noreply@example.com",
-    to: process.env.OWNER_EMAIL ?? "owner@example.com",
-    replyTo: email, // owner can reply directly to sender
+    from: process.env.RESEND_FROM_EMAIL ?? "noreply@smartctx.dev",
+    to: process.env.RESEND_TO_EMAIL ?? "makevytssvadym+smartcontext@gmail.com",
+    replyTo: email,
     subject: `New message from ${name}`,
     html: `
       <p><strong>Name:</strong> ${name}</p>
@@ -51,7 +51,6 @@ async function sendEmail(name: string, email: string, message: string) {
 
 // --- Telegram notification --------------------------------
 async function sendTelegram(name: string, email: string, message: string) {
-  // Skip silently if not configured
   if (!process.env.TELEGRAM_BOT_TOKEN || !process.env.TELEGRAM_CHAT_ID) return;
 
   const text = [
@@ -78,7 +77,6 @@ async function sendTelegram(name: string, email: string, message: string) {
 
 // --- Route handler ----------------------------------------
 export async function POST(req: NextRequest) {
-  // Get IP for rate limiting
   const ip =
     req.headers.get("x-forwarded-for")?.split(",")[0].trim() ??
     req.headers.get("x-real-ip") ??
@@ -91,12 +89,10 @@ export async function POST(req: NextRequest) {
   const body = await req.json();
   const { name, email, message, honeypot } = body;
 
-  // ⚠️ Honeypot — silent reject, return 200 so bots think it worked
   if (honeypot) {
     return NextResponse.json({ ok: true });
   }
 
-  // Basic validation
   if (!name || !email || !message) {
     return NextResponse.json(
       { error: "Missing required fields" },
@@ -104,7 +100,6 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  // Send both channels in parallel — one failure doesn't block the other
   await Promise.allSettled([
     sendEmail(name, email, message),
     sendTelegram(name, email, message),
