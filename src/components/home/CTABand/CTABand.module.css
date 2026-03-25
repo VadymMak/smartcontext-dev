@@ -45,7 +45,7 @@
   white-space: nowrap;
   flex-shrink: 0;
   padding: var(--space-md) var(--space-xl);
-  background-color: var(--accent);
+  background-color: #1d4ed8;
   color: #ffffff;
   font-size: var(--font-size-sm);
   font-weight: 600;
