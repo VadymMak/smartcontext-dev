@@ -10,12 +10,8 @@ import { getMessages } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import Providers from "@/components/Providers";
 import { Header, Footer } from "@/components/layout";
-import {
-  CookieBanner,
-  GoogleAnalytics,
-  ChatWidget,
-  WhatsAppButton,
-} from "@/components/ui";
+import { GoogleAnalytics } from "@/components/ui";
+import { DynamicWidgets } from "@/components/ui/DynamicWidgets";
 import styles from "./locale.module.css";
 
 interface LocaleLayoutProps {
@@ -27,17 +23,12 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-// ✅ generateMetadata removed from layout intentionally
-// canonical in layout overrides ALL pages with homepage URL
-// each page.tsx handles its own canonical via generateMetadata
-
 export default async function LocaleLayout({
   children,
   params,
 }: LocaleLayoutProps) {
   const { locale } = await params;
 
-  // Validate locale
   if (!routing.locales.includes(locale as (typeof routing.locales)[number])) {
     notFound();
   }
@@ -51,10 +42,8 @@ export default async function LocaleLayout({
           <Header />
           <main className={styles.main}>{children}</main>
           <Footer />
-          <ChatWidget />
-          <WhatsAppButton />
         </div>
-        <CookieBanner />
+        <DynamicWidgets />
         <GoogleAnalytics />
       </Providers>
     </NextIntlClientProvider>
