@@ -8,6 +8,7 @@ import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import Link from "next/link";
+import Image from "next/image";
 import { getAllSlugs, getPostBySlug, getAllPosts } from "@/lib/blog";
 import styles from "./post.module.css";
 
@@ -135,6 +136,47 @@ export default async function PostPage({ params }: PostPageProps) {
             </Link>
           </footer>
         </article>
+
+        {/* Author card */}
+        <div className={styles.authorCard}>
+          <Image
+            src="/about/photo.jpg"
+            alt="Vadym Mak"
+            width={64}
+            height={64}
+            className={styles.authorPhoto}
+          />
+          <div className={styles.authorInfo}>
+            <p className={styles.authorName}>Vadym Mak</p>
+            <p className={styles.authorRole}>
+              FULL-STACK DEVELOPER & AI INTEGRATOR
+            </p>
+            <p className={styles.authorBio}>
+              Next.js developer with 5+ years experience and 5+ production
+              sites. Specializes in AI integration, GEO optimization, and
+              Lighthouse 95–100 performance. Based in Europe, working with
+              EU/USA clients remotely.
+            </p>
+            <div className={styles.authorLinks}>
+              <a
+                href="https://github.com/VadymMak"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.authorLink}
+              >
+                GitHub
+              </a>
+              <a
+                href="https://linkedin.com/in/vadymmak"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.authorLink}
+              >
+                LinkedIn
+              </a>
+            </div>
+          </div>
+        </div>
 
         {/* Related posts */}
         {relatedPosts.length > 0 && (
