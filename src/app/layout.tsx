@@ -26,7 +26,7 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://smartcontext.dev";
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://smartctx.dev";
 const SITE_NAME = process.env.NEXT_PUBLIC_SITE_NAME ?? "SmartContext";
 
 export const metadata: Metadata = {
@@ -39,6 +39,10 @@ export const metadata: Metadata = {
     "Fast, AI-powered websites for studios and B2B. Next.js · TypeScript · Lighthouse 95+.",
   verification: {
     google: "qYyYGvjrOzBnlf7ls1ahbtCCAkfBPnthcgN0xwtUjtQ",
+  },
+  icons: {
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+    apple: "/apple-touch-icon.svg",
   },
   openGraph: {
     siteName: SITE_NAME,

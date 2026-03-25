@@ -137,12 +137,12 @@ NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
 
 # Email (Resend)
 RESEND_API_KEY=re_xxxxxxxxxxxx
-FROM_EMAIL=noreply@yourdomain.com
-OWNER_EMAIL=you@yourdomain.com
+RESEND_FROM_EMAIL=
+RESEND_TO_EMAIL=
 
 # Telegram (optional)
-TELEGRAM_BOT_TOKEN=
-TELEGRAM_CHAT_ID=
+TELEGRAM_BOT_TOKEN=noreply@yourdomain.com
+TELEGRAM_CHAT_ID=you@yourdomain.com
 
 # AI Chat + RAG (optional)
 OPENAI_API_KEY=

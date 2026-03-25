@@ -1,0 +1,12 @@
+<svg width="192" height="192" viewBox="0 0 192 192" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="192" height="192" rx="30" fill="#0c0c0e"/>
+  <text
+    x="96" y="96"
+    font-family="'Courier New', Courier, monospace"
+    font-size="66"
+    font-weight="bold"
+    text-anchor="middle"
+    dominant-baseline="central"
+    letter-spacing="-2"
+  ><tspan fill="#3b82f6">{</tspan><tspan fill="#ffffff">SC</tspan><tspan fill="#3b82f6">}</tspan></text>
+</svg>
