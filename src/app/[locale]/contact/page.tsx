@@ -46,6 +46,30 @@ export default function ContactPage() {
             </div>
 
             <div className={styles.infoItem}>
+              <span className={styles.infoLabel}>WhatsApp</span>
+              <a
+                href="https://wa.me/380938272293"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.infoLink}
+              >
+                +380 93 827 2293
+              </a>
+            </div>
+
+            <div className={styles.infoItem}>
+              <span className={styles.infoLabel}>Upwork</span>
+              <a
+                href="https://www.upwork.com/freelancers/~011e4555f7ff90ae84"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.infoLink}
+              >
+                upwork.com/freelancers/vadymmak
+              </a>
+            </div>
+
+            <div className={styles.infoItem}>
               <span className={styles.infoLabel}>GitHub</span>
               <a
                 href="https://github.com/VadymMak"

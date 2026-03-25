@@ -52,6 +52,42 @@ export function Footer() {
           </div>
 
           <div className={styles.column}>
+            <p className={styles.columnTitle}>Connect</p>
+            <a
+              href="https://wa.me/380938272293"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.columnLink}
+            >
+              WhatsApp
+            </a>
+            <a
+              href="https://www.upwork.com/freelancers/~011e4555f7ff90ae84"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.columnLink}
+            >
+              Upwork
+            </a>
+            <a
+              href="https://github.com/VadymMak"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.columnLink}
+            >
+              GitHub
+            </a>
+            <a
+              href="https://linkedin.com/in/vadymmak"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.columnLink}
+            >
+              LinkedIn
+            </a>
+          </div>
+
+          <div className={styles.column}>
             <p className={styles.columnTitle}>Legal</p>
             <Link href="/privacy" className={styles.columnLink}>
               {t("privacy")}
