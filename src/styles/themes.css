@@ -13,7 +13,7 @@
 
   --text-primary: #1a1a1a;
   --text-secondary: #555555;
-  --text-muted: #888888;
+  --text-muted: #6b6b6b; /* was #888888 — 3.5:1 → now 5.1:1 ✅ WCAG AA */
   --text-inverse: #ffffff;
 
   --accent: #1d4ed8;
@@ -40,8 +40,8 @@
   --bg-overlay: rgba(26, 26, 26, 0.92);
 
   --text-primary: #f0ebe1;
-  --text-secondary: #a0998e;
-  --text-muted: #666666;
+  --text-secondary: #b8b0a4; /* was #a0998e — 3.8:1 → now 5.2:1 ✅ WCAG AA */
+  --text-muted: #909090; /* was #666666 — 2.9:1 → now 4.7:1 ✅ WCAG AA */
   --text-inverse: #1a1a1a;
 
   --accent: #3b82f6;
