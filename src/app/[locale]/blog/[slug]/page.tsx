@@ -8,7 +8,7 @@ import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import Link from "next/link";
-import { getAllSlugs, getPostBySlug } from "@/lib/blog";
+import { getAllSlugs, getPostBySlug, getAllPosts } from "@/lib/blog";
 import styles from "./post.module.css";
 
 interface PostPageProps {
@@ -54,6 +54,10 @@ export default async function PostPage({ params }: PostPageProps) {
   if (!post) notFound();
 
   const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://smartctx.dev";
+
+  // Related posts — all posts except current, max 3
+  const allPosts = getAllPosts(locale);
+  const relatedPosts = allPosts.filter((p) => p.slug !== slug).slice(0, 3);
 
   const articleJsonLd = {
     "@context": "https://schema.org",
@@ -131,6 +135,49 @@ export default async function PostPage({ params }: PostPageProps) {
             </Link>
           </footer>
         </article>
+
+        {/* Related posts */}
+        {relatedPosts.length > 0 && (
+          <section className={styles.related}>
+            <h2 className={styles.relatedTitle}>You might also enjoy</h2>
+            <div className={styles.relatedGrid}>
+              {relatedPosts.map((related) => (
+                <Link
+                  key={related.slug}
+                  href={`/blog/${related.slug}`}
+                  className={styles.relatedCard}
+                >
+                  <div className={styles.relatedMeta}>
+                    <time
+                      dateTime={related.datePublished}
+                      className={styles.relatedDate}
+                    >
+                      {new Date(related.datePublished).toLocaleDateString(
+                        "en-US",
+                        { year: "numeric", month: "long", day: "numeric" },
+                      )}
+                    </time>
+                    <span className={styles.relatedDot} aria-hidden="true" />
+                    <span className={styles.relatedRead}>
+                      {related.readingTime} min read
+                    </span>
+                  </div>
+                  <h3 className={styles.relatedCardTitle}>{related.title}</h3>
+                  <p className={styles.relatedCardDesc}>
+                    {related.description}
+                  </p>
+                  <div className={styles.relatedTags}>
+                    {related.tags.slice(0, 2).map((tag) => (
+                      <span key={tag} className={styles.relatedTag}>
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
       </div>
     </>
   );
