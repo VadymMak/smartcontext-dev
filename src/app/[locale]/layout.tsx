@@ -4,19 +4,39 @@
 // ⚠️ Providers must wrap everything ABOVE Header
 // ============================================================
 
+import dynamic from "next/dynamic";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import Providers from "@/components/Providers";
 import { Header, Footer } from "@/components/layout";
-import {
-  CookieBanner,
-  GoogleAnalytics,
-  ChatWidget,
-  WhatsAppButton,
-} from "@/components/ui";
+import { GoogleAnalytics } from "@/components/ui";
 import styles from "./locale.module.css";
+
+// ✅ Lazy load floating widgets — removes ~30-35 kB from initial JS bundle
+// ssr: false — these components use browser APIs (localStorage, DOM)
+const DynamicChatWidget = dynamic(
+  () =>
+    import("@/components/ui/ChatWidget/ChatWidget").then((m) => m.ChatWidget),
+  { ssr: false, loading: () => null },
+);
+
+const DynamicWhatsAppButton = dynamic(
+  () =>
+    import("@/components/ui/WhatsAppButton/WhatsAppButton").then(
+      (m) => m.WhatsAppButton,
+    ),
+  { ssr: false, loading: () => null },
+);
+
+const DynamicCookieBanner = dynamic(
+  () =>
+    import("@/components/ui/CookieBanner/CookieBanner").then(
+      (m) => m.CookieBanner,
+    ),
+  { ssr: false, loading: () => null },
+);
 
 interface LocaleLayoutProps {
   children: React.ReactNode;
@@ -51,10 +71,10 @@ export default async function LocaleLayout({
           <Header />
           <main className={styles.main}>{children}</main>
           <Footer />
-          <ChatWidget />
-          <WhatsAppButton />
+          <DynamicChatWidget />
+          <DynamicWhatsAppButton />
         </div>
-        <CookieBanner />
+        <DynamicCookieBanner />
         <GoogleAnalytics />
       </Providers>
     </NextIntlClientProvider>
