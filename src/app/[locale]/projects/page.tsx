@@ -1,5 +1,5 @@
 // ============================================================
-// src/app/projects/page.tsx
+// src/app/[locale]/projects/page.tsx
 // ============================================================
 import type { Metadata } from "next";
 import styles from "./projects.module.css";
@@ -9,7 +9,7 @@ const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://smartctx.dev";
 export const metadata: Metadata = {
   title: "Projects — SmartContext",
   description:
-    "Selected client work — Next.js, TypeScript, AI integration, SEO. 4 production sites with Lighthouse 95–100.",
+    "Selected client work — Next.js, TypeScript, AI integration, SEO. 5 production sites with Lighthouse 95–100.",
   alternates: {
     canonical: `${BASE_URL}/projects`,
   },
@@ -86,6 +86,24 @@ const PROJECTS = [
       "3 languages: SK, EN, CZ",
       "Gallery with lightbox",
       "Contact form with honeypot spam protection",
+    ],
+  },
+  {
+    number: "05",
+    name: "SmartContext.dev",
+    url: "https://smartctx.dev",
+    tech: ["Next.js 15", "TypeScript", "CSS Modules", "MDX", "RAG"],
+    desc: "Personal developer portfolio built as a live demonstration of the stack and SEO approach used for all client projects. GEO-optimized blog, AI chat, Lighthouse 100.",
+    metrics: [
+      { label: "Lighthouse Desktop", value: "100" },
+      { label: "SEO Score", value: "100" },
+      { label: "Blog posts", value: "4" },
+    ],
+    highlights: [
+      "Lighthouse 100/100/100/100 desktop, 99 mobile",
+      "4 GEO-optimized blog posts for AI citation",
+      "RAG-powered AI chat trained on service content",
+      "Built as proof of concept for the stack sold to clients",
     ],
   },
 ];
