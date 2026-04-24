@@ -167,7 +167,7 @@ export default async function PostPage({ params }: PostPageProps) {
                 GitHub
               </a>
               <a
-                href="https://linkedin.com/in/vadymmak"
+                href="https://www.linkedin.com/in/vadymmakevytss/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.authorLink}

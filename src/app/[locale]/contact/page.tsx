@@ -84,12 +84,12 @@ export default function ContactPage() {
             <div className={styles.infoItem}>
               <span className={styles.infoLabel}>LinkedIn</span>
               <a
-                href="https://linkedin.com/in/vadymmak"
+                href="https://www.linkedin.com/in/vadymmakevytss/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.infoLink}
               >
-                linkedin.com/in/vadymmak
+                linkedin.com/in/vadymmakevytss
               </a>
             </div>
 
