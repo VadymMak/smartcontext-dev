@@ -207,4 +207,31 @@ export const chunks: Chunk[] = [
       "Implementation takes 3–6 weeks, costs $600–$2,500. " +
       "URL: smartctx.dev/blog/how-to-get-cited-by-chatgpt-perplexity-2026",
   },
+
+  // --- Blog (Post 5) ---
+  {
+    id: "blog-redesign-signs",
+    category: "blog",
+    content:
+      "Blog post: 5 Signs Your Business Website Needs a Redesign in 2026? " +
+      "Based on 5 production sites rebuilt in 18 months. " +
+      "Sign 1: Mobile Lighthouse Performance below 50 — urgent redesign needed. " +
+      "Sign 2: Page load over 3 seconds — 53% of mobile visitors abandon (Google, 2025). " +
+      "Sign 3: Invisible to AI search — zero citations in ChatGPT or Perplexity means losing 32% of qualified leads that early GEO adopters capture (BraivIQ, April 2026). " +
+      "Sign 4: Broken mobile experience — 58–63% of web traffic is mobile in 2026 (StatCounter, March 2026). " +
+      "Sign 5: No HTTPS or outdated SSL — Google ranking penalty plus browser security warnings. " +
+      "URL: smartctx.dev/blog/5-signs-website-needs-redesign-2026",
+  },
+  {
+    id: "blog-redesign-cost",
+    category: "blog",
+    content:
+      "Blog post: 5 Signs Your Business Website Needs a Redesign in 2026? " +
+      "Redesign cost in 2026: landing page $1,500–$2,500, business site $3,000–$8,000, with AI features $5,000–$12,000. " +
+      "Timeline: 3–6 weeks total (discovery 3–5 days, design 5–7 days, development 10–15 days, SEO/GEO 3–5 days, QA and launch 2–3 days). " +
+      "ROI: 3–6 month payback via 30–60% conversion lift and 20–40% lower Google Ads costs. " +
+      "Real case: AK Illustrator rebuild — Mobile Lighthouse 37 → 99, Desktop 52 → 100. " +
+      "WordPress mobile LCP typically 4–8 seconds versus Next.js 0.8–1.5 seconds on same connection. " +
+      "URL: smartctx.dev/blog/5-signs-website-needs-redesign-2026",
+  },
 ];
