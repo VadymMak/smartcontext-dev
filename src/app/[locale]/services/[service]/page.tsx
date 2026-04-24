@@ -40,7 +40,7 @@ export async function generateMetadata({
       descriptions[service] ??
       "Professional web development service by SmartContext.",
     alternates: {
-      canonical: `${BASE_URL}/${locale}/services/${service}`,
+      canonical: `${BASE_URL}/services/${service}`,
     },
     openGraph: {
       images: [{ url: `/og/services.jpg`, width: 1200, height: 630 }],
