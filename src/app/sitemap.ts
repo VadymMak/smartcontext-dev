@@ -16,7 +16,13 @@ type SitemapEntry = MetadataRoute.Sitemap[number];
 // Build hreflang alternates for a given path
 function buildAlternates(path: string) {
   return Object.fromEntries(
-    LOCALES.map((locale) => [locale, `${BASE_URL}/${locale}${path}`]),
+    LOCALES.map((locale) => {
+      const url =
+        locale === routing.defaultLocale
+          ? `${BASE_URL}${path}`
+          : `${BASE_URL}/${locale}${path}`;
+      return [locale, url];
+    }),
   );
 }
 
