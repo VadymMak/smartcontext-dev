@@ -91,7 +91,7 @@ export default function AboutPage() {
       name: "SmartContext.dev",
       url: BASE_URL,
     },
-    sameAs: ["https://github.com/VadymMak", "https://linkedin.com/in/vadymmak"],
+    sameAs: ["https://github.com/VadymMak", "https://www.linkedin.com/in/vadymmakevytss/"],
   };
 
   return (
@@ -143,7 +143,7 @@ export default function AboutPage() {
                 GitHub
               </a>
               <a
-                href="https://linkedin.com/in/vadymmak"
+                href="https://www.linkedin.com/in/vadymmakevytss/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.ctaSecondary}

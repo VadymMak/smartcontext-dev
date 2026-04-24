@@ -33,7 +33,7 @@ export const chunks: Chunk[] = [
       "5+ years experience. 4 production sites. Clients in 5+ countries. " +
       "Lighthouse scores: 95–100 Performance, 100 SEO, 100 Best Practices on all production sites. " +
       "Specializes in: Next.js 15, TypeScript, OpenAI API, RAG chatbots, GEO/AEO optimization. " +
-      "GitHub: github.com/VadymMak. LinkedIn: linkedin.com/in/vadymmak. Portfolio: smartctx.dev.",
+      "GitHub: github.com/VadymMak. LinkedIn: linkedin.com/in/vadymmakevytss. Portfolio: smartctx.dev.",
   },
 
   // --- Services ---
@@ -163,7 +163,7 @@ export const chunks: Chunk[] = [
       "WhatsApp: +380 93 827 2293. " +
       "Website: smartctx.dev. " +
       "GitHub: github.com/VadymMak. " +
-      "LinkedIn: linkedin.com/in/vadymmak. " +
+      "LinkedIn: linkedin.com/in/vadymmakevytss. " +
       "Upwork: upwork.com/freelancers/~011e4555f7ff90ae84. " +
       "Response time: within 24 hours. Free 30-min discovery call available.",
   },
