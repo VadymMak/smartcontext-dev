@@ -9,7 +9,7 @@ const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://smartctx.dev";
 export const metadata: Metadata = {
   title: "Projects — SmartContext",
   description:
-    "Selected client work — Next.js, TypeScript, AI integration, SEO. 5 production sites with Lighthouse 95–100.",
+    "Selected client work — Next.js, TypeScript, AI integration, SEO. 6 production sites with Lighthouse 95–100.",
   alternates: {
     canonical: `${BASE_URL}/projects`,
   },
@@ -18,6 +18,60 @@ export const metadata: Metadata = {
 const PROJECTS = [
   {
     number: "01",
+    name: "Kate Barber Template",
+    url: "https://vendshop-template-services.vercel.app/sk",
+    tech: ["Next.js 15", "TypeScript", "Prisma v7", "pgvector", "GPT-4o-mini"],
+    desc: "Production barbershop template with AI booking assistant, slot-based reservations, Sharp WebP pipeline, and admin-controlled CSS theming via database.",
+    metrics: [
+      { label: "Lighthouse Mobile", value: "96" },
+      { label: "SEO Score", value: "100" },
+      { label: "LCP Mobile", value: "1.1s" },
+    ],
+    highlights: [
+      "AI booking assistant: GPT-4o-mini + pgvector RAG over knowledge base",
+      "Slot-based reservations with 409 conflict detection prevents double-booking",
+      "Admin CSS theming — colors stored in DB, change without redeploy",
+      "Reusable via STORE_SLUG: barbershops, nail salons, dental clinics",
+    ],
+  },
+  {
+    number: "02",
+    name: "VendShop",
+    url: "https://vendshop.shop",
+    tech: ["Next.js 15", "TypeScript", "Tailwind CSS v4", "Prisma", "Neon PostgreSQL", "Stripe", "Replicate"],
+    desc: "European done-for-you website service for small businesses. 48-hour delivery, multilingual templates, integrated AI Studio for image and video generation, Stripe payments.",
+    metrics: [
+      { label: "Delivery Time", value: "48h" },
+      { label: "Languages", value: "5" },
+      { label: "Projects Shipped", value: "11" },
+    ],
+    highlights: [
+      "Done-for-you model: clients send brief, finished site delivered in 48 hours",
+      "AI Studio integrated: image generation, video, photo editing, slideshow renderer",
+      "5 native languages: Slovak, Czech, Ukrainian, German, English (next-intl)",
+      "6 industry-specific templates: food, restaurant, beauty, repair, medical, e-commerce",
+    ],
+  },
+  {
+    number: "03",
+    name: "SmartContext.dev",
+    url: "https://smartctx.dev",
+    tech: ["Next.js 15", "TypeScript", "CSS Modules", "MDX", "RAG"],
+    desc: "Personal developer portfolio built as a live demonstration of the stack and SEO approach used for all client projects. GEO-optimized blog, AI chat, Lighthouse 100.",
+    metrics: [
+      { label: "Lighthouse Desktop", value: "100" },
+      { label: "SEO Score", value: "100" },
+      { label: "Blog posts", value: "7" },
+    ],
+    highlights: [
+      "Lighthouse 100/100/100/100 desktop, 99 mobile",
+      "7 GEO-optimized blog posts for AI citation",
+      "RAG-powered AI chat trained on service content",
+      "Built as proof of concept for the stack sold to clients",
+    ],
+  },
+  {
+    number: "04",
     name: "FormaInk Studio",
     url: "https://formaink.com",
     tech: ["Next.js 15", "TypeScript", "CSS Modules", "next-intl", "Resend"],
@@ -35,7 +89,7 @@ const PROJECTS = [
     ],
   },
   {
-    number: "02",
+    number: "05",
     name: "AK Illustrator",
     url: "https://akillustrator.com",
     tech: ["Next.js 15", "TypeScript", "OpenAI API", "RAG", "Telegram Bot"],
@@ -53,7 +107,7 @@ const PROJECTS = [
     ],
   },
   {
-    number: "03",
+    number: "06",
     name: "UB Market B2B",
     url: "https://ub-market.com",
     tech: ["Next.js 15", "TypeScript", "OpenAI API", "RAG", "next-intl"],
@@ -71,7 +125,7 @@ const PROJECTS = [
     ],
   },
   {
-    number: "04",
+    number: "07",
     name: "Baloon Party",
     url: "https://baloon-party00.sk",
     tech: ["Next.js 15", "TypeScript", "CSS Modules", "next-intl"],
@@ -86,24 +140,6 @@ const PROJECTS = [
       "3 languages: SK, EN, CZ",
       "Gallery with lightbox",
       "Contact form with honeypot spam protection",
-    ],
-  },
-  {
-    number: "05",
-    name: "SmartContext.dev",
-    url: "https://smartctx.dev",
-    tech: ["Next.js 15", "TypeScript", "CSS Modules", "MDX", "RAG"],
-    desc: "Personal developer portfolio built as a live demonstration of the stack and SEO approach used for all client projects. GEO-optimized blog, AI chat, Lighthouse 100.",
-    metrics: [
-      { label: "Lighthouse Desktop", value: "100" },
-      { label: "SEO Score", value: "100" },
-      { label: "Blog posts", value: "4" },
-    ],
-    highlights: [
-      "Lighthouse 100/100/100/100 desktop, 99 mobile",
-      "4 GEO-optimized blog posts for AI citation",
-      "RAG-powered AI chat trained on service content",
-      "Built as proof of concept for the stack sold to clients",
     ],
   },
 ];

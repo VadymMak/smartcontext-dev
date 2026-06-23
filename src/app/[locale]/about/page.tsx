@@ -12,7 +12,7 @@ const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://smartctx.dev";
 export const metadata: Metadata = {
   title: "About Vadym Mak — SmartContext",
   description:
-    "Full-Stack Developer & AI Integrator. 5+ years experience. React Native (iOS/Android), Next.js, enterprise CRM systems. 4+ production sites. Lighthouse 95–100.",
+    "Full-Stack Developer & AI Integrator. 5+ years experience. React Native (iOS/Android), Next.js, enterprise CRM systems. 6+ production sites. Lighthouse 95–100.",
   alternates: {
     canonical: `${BASE_URL}/about`,
   },
@@ -34,7 +34,7 @@ const STACK = [
 
 const STATS = [
   { value: "5+", label: "Years of experience" },
-  { value: "4+", label: "Production sites live" },
+  { value: "6+", label: "Production sites live" },
   { value: "95–100", label: "Lighthouse score" },
   { value: "6", label: "Languages per site" },
 ];
@@ -75,7 +75,7 @@ export default function AboutPage() {
     url: BASE_URL,
     jobTitle: "Full-Stack Developer & AI Integrator",
     description:
-      "Full-stack developer since 2021. React Native (iOS/Android) — CRM systems, enterprise apps. Next.js developer with 4+ production sites. Lighthouse 95–100. AI integration and GEO optimization.",
+      "Full-stack developer since 2021. React Native (iOS/Android) — CRM systems, enterprise apps. Next.js developer with 6+ production sites. Lighthouse 95–100. AI integration and GEO optimization.",
     knowsAbout: [
       "Next.js",
       "TypeScript",
