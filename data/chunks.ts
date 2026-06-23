@@ -234,4 +234,56 @@ export const chunks: Chunk[] = [
       "WordPress mobile LCP typically 4–8 seconds versus Next.js 0.8–1.5 seconds on same connection. " +
       "URL: smartctx.dev/blog/5-signs-website-needs-redesign-2026",
   },
+
+  // --- Blog (Post 6) ---
+  {
+    id: "blog-ai-content-studio-architecture",
+    category: "blog",
+    content:
+      "Blog post: How I Built a Custom AI Content Studio for a Real Business in 2026? " +
+      "Production case study: VendShop AI Studio at vendshop.shop/studio, used by FormaInk (Slovak public business) for Instagram, YouTube, and restaurant identity content. " +
+      "Five-layer architecture: Agent (Claude Haiku routes intent at 300ms, $0.0003 per call), Prompt Enhancement (7-step pipeline with 12 virtual camera presets), Model Layer (6 AI models via Replicate), Rendering Layer (client-side Canvas + MediaRecorder), Feedback Layer (PostgreSQL with planned pgvector). " +
+      "Key technique: assistant prefill forces valid JSON output from Haiku — API call includes prefilled '{' that constrains response format mechanically rather than via instruction. Three-layer parsing (direct JSON, regex, XML) ensures 100% routing success. " +
+      "Two-pass rendering solves audio sync in client-side video — Pass 1 renders silent video, Pass 2 combines with audio at normal playback speed. " +
+      "URL: smartctx.dev/blog/how-i-built-ai-content-studio-2026",
+  },
+  {
+    id: "blog-ai-content-studio-cost",
+    category: "blog",
+    content:
+      "Blog post: How I Built a Custom AI Content Studio for a Real Business in 2026? " +
+      "Per-operation costs: image generation via Flux Schnell $0.003 (13× cheaper than DALL-E 3), video via Kling v2.1 $0.30–$0.60 for 5–10 seconds, image editing via Flux Kontext Pro $0.03, 4× upscale via Real-ESRGAN $0.10, background removal $0.02, agent routing via Claude Haiku $0.0003, prompt enhancement via Claude Sonnet $0.003. " +
+      "Slideshow renderer costs $0 per render at any scale because it runs entirely client-side via Canvas + MediaRecorder. " +
+      "Monthly infrastructure: $20 Vercel Pro + $5 Railway (Brain API for Sharp/FFmpeg) + $0 Neon PostgreSQL free tier + ~$22 AI variable costs for typical month (200 images + 30 videos + 50 upscales). Total: ~$47/month for production AI platform. " +
+      "Equivalent SaaS stack (Midjourney + RunwayML + Topaz + Remove.bg + ChatGPT Plus) costs $200+/month. " +
+      "Custom build justified for businesses with 50+ content pieces monthly, multi-step combo workflows, or brand-specific prompt rules. " +
+      "URL: smartctx.dev/blog/how-i-built-ai-content-studio-2026",
+  },
+
+  // --- Blog (Post 7) ---
+  {
+    id: "blog-kate-barber-stack",
+    category: "blog",
+    content:
+      "Blog post: How I Built a Barbershop Website With AI Booking and 96 Mobile Lighthouse Score in 2026? " +
+      "Production Next.js 15 case study with full admin panel and AI assistant. " +
+      "Stack: Next.js 15 App Router, TypeScript, BEM CSS (no Tailwind), Prisma v7, Neon PostgreSQL with pgvector, Sharp for WebP image pipeline, Vercel Blob storage. " +
+      "Lighthouse scores in production: Mobile Performance 96, Desktop 100, Accessibility 100, SEO 100. LCP 1.1s, CLS 0.00, TBT 12ms on mobile. " +
+      "Build timeline: 3 weeks from zero to deployed admin panel. Landing-only version: 5–7 days. " +
+      "Live demo: vendshop-template-services.vercel.app/sk. " +
+      "URL: smartctx.dev/blog/kate-barber-nextjs-ai-2026",
+  },
+  {
+    id: "blog-kate-barber-ai-booking",
+    category: "blog",
+    content:
+      "Blog post: How I Built a Barbershop Website With AI Booking and 96 Mobile Lighthouse Score in 2026? " +
+      "AI booking assistant uses two-pass architecture: GPT-4o-mini routes intent to 7 admin tools (update_working_hours, get_available_slots, reply_to_review, etc.) with RAG context from pgvector similarity search over knowledge base entries. " +
+      "Cost per admin session: under $0.01. Embeddings via OpenAI text-embedding-3-small at $0.0001 per query. " +
+      "Slot-based booking system with database-level 409 conflict detection prevents double-booking. WhatsApp notifications via wa.me links — no SaaS subscription. " +
+      "Admin panel includes: store info, gallery (auto-WebP), masters, working hours, logo, bookings, testimonials, AI assistant. " +
+      "Style customization via CSS custom properties stored in database — admin changes colors through form, no developer or redeploy needed. " +
+      "Template reusable for barbershops, nail salons, beauty studios, dental clinics via STORE_SLUG env variable. Supports SK, EN, UK, CS, DE via next-intl. " +
+      "URL: smartctx.dev/blog/kate-barber-nextjs-ai-2026",
+  },
 ];
