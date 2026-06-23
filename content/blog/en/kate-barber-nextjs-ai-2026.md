@@ -5,14 +5,14 @@ datePublished: "2026-06-23"
 author: "Vadym Mak"
 coverImage: "/blog/kate-barber-nextjs-ai-2026/cover.jpg"
 coverOg: "/blog/kate-barber-nextjs-ai-2026/cover.jpg"
-coverAlt: "Three mobile screenshots of Kate Barber barbershop website showing hero section, services with prices, and AI-assisted booking slot grid"
+coverAlt: "Barbershop website on mobile showing 96 Lighthouse score and AI booking assistant interface"
 tags: ["Web Development", "Next.js", "AI Integration", "Case Study"]
 locale: "en"
 slug: "kate-barber-nextjs-ai-2026"
 readingTime: 8
 ---
 
-Most barbershop websites are 2019 WordPress themes with broken booking forms, 2MB JPEGs, and Mobile Lighthouse scores in the 40s — so I built Kate Barber as a production template that solves all three at once.
+Most barbershop websites are 2019 WordPress themes with broken booking forms, 2MB JPEGs, and Mobile Lighthouse scores in the 40s — so I built Kate Barber as a production template that solves all three at once. The full deployment is [live at vendshop-template-services.vercel.app/sk](https://vendshop-template-services.vercel.app/sk) — try the booking flow and inspect the network tab yourself.
 
 ---
 
@@ -137,7 +137,7 @@ These scores are from the deployed production build with real images and content
 | Best Practices | 100    | 100     |
 | SEO            | 100    | 100     |
 
-Key mobile metrics: LCP 1.1 seconds, FID 0ms (Server Components mean minimal client JS), CLS 0.00 (blur placeholders eliminate shift), TBT 12ms. The scores are achievable specifically because there are no third-party plugins — every byte of JavaScript on the page is intentional.
+Key mobile metrics: LCP 1.1 seconds, FID 0ms (Server Components mean minimal client JS), CLS 0.00 (blur placeholders eliminate shift), TBT 12ms. The scores are achievable specifically because there are no third-party plugins — every byte of JavaScript on the page is intentional. Run [the live deployment](https://vendshop-template-services.vercel.app/sk) through PageSpeed Insights yourself to verify these numbers in production.
 
 ## How long does a build like this take and what does it cost?
 
@@ -156,6 +156,19 @@ A comparable WordPress setup with Amelia, WPML, WPRocket, and a premium theme co
 
 Yes. The codebase uses a `STORE_SLUG` environment variable to switch between stores. Adding a new barbershop means running a seed script with that store's data and setting a Vercel environment variable. The admin panel, booking system, AI assistant, and gallery are all included by default. Feature flags via `NEXT_PUBLIC_ENABLE_*` env vars toggle individual features — a salon that doesn't need booking can disable it without modifying code.
 
-The template handles barbershops, nail salons, beauty studios, dental clinics, and any service business where appointments are the primary transaction. Multilingual support via next-intl is included from day one (Slovak, English, Ukrainian, Czech, German).
+The template handles barbershops, nail salons, beauty studios, dental clinics, and any service business where appointments are the primary transaction. Multilingual support via next-intl is included from day one (Slovak, English, Ukrainian, Czech, German). The [current live demo](https://vendshop-template-services.vercel.app/sk) shows the Slovak deployment, but switching to any other language requires only an environment variable change — no code modifications.
 
-If your current barbershop or salon site scores below 70 on Mobile Lighthouse — or has no online booking at all — the gap is architectural, not cosmetic. A theme update will not fix it. [See the services template details](/services) or [book a free 30-minute audit](/contact) and I will send you a written performance report with concrete recommendations within 48 hours.
+## How does style customization work without touching code?
+
+The entire visual identity is controlled through CSS custom properties exposed in the admin panel. Brand color, accent color, surface color, and text color are stored in the database and injected as `:root` variables at the layout level. Changing copper-and-cream to navy-and-gold for a different business takes minutes through the admin form — no developer required, no redeploy needed.
+
+| Token             | Default (Kate Barber) | Stored where | Changeable by |
+| ----------------- | --------------------- | ------------ | ------------- |
+| `--color-primary` | `#c87941` (copper)    | Database     | Admin panel   |
+| `--color-surface` | `#faf6f0` (cream)     | Database     | Admin panel   |
+| `--color-text`    | `#1a1a1a`             | Database     | Admin panel   |
+| `--color-accent`  | `#2c1a0e` (espresso)  | Database     | Admin panel   |
+
+The same approach applies to images — hero, gallery, master portraits, and logo all upload through the admin and auto-convert to WebP via the Sharp pipeline described above. A non-technical owner can rebrand the entire site in under 30 minutes: change 4 color values, upload 6-10 images, save. The public site reflects every change within seconds via `revalidatePath`.
+
+If your current barbershop or salon site scores below 70 on Mobile Lighthouse — or has no online booking at all — the gap is architectural, not cosmetic. A theme update will not fix it. [Try the live demo](https://vendshop-template-services.vercel.app/sk), [see the services template details](/services), or [book a free 30-minute audit](/contact) and I will send you a written performance report with concrete recommendations within 48 hours.
