@@ -16,7 +16,7 @@ interface BlogPageProps {
 export const metadata: Metadata = {
   title: "Blog — Web Development, AI & SEO",
   description:
-    "Practical guides on Next.js development, AI integration, SEO and GEO optimization. Real techniques from 5 production sites with Lighthouse 95–100.",
+    "Practical guides on Next.js development, AI integration, SEO and GEO optimization. Real techniques from 6 production sites with Lighthouse 95–100.",
   alternates: {
     canonical: `${BASE_URL}/blog`,
   },

@@ -25,7 +25,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: `${SITE_NAME} — Next.js Developer & AI Integrator`,
     description:
-      "Next.js web development from $1,200. AI chat integration from $500. SEO & GEO optimization. Lighthouse 95–100. 5 production sites. Fast delivery, fixed price.",
+      "Next.js web development from $1,200. AI chat integration from $500. SEO & GEO optimization. Lighthouse 95–100. 6 production sites. Fast delivery, fixed price.",
     alternates: {
       canonical: BASE_URL,
     },
@@ -61,7 +61,7 @@ export default async function HomePage({ params }: HomePageProps) {
     url: BASE_URL,
     jobTitle: "Full-Stack Developer & AI Integrator",
     description:
-      "Next.js developer with 4+ production sites. Lighthouse 95-100. AI integration and GEO optimization.",
+      "Next.js developer with 6+ production sites. Lighthouse 95-100. AI integration and GEO optimization.",
     knowsAbout: [
       "Next.js",
       "TypeScript",

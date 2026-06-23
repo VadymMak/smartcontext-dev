@@ -9,6 +9,33 @@ import styles from "./FeaturedProjects.module.css";
 const PROJECTS = [
   {
     num: "01",
+    title: "Kate Barber Template",
+    description:
+      "Production Next.js 15 barbershop template with AI booking assistant, slot-based reservations, and admin-controlled CSS theming.",
+    tags: ["Next.js 15", "AI Booking", "Slot System"],
+    metric: "Lighthouse 96",
+    url: "https://vendshop-template-services.vercel.app/sk",
+  },
+  {
+    num: "02",
+    title: "VendShop",
+    description:
+      "European done-for-you website service for small businesses. 48-hour delivery, 5 languages, AI Studio for content generation.",
+    tags: ["Next.js", "5 langs", "AI Studio"],
+    metric: "Live SaaS",
+    url: "https://vendshop.shop",
+  },
+  {
+    num: "03",
+    title: "SmartContext.dev",
+    description:
+      "Portfolio site with RAG-powered AI chat, 7-post blog, GEO optimization, and Telegram notification bot.",
+    tags: ["Next.js 15", "RAG Chat", "GEO"],
+    metric: "Lighthouse 99",
+    url: "https://smartctx.dev",
+  },
+  {
+    num: "04",
     title: "FormaInk Studio",
     description:
       "Design studio website with conversion-first UX, 6 languages, service packages with pricing.",
@@ -17,7 +44,7 @@ const PROJECTS = [
     url: "https://formaink.com",
   },
   {
-    num: "02",
+    num: "05",
     title: "AK Illustrator",
     description:
       "Artist portfolio with protected gallery, AI chat assistant, and Telegram notifications.",
@@ -26,7 +53,7 @@ const PROJECTS = [
     url: "https://akillustrator.com",
   },
   {
-    num: "03",
+    num: "06",
     title: "UB Market B2B",
     description:
       "B2B trading platform with 6 languages, 12 blog posts, GEO optimization, and AI email replies.",
