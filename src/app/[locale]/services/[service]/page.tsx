@@ -9,7 +9,7 @@ import { FAQ } from "@/components/ui";
 import { serviceFaqs } from "@/data/serviceFaqs";
 import { ScrollReveal } from "@/components/ui";
 
-const SERVICES = ["web-development", "seo", "ai-chat"] as const;
+const SERVICES = ["web-development", "seo", "ai-chat", "mcp-integration"] as const;
 type ServiceSlug = (typeof SERVICES)[number];
 
 interface ServicePageProps {
@@ -32,6 +32,8 @@ export async function generateMetadata({
     "ai-chat":
       "AI chat integration from $500. RAG-powered assistant trained on your content. OpenAI GPT-4o-mini, streaming responses.",
     seo: "SEO & GEO optimization from $600. Lighthouse SEO 100, structured data, AI search citations. 1–3 weeks.",
+    "mcp-integration":
+      "MCP Integration from $2,000. Build Model Context Protocol endpoints for Claude Desktop, Cursor, and Windsurf. 1–3 weeks delivery.",
   };
 
   return {

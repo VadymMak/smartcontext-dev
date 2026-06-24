@@ -20,8 +20,8 @@ const PROJECTS = [
     num: "02",
     title: "VendShop",
     description:
-      "European done-for-you website service for small businesses. 48-hour delivery, 5 languages, AI Studio for content generation.",
-    tags: ["Next.js", "5 langs", "AI Studio"],
+      "Multi-tenant SaaS commerce platform. 5 store verticals from one codebase, MCP endpoint with 9 tools for Claude Desktop, AI admin panel.",
+    tags: ["Next.js 15", "MCP", "AI Studio"],
     metric: "Live SaaS",
     url: "https://vendshop.shop",
   },

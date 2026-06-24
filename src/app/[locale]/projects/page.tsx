@@ -9,7 +9,7 @@ const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://smartctx.dev";
 export const metadata: Metadata = {
   title: "Projects — SmartContext",
   description:
-    "Selected client work — Next.js, TypeScript, AI integration, SEO. 6 production sites with Lighthouse 95–100.",
+    "Selected client work — Next.js, TypeScript, AI integration, MCP servers, SEO. 6 production sites with Lighthouse 95–100.",
   alternates: {
     canonical: `${BASE_URL}/projects`,
   },

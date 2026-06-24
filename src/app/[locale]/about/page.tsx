@@ -37,6 +37,7 @@ const STATS = [
   { value: "6+", label: "Production sites live" },
   { value: "95–100", label: "Lighthouse score" },
   { value: "6", label: "Languages per site" },
+  { value: "1", label: "MCP endpoint in production" },
 ];
 
 const TIMELINE = [
@@ -75,7 +76,7 @@ export default function AboutPage() {
     url: BASE_URL,
     jobTitle: "Full-Stack Developer & AI Integrator",
     description:
-      "Full-stack developer since 2021. React Native (iOS/Android) — CRM systems, enterprise apps. Next.js developer with 6+ production sites. Lighthouse 95–100. AI integration and GEO optimization.",
+      "Full-stack developer since 2021. React Native (iOS/Android) — CRM systems, enterprise apps. Next.js developer with 6+ production sites. Lighthouse 95–100. AI integration, MCP servers, and GEO optimization.",
     knowsAbout: [
       "Next.js",
       "TypeScript",
@@ -128,7 +129,7 @@ export default function AboutPage() {
               Full-stack developer since 2021. Started with React Native —
               building iOS & Android apps including a CRM system and a sports
               totalizator for the Taiwan market. Since 2023 focused on Next.js
-              web development with AI integration, SEO, and GEO optimization.
+              web development with AI integration, MCP servers, SEO, and GEO optimization.
             </p>
             <div className={styles.heroActions}>
               <Link href="/contact" className={styles.ctaPrimary}>
@@ -188,6 +189,15 @@ export default function AboutPage() {
                 Technical SEO + GEO optimization for AI search engines (ChatGPT,
                 Perplexity). FAQPage schema, structured data, Princeton KDD 2024
                 methodology. Proven: SEO 100 on all sites.
+              </p>
+            </div>
+            <div className={styles.whatCard}>
+              <h3>MCP Integration</h3>
+              <p>
+                Model Context Protocol endpoints that expose your business
+                systems to AI agents (Claude Desktop, Cursor, Windsurf).
+                Production MCP server: 9 tools, multi-tenant isolation, auth,
+                rate limiting. Store owners manage products via natural language.
               </p>
             </div>
           </div>
