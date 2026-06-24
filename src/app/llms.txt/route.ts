@@ -23,7 +23,7 @@ export async function GET() {
 
 ## About
 
-- [About Vadym Mak](${BASE_URL}/about): Full-stack developer profile, 5+ years experience, specialties in Next.js, AI integration, and MCP servers.
+- [About Vadym Mak](${BASE_URL}/about): Full-stack developer since 2020 with 6+ production sites, specialties in Next.js, AI integration, MCP servers, and GEO optimization.
 - [Contact](${BASE_URL}/contact): Book a free 30-minute discovery call. Response within 24 hours.
 
 ## Services
