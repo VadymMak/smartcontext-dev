@@ -43,8 +43,8 @@ const STATS = [
 const TIMELINE = [
   {
     year: "2026",
-    title: "SmartContext.dev launched",
-    desc: "Full rebrand. v6.0 boilerplate. GEO/AEO optimization for AI search engines.",
+    title: "SmartContext.dev launched + Lead Web Developer role",
+    desc: "Full rebrand and v6.0 boilerplate with GEO/AEO optimization for AI search engines. Joined UB Market LTD as Lead Web Developer, leading B2B platform development.",
   },
   {
     year: "2025",
