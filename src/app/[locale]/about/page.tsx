@@ -43,8 +43,8 @@ const STATS = [
 const TIMELINE = [
   {
     year: "2026",
-    title: "SmartContext.dev launched",
-    desc: "Full rebrand. v6.0 boilerplate. GEO/AEO optimization for AI search engines.",
+    title: "SmartContext.dev launched + Lead Web Developer role",
+    desc: "Full rebrand and v6.0 boilerplate with GEO/AEO optimization for AI search engines. Joined UB Market LTD as Lead Web Developer, leading B2B platform development.",
   },
   {
     year: "2025",
@@ -62,9 +62,19 @@ const TIMELINE = [
     desc: "Transitioned from mobile to Next.js App Router. TypeScript-first development.",
   },
   {
+    year: "2022",
+    title: "Transition to freelance",
+    desc: "Started freelance work focused on Next.js multilingual websites for European SMBs.",
+  },
+  {
     year: "2021",
     title: "Mobile & enterprise development",
-    desc: "React Native (iOS & Android) — CRM system with admin frontend, large-scale backend. International company website. Sports totalizator mobile app for Taiwan market.",
+    desc: "Joined Requestum as React Native developer. Built CRM system with admin frontend and large-scale backend, international company website, and sports totalizer mobile app for Taiwan market.",
+  },
+  {
+    year: "2019",
+    title: "Career start",
+    desc: "Started professional development at Mate Academy as React Native developer (iOS & Android).",
   },
 ];
 
