@@ -62,9 +62,19 @@ const TIMELINE = [
     desc: "Transitioned from mobile to Next.js App Router. TypeScript-first development.",
   },
   {
+    year: "2022",
+    title: "Transition to freelance",
+    desc: "Started freelance work focused on Next.js multilingual websites for European SMBs.",
+  },
+  {
     year: "2021",
     title: "Mobile & enterprise development",
-    desc: "React Native (iOS & Android) — CRM system with admin frontend, large-scale backend. International company website. Sports totalizator mobile app for Taiwan market.",
+    desc: "Joined Requestum as React Native developer. Built CRM system with admin frontend and large-scale backend, international company website, and sports totalizer mobile app for Taiwan market.",
+  },
+  {
+    year: "2019",
+    title: "Career start",
+    desc: "Started professional development at Mate Academy as React Native developer (iOS & Android).",
   },
 ];
 
