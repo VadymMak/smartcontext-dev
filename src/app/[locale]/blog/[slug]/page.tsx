@@ -152,8 +152,8 @@ export default async function PostPage({ params }: PostPageProps) {
               FULL-STACK DEVELOPER & AI INTEGRATOR
             </p>
             <p className={styles.authorBio}>
-              Next.js developer with 5+ years experience and 5+ production
-              sites. Specializes in AI integration, MCP servers, GEO optimization, and
+              Full-stack developer since 2019 with 6+ production sites.
+              Specializes in AI integration, MCP servers, GEO optimization, and
               Lighthouse 95–100 performance. Based in Europe, working with
               EU/USA clients remotely.
             </p>
