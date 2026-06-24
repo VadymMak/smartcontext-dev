@@ -67,6 +67,21 @@ const SERVICES = [
       "Google Search Console setup",
     ],
   },
+  {
+    slug: "mcp-integration",
+    title: "MCP Integration",
+    price: "from $2,000",
+    timeline: "1–3 weeks",
+    desc: "Build Model Context Protocol endpoints that expose your business systems to AI agents like Claude Desktop, Cursor, and Windsurf. I built a production MCP server with 9 tools for a multi-tenant SaaS commerce platform — store owners manage products and orders via natural language.",
+    features: [
+      "Custom MCP server + tool schema",
+      "Auth & rate limiting",
+      "Claude Desktop config ready",
+      "Prisma / PostgreSQL integration",
+      "Multi-tenant isolation",
+      "Tool discovery documentation",
+    ],
+  },
 ];
 
 export default function ServicesPage() {

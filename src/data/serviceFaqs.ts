@@ -84,7 +84,7 @@ export const serviceFaqs: AllServiceFAQs = {
       {
         question: "Do you integrate other AI tools beyond chat?",
         answer:
-          "Yes. Beyond chat widgets, I build AI-powered email automation, content generation pipelines, and custom LLM integrations using the OpenAI API and embeddings.",
+          "Yes. Beyond chat widgets, I build AI-powered email automation, content generation pipelines, MCP endpoints, and custom LLM integrations using the OpenAI API and embeddings.",
       },
     ],
   },
@@ -115,6 +115,41 @@ export const serviceFaqs: AllServiceFAQs = {
         question: "Do you have proven SEO results?",
         answer:
           "Yes. akillustrator.com — built and maintained by SmartContext — achieves Lighthouse SEO 100, has 40+ indexed URLs across 5 languages, and is verified in both Google Search Console and Yandex Webmaster.",
+      },
+    ],
+  },
+
+  "mcp-integration": {
+    en: [
+      {
+        question: "What is MCP and why does it matter in 2026?",
+        answer:
+          "MCP (Model Context Protocol) is the 2025 standard that lets AI agents like Claude Desktop, Cursor, and Windsurf interact with your business systems through a stable interface. Instead of copy-pasting data into a chat window, your team connects an AI agent directly to your database, APIs, and workflows. I built a production MCP endpoint with 9 tools for a multi-tenant SaaS commerce platform — store owners manage products and orders via natural language.",
+      },
+      {
+        question: "What does an MCP server cost?",
+        answer:
+          "Pricing depends on scope. Starter ($2,000): 3–5 read-only tools, single data source, basic API key auth, delivered in 1 week. Standard ($4,000): 5–10 tools with read/write, 2–3 data sources, role-based auth, 2 weeks. Enterprise ($6,000+): unlimited tools, multi-tenant isolation, audit logging, custom auth flows, 3+ weeks.",
+      },
+      {
+        question: "What AI agents can connect to an MCP endpoint?",
+        answer:
+          "Any MCP-compatible client: Claude Desktop (Anthropic), Cursor, Windsurf, Continue.dev, and any application built with the MCP SDK. The endpoint uses a standard JSON-RPC protocol, so new clients connect without code changes on your server.",
+      },
+      {
+        question: "What business systems can you expose via MCP?",
+        answer:
+          "Any system with a database or API: e-commerce platforms (products, orders, customers), booking systems (slots, appointments), CRM data (leads, deals), internal knowledge bases, analytics dashboards. I work primarily with Prisma + PostgreSQL stacks but can adapt to REST APIs or other data sources.",
+      },
+      {
+        question: "Is the MCP endpoint secure?",
+        answer:
+          "Yes. Every MCP server I build includes authentication (API key, OAuth, or session-based), rate limiting per client, and input validation on all tool parameters. Multi-tenant deployments include STORE_SLUG-based isolation so one tenant cannot access another's data.",
+      },
+      {
+        question: "Do you have a real production MCP example?",
+        answer:
+          "Yes. I built an MCP endpoint at /api/mcp for a multi-tenant SaaS commerce platform with 9 tools: get_products, update_product_price, bulk_update_prices, get_orders, update_order_status, get_customers, get_analytics, create_promotion, and search_knowledge. Full case study: smartctx.dev/blog/custom-nextjs-vs-shopify-2026.",
       },
     ],
   },

@@ -37,6 +37,7 @@ const STATS = [
   { value: "6+", label: "Production sites live" },
   { value: "95–100", label: "Lighthouse score" },
   { value: "6", label: "Languages per site" },
+  { value: "1", label: "MCP endpoint in production" },
 ];
 
 const TIMELINE = [
@@ -188,6 +189,15 @@ export default function AboutPage() {
                 Technical SEO + GEO optimization for AI search engines (ChatGPT,
                 Perplexity). FAQPage schema, structured data, Princeton KDD 2024
                 methodology. Proven: SEO 100 on all sites.
+              </p>
+            </div>
+            <div className={styles.whatCard}>
+              <h3>MCP Integration</h3>
+              <p>
+                Model Context Protocol endpoints that expose your business
+                systems to AI agents (Claude Desktop, Cursor, Windsurf).
+                Production MCP server: 9 tools, multi-tenant isolation, auth,
+                rate limiting. Store owners manage products via natural language.
               </p>
             </div>
           </div>
