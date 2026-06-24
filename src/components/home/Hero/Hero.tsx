@@ -18,7 +18,7 @@ const PRICING_CARDS = [
 ] as const;
 
 const TRUST_ITEMS = [
-  { key: "trust_projects", value: "5+" },
+  { key: "trust_projects", value: "6+" },
   { key: "trust_score", value: "98" },
   { key: "trust_langs", value: "6" },
   { key: "trust_seo", value: "100" },
