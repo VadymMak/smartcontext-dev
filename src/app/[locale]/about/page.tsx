@@ -33,7 +33,7 @@ const STACK = [
 ];
 
 const STATS = [
-  { value: "5+", label: "Years of experience" },
+  { value: "6+", label: "Years of experience" },
   { value: "6+", label: "Production sites live" },
   { value: "95–100", label: "Lighthouse score" },
   { value: "6", label: "Languages per site" },
