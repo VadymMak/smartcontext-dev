@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__brain__save_session_summary",
+      "Bash(echo \".claude/settings.local.json\" >> .gitignore)"
+    ],
+    "additionalDirectories": [
+      "/Users/vadymmak/Documents/projects/smartcontext-v2"
+    ]
+  }
+}
