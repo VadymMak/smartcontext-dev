@@ -12,7 +12,7 @@ const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://smartctx.dev";
 export const metadata: Metadata = {
   title: "About Vadym Mak — SmartContext",
   description:
-    "Full-Stack Developer & AI Integrator. 5+ years experience. React Native (iOS/Android), Next.js, enterprise CRM systems. 6+ production sites. Lighthouse 95–100.",
+    "Full-stack developer since 2019 with 6+ production sites. React Native (iOS/Android), Next.js, enterprise CRM systems. AI integration, MCP servers. Lighthouse 95–100.",
   alternates: {
     canonical: `${BASE_URL}/about`,
   },
@@ -76,7 +76,7 @@ export default function AboutPage() {
     url: BASE_URL,
     jobTitle: "Full-Stack Developer & AI Integrator",
     description:
-      "Full-stack developer since 2020. React Native (iOS/Android) — CRM systems, enterprise apps. Next.js developer with 6+ production sites. Lighthouse 95–100. AI integration, MCP servers, and GEO optimization.",
+      "Full-stack developer since 2019. React Native (iOS/Android) — CRM systems, enterprise apps. Next.js developer with 6+ production sites. Lighthouse 95–100. AI integration, MCP servers, and GEO optimization.",
     knowsAbout: [
       "Next.js",
       "TypeScript",
@@ -126,10 +126,13 @@ export default function AboutPage() {
               📍 Based in Europe · Remote worldwide
             </p>
             <p className={styles.bio}>
-              Full-stack developer since 2021. Started with React Native —
-              building iOS & Android apps including a CRM system and a sports
-              totalizator for the Taiwan market. Since 2023 focused on Next.js
-              web development with AI integration, MCP servers, SEO, and GEO optimization.
+              In 2026, Google SEO is not enough — 93% of AI Mode searches end
+              without a click. I build sites that rank on Google AND get cited
+              by ChatGPT, Perplexity, and Google AI Overviews. This approach is
+              GEO (Generative Engine Optimization) and AEO (Answer Engine
+              Optimization), based on Princeton University research (KDD 2024).
+              Developer since 2019, with 4+ years focused on multilingual
+              Next.js websites for European SMBs.
             </p>
             <div className={styles.heroActions}>
               <Link href="/contact" className={styles.ctaPrimary}>
