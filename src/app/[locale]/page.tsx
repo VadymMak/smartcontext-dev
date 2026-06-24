@@ -61,7 +61,7 @@ export default async function HomePage({ params }: HomePageProps) {
     url: BASE_URL,
     jobTitle: "Full-Stack Developer & AI Integrator",
     description:
-      "Next.js developer with 6+ production sites. Lighthouse 95-100. AI integration and GEO optimization.",
+      "Next.js developer with 6+ production sites. Lighthouse 95-100. AI integration, MCP servers, and GEO optimization.",
     knowsAbout: [
       "Next.js",
       "TypeScript",

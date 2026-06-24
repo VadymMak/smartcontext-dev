@@ -76,7 +76,7 @@ export default function AboutPage() {
     url: BASE_URL,
     jobTitle: "Full-Stack Developer & AI Integrator",
     description:
-      "Full-stack developer since 2021. React Native (iOS/Android) — CRM systems, enterprise apps. Next.js developer with 6+ production sites. Lighthouse 95–100. AI integration and GEO optimization.",
+      "Full-stack developer since 2021. React Native (iOS/Android) — CRM systems, enterprise apps. Next.js developer with 6+ production sites. Lighthouse 95–100. AI integration, MCP servers, and GEO optimization.",
     knowsAbout: [
       "Next.js",
       "TypeScript",
@@ -129,7 +129,7 @@ export default function AboutPage() {
               Full-stack developer since 2021. Started with React Native —
               building iOS & Android apps including a CRM system and a sports
               totalizator for the Taiwan market. Since 2023 focused on Next.js
-              web development with AI integration, SEO, and GEO optimization.
+              web development with AI integration, MCP servers, SEO, and GEO optimization.
             </p>
             <div className={styles.heroActions}>
               <Link href="/contact" className={styles.ctaPrimary}>
