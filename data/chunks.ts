@@ -286,4 +286,33 @@ export const chunks: Chunk[] = [
       "Template reusable for barbershops, nail salons, beauty studios, dental clinics via STORE_SLUG env variable. Supports SK, EN, UK, CS, DE via next-intl. " +
       "URL: smartctx.dev/blog/kate-barber-nextjs-ai-2026",
   },
+
+  // --- Blog (Post 8) ---
+  {
+    id: "blog-shopify-vs-custom-decision",
+    category: "blog",
+    content:
+      "Blog post: When Does a Custom Next.js E-Commerce Platform Beat Shopify in 2026? " +
+      "Decision framework based on real multi-tenant SaaS production deployment. " +
+      "Stay on Shopify when: under $500K annual revenue, single vertical, standard checkout, 1-2 languages, no AI agent integration planned. " +
+      "Switch to custom Next.js when: managing multiple stores, vertical-specific UI requirements, $500+ monthly app subscriptions, AI agent integration via MCP, semantic search via pgvector RAG. " +
+      "3-year cost comparison: single Shopify store $13,400-$140,000 vs custom $15,720-$40,720. 5-store SaaS: Shopify Plus $67,000-$700,000 vs custom $15,720-$40,720 (single deployment serves multiple tenants). " +
+      "Migration cost from Shopify to custom: $15,000-$50,000 — cheaper to build right from start when requirements are clear. " +
+      "Performance: Shopify Basic Lighthouse 50-70 mobile, custom Next.js 92-100 mobile. " +
+      "URL: smartctx.dev/blog/custom-nextjs-vs-shopify-2026",
+  },
+  {
+    id: "blog-multitenant-saas-architecture",
+    category: "blog",
+    content:
+      "Blog post: When Does a Custom Next.js E-Commerce Platform Beat Shopify in 2026? " +
+      "Multi-tenant Next.js SaaS architecture: one GitHub repo, multiple Vercel deployments, each with different STORE_SLUG env variable reading from shared Neon PostgreSQL with pgvector. " +
+      "Currently running 5 store verticals from one codebase: e-commerce (SKU, stock, brands), restaurant (menu, reservations, table booking), food delivery (zones, time slots, expiry), shoe market (size, gender, brand), B2B supplier (MOQ, bulk pricing, invoices). " +
+      "VerticalConfig system drives UI behavior per store type: navigation, product fields, checkout fields, homepage sections all data-driven. Same React components render dramatically different interfaces. " +
+      "Adding new client = seed script + new Vercel project + STORE_SLUG env var. Zero code duplication. Onboarding time: 2 days. " +
+      "AI admin panel with 9 tools (get_products, update_product_price, bulk_update_prices, get_orders, update_order_status, get_customers, get_analytics, create_promotion, search_knowledge) via GPT-4o-mini. " +
+      "MCP endpoint at /api/mcp exposes same 9 tools for Claude Desktop control — connect AI agent directly to commerce store without custom integration. " +
+      "Cache isolation: unstable_cache keys include STORE_SLUG, revalidateTag(STORE_SLUG) prevents cross-tenant data bleed. " +
+      "URL: smartctx.dev/blog/custom-nextjs-vs-shopify-2026",
+  },
 ];
