@@ -2,18 +2,24 @@
 // src/app/[locale]/projects/page.tsx
 // ============================================================
 import type { Metadata } from "next";
+import { alternatesFor } from "@/lib/seo";
 import styles from "./projects.module.css";
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://smartctx.dev";
+interface ProjectsPageProps {
+  params: Promise<{ locale: string }>;
+}
 
-export const metadata: Metadata = {
-  title: "Projects — SmartContext",
-  description:
-    "Selected client work — Next.js, TypeScript, AI integration, MCP servers, SEO. 6 production sites with Lighthouse 95–100.",
-  alternates: {
-    canonical: `${BASE_URL}/projects`,
-  },
-};
+export async function generateMetadata({
+  params,
+}: ProjectsPageProps): Promise<Metadata> {
+  const { locale } = await params;
+  return {
+    title: "Projects — SmartContext",
+    description:
+      "Client work — Next.js, TypeScript, AI integration, MCP servers, multilingual sites. Transfer platforms, SaaS, B2B.",
+    alternates: alternatesFor(locale, "/projects"),
+  };
+}
 
 const PROJECTS = [
   {
@@ -144,14 +150,15 @@ const PROJECTS = [
   },
 ];
 
-export default function ProjectsPage() {
+export default async function ProjectsPage({ params }: ProjectsPageProps) {
+  await params; // satisfy Next.js dynamic API requirement
   return (
     <div className="container">
       <section className={styles.header}>
         <h1 className={styles.title}>Projects</h1>
         <p className={styles.subtitle}>
-          Selected client work built with Next.js, TypeScript, and AI
-          integration. Every site ships with Lighthouse 95+ and SEO 100.
+          Client work — Next.js, TypeScript, AI integration, MCP servers, and
+          multilingual sites for European companies.
         </p>
       </section>
 

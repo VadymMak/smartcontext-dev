@@ -90,59 +90,59 @@ export function ServicesPreview() {
       </ScrollReveal>
 
       <div className={styles.bento}>
-        {/* Wide card — Web Development */}
+        {/* Wide card — AI Integration (flagship) */}
         <ScrollReveal>
           <Link
-            href="/services/web-development"
+            href="/services/ai-chat"
             className={`${styles.card} ${styles.cardWide}`}
+          >
+            <div className={styles.cardTop}>
+              <span className={styles.iconWrap}>
+                <IconBot />
+              </span>
+              <span className={styles.badge}>Most requested</span>
+            </div>
+            <h3 className={styles.cardTitle}>AI Integration (RAG + MCP)</h3>
+            <p className={styles.cardDesc}>
+              Retrieval-augmented assistant over your own data, or an MCP server
+              that lets Claude, Cursor and Windsurf operate your business systems
+              in natural language.
+            </p>
+            <div className={styles.cardMeta}>
+              <span className={styles.price}>from $3,000</span>
+              <span className={styles.divider} aria-hidden="true" />
+              <span className={styles.timeline}>2–4 weeks</span>
+            </div>
+            <span className={styles.cta}>View details →</span>
+          </Link>
+        </ScrollReveal>
+
+        {/* Narrow card — Web Development */}
+        <ScrollReveal delay={100}>
+          <Link
+            href="/services/web-development"
+            className={`${styles.card} ${styles.cardNarrow}`}
           >
             <div className={styles.cardTop}>
               <span className={styles.iconWrap}>
                 <IconCode />
               </span>
-              <span className={styles.badge}>Most popular</span>
             </div>
-            <h3 className={styles.cardTitle}>Next.js Web Development</h3>
+            <h3 className={styles.cardTitle}>Multilingual Next.js Site</h3>
             <p className={styles.cardDesc}>
-              Fast, SEO-ready websites built on Next.js + TypeScript. Lighthouse
-              95+, mobile-first, AI-ready architecture. From landing pages to
-              full B2B platforms.
+              Next.js + TypeScript. Correct hreflang, server-rendered structured
+              data, up to 6 languages.
             </p>
             <div className={styles.cardMeta}>
               <span className={styles.price}>from $1,200</span>
               <span className={styles.divider} aria-hidden="true" />
               <span className={styles.timeline}>2–6 weeks</span>
             </div>
-            <span className={styles.cta}>View details →</span>
-          </Link>
-        </ScrollReveal>
-
-        {/* Narrow card — AI Chat */}
-        <ScrollReveal delay={100}>
-          <Link
-            href="/services/ai-chat"
-            className={`${styles.card} ${styles.cardNarrow}`}
-          >
-            <div className={styles.cardTop}>
-              <span className={styles.iconWrap}>
-                <IconBot />
-              </span>
-            </div>
-            <h3 className={styles.cardTitle}>AI Chat Integration</h3>
-            <p className={styles.cardDesc}>
-              RAG-powered assistant trained on your content. Answers client
-              questions 24/7.
-            </p>
-            <div className={styles.cardMeta}>
-              <span className={styles.price}>from $500</span>
-              <span className={styles.divider} aria-hidden="true" />
-              <span className={styles.timeline}>1–2 weeks</span>
-            </div>
             <span className={styles.cta}>Learn more →</span>
           </Link>
         </ScrollReveal>
 
-        {/* Narrow card — SEO/GEO */}
+        {/* Narrow card — SEO & AI Visibility */}
         <ScrollReveal delay={200}>
           <Link
             href="/services/seo"
@@ -153,10 +153,10 @@ export function ServicesPreview() {
                 <IconTrendingUp />
               </span>
             </div>
-            <h3 className={styles.cardTitle}>SEO & GEO Optimization</h3>
+            <h3 className={styles.cardTitle}>SEO & AI Visibility</h3>
             <p className={styles.cardDesc}>
-              Rank in Google and get cited by ChatGPT. Technical SEO, schema
-              markup, GEO content.
+              Classic SEO is the primary AI-citation driver. Baseline across 5
+              platforms with 90-day retest.
             </p>
             <div className={styles.cardMeta}>
               <span className={styles.price}>from $600</span>

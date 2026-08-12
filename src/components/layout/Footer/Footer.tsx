@@ -8,6 +8,7 @@ import styles from "./Footer.module.css";
 
 export function Footer() {
   const t = useTranslations("footer");
+  const tn = useTranslations("nav");
   const year = new Date().getFullYear();
 
   return (
@@ -21,10 +22,7 @@ export function Footer() {
             <span className={styles.logoBracket}>{" }"}</span>
             <span className={styles.logoName}>SmartContext</span>
           </Link>
-          <p className={styles.tagline}>
-            Fast, AI-powered websites for studios and B2B. Next.js · TypeScript
-            · Lighthouse 95+.
-          </p>
+          <p className={styles.tagline}>{t("tagline")}</p>
         </div>
 
         {/* Nav columns */}
@@ -32,22 +30,25 @@ export function Footer() {
           <div className={styles.column}>
             <p className={styles.columnTitle}>Pages</p>
             <Link href="/" className={styles.columnLink}>
-              Home
+              {tn("home")}
             </Link>
             <Link href="/projects" className={styles.columnLink}>
-              Projects
+              {tn("projects")}
             </Link>
             <Link href="/services" className={styles.columnLink}>
-              Services
+              {tn("services")}
             </Link>
             <Link href="/blog" className={styles.columnLink}>
-              Blog
+              {tn("blog")}
             </Link>
             <Link href="/about" className={styles.columnLink}>
-              About
+              {tn("about")}
+            </Link>
+            <Link href="/for-agencies" className={styles.columnLink}>
+              {tn("agencies")}
             </Link>
             <Link href="/contact" className={styles.columnLink}>
-              Contact
+              {tn("contact")}
             </Link>
           </div>
 
@@ -60,14 +61,6 @@ export function Footer() {
               className={styles.columnLink}
             >
               WhatsApp
-            </a>
-            <a
-              href="https://www.upwork.com/freelancers/~011e4555f7ff90ae84"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.columnLink}
-            >
-              Upwork
             </a>
             <a
               href="https://github.com/VadymMak"
@@ -94,6 +87,9 @@ export function Footer() {
             </Link>
             <Link href="/terms" className={styles.columnLink}>
               {t("terms")}
+            </Link>
+            <Link href="/imprint" className={styles.columnLink}>
+              {t("imprint")}
             </Link>
           </div>
         </div>

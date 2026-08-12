@@ -3,27 +3,35 @@
 // ============================================================
 import type { Metadata } from "next";
 import { ContactForm } from "@/components/ui";
+import { alternatesFor } from "@/lib/seo";
 import styles from "./contact.module.css";
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://smartctx.dev";
+interface ContactPageProps {
+  params: Promise<{ locale: string }>;
+}
 
-export const metadata: Metadata = {
-  title: "Contact — SmartContext",
-  description:
-    "Book a free 30-min discovery call. I respond within 24 hours. Next.js development, AI integration, MCP servers, SEO optimization.",
-  alternates: {
-    canonical: `${BASE_URL}/contact`,
-  },
-};
+export async function generateMetadata({
+  params,
+}: ContactPageProps): Promise<Metadata> {
+  const { locale } = await params;
+  return {
+    title: "Contact — SmartContext",
+    description:
+      "Book a free 30-minute call. AI integration from $3,000. Multilingual Next.js from $1,200. I respond within 24 hours.",
+    alternates: alternatesFor(locale, "/contact"),
+  };
+}
 
-export default function ContactPage() {
+export default async function ContactPage({ params }: ContactPageProps) {
+  await params; // satisfy Next.js dynamic API requirement
+
   return (
     <div className="container">
       <section className={styles.hero}>
-        <h1 className={styles.title}>Let&apos;s Work Together</h1>
+        <h1 className={styles.title}>Let&apos;s work together</h1>
         <p className={styles.subtitle}>
-          Tell me about your project. Free 30-min discovery call — I respond
-          within 24 hours.
+          Tell me about your project. Free 30-minute call — I respond within 24
+          hours.
         </p>
       </section>
 
@@ -54,18 +62,6 @@ export default function ContactPage() {
                 className={styles.infoLink}
               >
                 +380 93 827 2293
-              </a>
-            </div>
-
-            <div className={styles.infoItem}>
-              <span className={styles.infoLabel}>Upwork</span>
-              <a
-                href="https://www.upwork.com/freelancers/~011e4555f7ff90ae84"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.infoLink}
-              >
-                upwork.com/freelancers/vadymmak
               </a>
             </div>
 
@@ -101,7 +97,14 @@ export default function ContactPage() {
             <div className={styles.infoItem}>
               <span className={styles.infoLabel}>Based in</span>
               <span className={styles.infoValue}>
-                Europe · Remote worldwide
+                Slovakia · 100 km from Vienna · Remote worldwide
+              </span>
+            </div>
+
+            <div className={styles.infoItem}>
+              <span className={styles.infoLabel}>Invoice</span>
+              <span className={styles.infoValue}>
+                EU VAT, reverse charge (Article 196)
               </span>
             </div>
           </div>
@@ -109,7 +112,7 @@ export default function ContactPage() {
           <div className={styles.infoCard}>
             <h2 className={styles.infoTitle}>What to expect</h2>
             <ul className={styles.expectList}>
-              <li>30-min discovery call — free</li>
+              <li>30-minute discovery call — free</li>
               <li>Detailed proposal within 48 hours</li>
               <li>Fixed price, no surprises</li>
               <li>Weekly progress updates</li>

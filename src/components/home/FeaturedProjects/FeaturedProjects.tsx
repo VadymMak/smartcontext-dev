@@ -1,6 +1,9 @@
 // ============================================================
 // src/components/home/FeaturedProjects/FeaturedProjects.tsx
 // Editorial numbered list — 01 / 02 / 03 style
+// Client projects first; own platform last.
+// TODO(metrics): replace metric placeholders with real GA data
+//                once clients share access.
 // ============================================================
 
 import { ScrollReveal } from "@/components/ui";
@@ -9,57 +12,57 @@ import styles from "./FeaturedProjects.module.css";
 const PROJECTS = [
   {
     num: "01",
-    title: "Kate Barber Template",
+    title: "Euroschnell — Airport Transfers",
     description:
-      "Production Next.js 15 barbershop template with AI booking assistant, slot-based reservations, and admin-controlled CSS theming.",
-    tags: ["Next.js 15", "AI Booking", "Slot System"],
-    metric: "Lighthouse 96",
-    url: "https://vendshop-template-services.vercel.app/sk",
+      "German-language transfer platform for the Vienna ⇄ Bratislava corridor. Fixed-price route pages, fleet, quote form, Impressum and Datenschutzerklärung for the DACH market.",
+    tags: ["Next.js 15", "German market", "Route pages"],
+    metric: "DE · SK", // TODO(metrics): replace with quote requests/month once client shares GA
+    url: "https://www.euroschnell.eu/de",
   },
   {
     num: "02",
+    title: "Transfer SK-EU",
+    description:
+      "Multilingual transfer platform: route pricing engine, fleet management, admin panel, testimonials with moderation, MCP endpoint and RAG chat over the site's own content.",
+    tags: ["Multilingual", "Admin panel", "MCP + RAG"],
+    metric: "4 languages", // TODO(metrics): replace with quote requests/month
+    url: "https://transfersk.eu",
+  },
+  {
+    num: "03",
     title: "VendShop",
     description:
-      "Multi-tenant SaaS commerce platform. 5 store verticals from one codebase, MCP endpoint with 9 tools for Claude Desktop, AI admin panel.",
-    tags: ["Next.js 15", "MCP", "AI Studio"],
+      "Multi-tenant SaaS commerce platform. Five store verticals from one codebase, theme presets with an admin editor, Stripe with webhooks, MCP endpoint exposing nine tools to Claude Desktop.",
+    tags: ["Multi-tenant SaaS", "MCP · 9 tools", "Stripe"],
     metric: "Live SaaS",
     url: "https://vendshop.shop",
   },
   {
-    num: "03",
-    title: "SmartContext.dev",
-    description:
-      "Portfolio site with RAG-powered AI chat, 7-post blog, GEO optimization, and Telegram notification bot.",
-    tags: ["Next.js 15", "RAG Chat", "GEO"],
-    metric: "Lighthouse 99",
-    url: "https://smartctx.dev",
-  },
-  {
     num: "04",
-    title: "FormaInk Studio",
+    title: "UB Market B2B",
     description:
-      "Design studio website with conversion-first UX, 6 languages, service packages with pricing.",
-    tags: ["Next.js", "6 langs", "AI email"],
-    metric: "Lighthouse 98",
-    url: "https://formaink.com",
+      "B2B trading platform in six languages with AI-assisted product search and a geo-optimised blog.",
+    tags: ["B2B", "6 languages", "AI search"],
+    metric: "6 languages",
+    url: "https://ub-market.com",
   },
   {
     num: "05",
-    title: "AK Illustrator",
+    title: "FormaInk Studio",
     description:
-      "Artist portfolio with protected gallery, AI chat assistant, and Telegram notifications.",
-    tags: ["Portfolio", "AI Chat", "Telegram"],
-    metric: "AI Features",
-    url: "https://akillustrator.com",
+      "Design studio site — six languages, service packages with transparent pricing, AI-assisted email handling.",
+    tags: ["Next.js", "6 languages", "AI email"],
+    metric: "6 languages",
+    url: "https://formaink.com",
   },
   {
     num: "06",
-    title: "UB Market B2B",
+    title: "Kate Barber Template",
     description:
-      "B2B trading platform with 6 languages, 12 blog posts, GEO optimization, and AI email replies.",
-    tags: ["6 langs", "12 blog posts", "GEO"],
-    metric: "Lighthouse 97",
-    url: "https://ub-market.com",
+      "Production booking template: slot-based reservations, AI booking assistant, database-driven theming. Reusable across salons and clinics.",
+    tags: ["Booking", "AI assistant", "Theming"],
+    metric: "Template",
+    url: "https://vendshop-template-services.vercel.app/sk",
   },
 ] as const;
 
@@ -70,7 +73,7 @@ interface FeaturedProjectsProps {
 
 export function FeaturedProjects({
   title = "Featured Projects",
-  subtitle = "Selected work from recent clients",
+  subtitle = "Production work — client projects first",
 }: FeaturedProjectsProps) {
   return (
     <section className={styles.section}>
