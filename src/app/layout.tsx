@@ -3,9 +3,12 @@
 // ⚠️ Only place with <html> and <body> tags
 // ⚠️ metadataBase CRITICAL — without it OG URLs are relative
 // ⚠️ display: 'swap' on fonts — prevents 380ms font-blocking
+// ⚠️ lang attribute reads locale via getLocale() so /de gets
+//    lang="de" correctly — hardcoding "en" would be wrong
 // ============================================================
 import type { Metadata } from "next";
 import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import { getLocale } from "next-intl/server";
 import "../styles/globals.css";
 
 const inter = Inter({
@@ -36,7 +39,7 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_NAME}`,
   },
   description:
-    "Fast, AI-powered websites for studios and B2B. Next.js · TypeScript · Lighthouse 95+.",
+    "AI integration and multilingual Next.js development for European companies.",
   verification: {
     google: "qYyYGvjrOzBnlf7ls1ahbtCCAkfBPnthcgN0xwtUjtQ",
   },
@@ -56,13 +59,14 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const locale = await getLocale();
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <body
         className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
       >

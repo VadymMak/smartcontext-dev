@@ -1,0 +1,103 @@
+{
+  "nav": {
+    "home": "Start",
+    "projects": "Projekte",
+    "services": "Leistungen",
+    "blog": "Blog",
+    "about": "Über mich",
+    "contact": "Kontakt",
+    "agencies": "Für Agenturen"
+  },
+  "hero": {
+    "role": "KI-Integration & Fullstack-Entwicklung",
+    "available": "Verfügbar für Projekte",
+    "quick_answer": "KI-Integration (RAG, MCP) ab 3.000 $. Mehrsprachige Next.js-Websites ab 1.200 $. Umsetzung in 2–6 Wochen, Festpreis. Rechnung aus der EU mit Reverse-Charge-Verfahren. Standort Slowakei, 100 km von Wien.",
+    "subheading": "Ich verbinde Unternehmenssysteme mit KI und baue mehrsprachige Next.js-Websites für europäische Unternehmen. Zwei Transferplattformen auf Deutsch im Produktivbetrieb. RAG-Chat und MCP-Server laufen produktiv, nicht als Demo.",
+    "cta_primary": "Kostenloses 30-Minuten-Gespräch",
+    "cta_secondary": "Referenzen ansehen",
+    "trust_projects": "Websites im Produktivbetrieb",
+    "trust_langs": "Ausgelieferte Sprachen",
+    "trust_eu": "EU-Rechnung, Reverse Charge",
+    "trust_location": "km nach Wien"
+  },
+  "services": {
+    "title": "Leistungen",
+    "subtitle": "Festpreise, realistische Termine und eine ehrliche Einordnung, was tatsächlich wirkt",
+    "cta": "Mehr erfahren"
+  },
+  "pricing": {
+    "from": "ab",
+    "popular": "Am häufigsten angefragt",
+    "ai_title": "KI-Integration",
+    "ai_price": "3.000 $",
+    "ai_desc": "RAG-Assistent auf Basis Ihrer eigenen Daten oder ein MCP-Server, der Ihre Unternehmenssysteme für Claude, Cursor und Windsurf zugänglich macht. Inklusive Missbrauchs- und Kostenschutz.",
+    "ai_timeline": "2–4 Wochen",
+    "site_title": "Mehrsprachige Website",
+    "site_price": "1.200 $",
+    "site_desc": "Next.js und TypeScript. Korrektes hreflang, serverseitig gerenderte strukturierte Daten, programmatische Landingpages für die Suchanfragen Ihrer Kunden.",
+    "site_timeline": "2–6 Wochen",
+    "growth_title": "Growth-Retainer",
+    "growth_price": "800 $/Mon.",
+    "growth_desc": "Inhalte, technische Pflege und Messung der KI-Sichtbarkeit gegen eine erhobene Ausgangsbasis. Mindestens drei Monate, weil sich vorher nichts bewegt.",
+    "growth_timeline": "laufend",
+    "cta": "Anfrage stellen"
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Webentwicklung, KI-Integration und was die Forschung tatsächlich zeigt",
+    "read_more": "Weiterlesen",
+    "all_posts": "Alle Beiträge",
+    "published": "Veröffentlicht",
+    "updated": "Aktualisiert",
+    "minutes_read": "Min. Lesezeit"
+  },
+  "contact": {
+    "title": "Zusammenarbeiten",
+    "subtitle": "Erzählen Sie mir von Ihrem Projekt",
+    "name_label": "Ihr Name",
+    "name_placeholder": "Max Mustermann",
+    "email_label": "E-Mail-Adresse",
+    "email_placeholder": "max@beispiel.de",
+    "project_label": "Projektart",
+    "project_placeholder": "Projektart wählen",
+    "budget_label": "Budgetrahmen",
+    "budget_placeholder": "Budget wählen",
+    "message_label": "Nachricht",
+    "message_placeholder": "Beschreiben Sie Projekt, Ziele und Zeitrahmen...",
+    "submit": "Nachricht senden",
+    "success": "Nachricht gesendet. Ich melde mich innerhalb von 24 Stunden.",
+    "error": "Es ist ein Fehler aufgetreten. Bitte erneut versuchen oder direkt an hello@smartctx.dev schreiben."
+  },
+  "agencies": {
+    "title": "Kapazität für Agenturen",
+    "subtitle": "Next.js und TypeScript, White Label, Rechnung aus der EU",
+    "lead": "Wenn Ihr Team ausgelastet ist und ein Next.js-Projekt wartet, übernehme ich die Spitze. Die Kundenbeziehung bleibt bei Ihnen, ich bleibe unsichtbar.",
+    "point_stack": "Next.js 15, TypeScript strict, Mehrsprachigkeit mit next-intl, Prisma und PostgreSQL",
+    "point_invoice": "Slowakischer Einzelunternehmer mit EU-USt-IdNr. Reverse Charge nach Artikel 196 — für Ihre Buchhaltung eine gewöhnliche innergemeinschaftliche Rechnung.",
+    "point_timezone": "Mitteleuropäische Zeit. Wien liegt 100 km entfernt, ein Vor-Ort-Termin ist möglich.",
+    "point_whitelabel": "White Label als Standard. Ich kontaktiere Ihren Kunden nicht und veröffentliche die Arbeit nicht ohne Ihre schriftliche Freigabe.",
+    "point_rate": "Stundensatz oder Festpreis je Meilenstein. Satz auf Anfrage.",
+    "cta": "Verfügbarkeit anfragen"
+  },
+  "footer": {
+    "tagline": "KI-Integration und mehrsprachige Webentwicklung für europäische Unternehmen.",
+    "rights": "Alle Rechte vorbehalten.",
+    "built": "Erstellt mit Next.js",
+    "privacy": "Datenschutzerklärung",
+    "terms": "AGB",
+    "imprint": "Impressum"
+  },
+  "cookie": {
+    "message": "Diese Website verwendet Cookies, um Ihre Nutzung zu verbessern und den Traffic zu analysieren.",
+    "accept": "Akzeptieren",
+    "decline": "Ablehnen"
+  },
+  "common": {
+    "loading": "Wird geladen...",
+    "back": "Zurück",
+    "home": "Start",
+    "error_title": "Es ist ein Fehler aufgetreten",
+    "error_message": "Bitte laden Sie die Seite neu oder versuchen Sie es später erneut.",
+    "last_updated": "Zuletzt aktualisiert"
+  }
+}
