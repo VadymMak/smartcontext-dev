@@ -14,18 +14,18 @@ const PROJECTS = [
     num: "01",
     title: "Euroschnell — Airport Transfers",
     description:
-      "German-language transfer platform for the Vienna ⇄ Bratislava corridor. Fixed-price route pages, fleet, quote form, Impressum and Datenschutzerklärung for the DACH market.",
-    tags: ["Next.js 15", "German market", "Route pages"],
-    metric: "DE · SK", // TODO(metrics): replace with quote requests/month once client shares GA
+      "German-first transfer platform for the Vienna ⇄ Bratislava corridor. Thirteen routes generate 52 landing pages across four languages, each with a fixed price in visible text, distance and driving time. Quote form prefilled from the route, admin panel for fleet and pricing, Impressum and Datenschutzerklärung for the DACH market.",
+    tags: ["German-first", "4 languages", "52 route pages"],
+    metric: "52 route pages", // TODO(metrics): swap for quote requests/month once the client shares GA
     url: "https://www.euroschnell.eu/de",
   },
   {
     num: "02",
     title: "Transfer SK-EU",
     description:
-      "Multilingual transfer platform: route pricing engine, fleet management, admin panel, testimonials with moderation, MCP endpoint and RAG chat over the site's own content.",
-    tags: ["Multilingual", "Admin panel", "MCP + RAG"],
-    metric: "4 languages", // TODO(metrics): replace with quote requests/month
+      "Six-language transfer platform covering four airport corridors — Bratislava, Vienna, Budapest, Prague. Prices come from the database with a build-time fallback, so the operator changes a fare in the admin panel and every localized route page follows. MCP endpoint and a retrieval-augmented chat answering from the site's own content.",
+    tags: ["6 languages", "MCP + RAG chat", "DB-driven pricing"],
+    metric: "6 languages", // TODO(metrics): swap for quote requests/month
     url: "https://transfersk.eu",
   },
   {
