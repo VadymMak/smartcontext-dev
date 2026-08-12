@@ -4,12 +4,13 @@
 // ============================================================
 
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { redirect } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import Link from "next/link";
 import Image from "next/image";
 import { getAllSlugs, getPostBySlug, getAllPosts } from "@/lib/blog";
+import { routing } from "@/i18n/routing";
 import styles from "./post.module.css";
 
 interface PostPageProps {
@@ -17,8 +18,18 @@ interface PostPageProps {
 }
 
 export async function generateStaticParams() {
-  const slugs = getAllSlugs("en");
-  return slugs.map((slug) => ({ slug, locale: "en" }));
+  // Collect every slug across all locales, then generate a path for every
+  // locale × slug combination. Missing-locale combos become redirect pages
+  // at runtime rather than 404s — safe because the page component redirects.
+  const allSlugs = new Set<string>();
+  for (const locale of routing.locales) {
+    for (const slug of getAllSlugs(locale)) {
+      allSlugs.add(slug);
+    }
+  }
+  return routing.locales.flatMap((locale) =>
+    [...allSlugs].map((slug) => ({ locale, slug })),
+  );
 }
 
 export async function generateMetadata({
@@ -52,7 +63,14 @@ export default async function PostPage({ params }: PostPageProps) {
   const { locale, slug } = await params;
   const post = getPostBySlug(slug, locale);
 
-  if (!post) notFound();
+  if (!post) {
+    // Post doesn't exist for this locale — redirect to the blog index for that
+    // locale rather than 404ing. With localePrefix "as-needed" the default
+    // locale has no prefix; non-default locales carry theirs.
+    const prefix =
+      locale === routing.defaultLocale ? "" : `/${locale}`;
+    redirect(`${prefix}/blog`);
+  }
 
   const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://smartctx.dev";
 

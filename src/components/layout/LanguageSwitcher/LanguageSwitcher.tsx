@@ -5,19 +5,25 @@
 // inline prop:
 //   <LanguageSwitcher />        → dropdown (desktop header)
 //   <LanguageSwitcher inline /> → flat row of buttons (mobile overlay)
-// ⚠️ ua locale → uk hreflang (ISO 639-1 — Google requirement)
 // Outside click: both mousedown + touchstart for iOS support
 // ============================================================
 
 import { useState, useRef, useEffect } from "react";
 import { useLocale } from "next-intl";
 import { useRouter, usePathname } from "@/i18n/navigation";
+import { routing } from "@/i18n/routing";
 import styles from "./LanguageSwitcher.module.css";
 
-const LOCALES = [
-  { code: "en", label: "English", short: "EN" },
-  { code: "sk", label: "Slovenčina", short: "SK" },
-];
+const LOCALE_LABELS: Record<string, { label: string; short: string }> = {
+  en: { label: "English", short: "EN" },
+  de: { label: "Deutsch", short: "DE" },
+};
+
+const LOCALES = routing.locales.map((code) => ({
+  code,
+  label: LOCALE_LABELS[code]?.label ?? code.toUpperCase(),
+  short: LOCALE_LABELS[code]?.short ?? code.toUpperCase(),
+}));
 
 interface Props {
   inline?: boolean;

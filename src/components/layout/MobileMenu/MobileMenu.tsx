@@ -11,7 +11,7 @@ import { useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { ThemeToggle } from "@/components/ui";
-// import { LanguageSwitcher } from "../LanguageSwitcher/LanguageSwitcher";
+import { LanguageSwitcher } from "../LanguageSwitcher/LanguageSwitcher";
 import styles from "./MobileMenu.module.css";
 
 const NAV_LINKS = [
@@ -104,9 +104,9 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
           ))}
         </nav>
 
-        {/* Footer row */}
-        <div className={styles.panelFooter}>
-          {/* <LanguageSwitcher inline /> */}
+        {/* Footer row — onClick bubbles from inline buttons to close the overlay */}
+        <div className={styles.panelFooter} onClick={onClose}>
+          <LanguageSwitcher inline />
         </div>
       </div>
     </>

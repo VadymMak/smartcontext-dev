@@ -11,7 +11,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { ThemeToggle } from "@/components/ui";
-// import { LanguageSwitcher } from "../LanguageSwitcher/LanguageSwitcher";
+import { LanguageSwitcher } from "../LanguageSwitcher/LanguageSwitcher";
 import { MobileMenu } from "../MobileMenu/MobileMenu";
 import styles from "./Header.module.css";
 
@@ -97,7 +97,7 @@ export function Header() {
           </nav>
 
           <div className={styles.actions}>
-            {/* <LanguageSwitcher /> */}
+            <LanguageSwitcher />
             <ThemeToggle />
             <Link href="/contact" className={styles.ctaBtn}>
               {t("contact")}
