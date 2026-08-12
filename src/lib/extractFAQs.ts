@@ -4,7 +4,7 @@
 // Headings ending with ? → question
 // Following paragraph → answer
 // ⚠️ FAQ heading strategy: convert ## headings to questions ending with ?
-//    Auto-generates FAQPage schema — higher AI citation rate (+37%)
+//    Auto-generates FAQPage schema for Google SERP rich results
 // ============================================================
 
 import type { FAQ } from "@/data/serviceFaqs";

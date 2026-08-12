@@ -2,6 +2,7 @@
 title: "5 Signs Your Business Website Needs a Redesign in 2026?"
 description: "Mobile Lighthouse under 50, page load over 3s, invisible to ChatGPT — concrete signs your website hurts your business. Based on 5 production sites."
 datePublished: "2026-04-24"
+dateModified: "2026-08-12"
 author: "Vadym Mak"
 coverImage: "/blog/5-signs-website-needs-redesign-2026/cover.jpg"
 coverOg: "/blog/5-signs-website-needs-redesign-2026/cover.jpg"
@@ -66,9 +67,9 @@ WordPress sites with 10+ plugins typically load in 5–8 seconds on mobile. Next
 
 ## Sign #3: Is your website invisible to ChatGPT and Perplexity?
 
-If ChatGPT, Perplexity, or Google AI Overviews don't cite your business when users ask about your service, you're missing up to 60% of traffic. Zero-click searches now dominate — 60%+ of Google queries end without a website visit (Semrush, September 2025), and early GEO adopters report 32% of qualified leads come from AI citations (BraivIQ, April 2026).
+If ChatGPT, Perplexity, or Google AI Overviews don't cite your business when users ask about your service, you're missing growing traffic. Zero-click searches now dominate — 60%+ of Google queries end without a website visit (Semrush, September 2025).
 
-Traditional SEO optimizes for rankings. AI search optimizes for citations. If your content has no Quick Answer blocks, no FAQ schema, and no structured author credentials, AI systems have no hooks to cite you.
+Traditional SEO optimizes for rankings. AI search optimizes for citations. The primary lever is rank — pages at position 1 get cited far more than position 7. Within ranked pages, concrete facts in visible copy and freshness dates are the secondary gatekeepers.
 
 | Signal              | Traditional SEO         | GEO (AI search)                    |
 | ------------------- | ----------------------- | ---------------------------------- |
@@ -131,7 +132,7 @@ If three or more checks fail, you have concrete evidence for a redesign. If one 
 
 ## Is a website redesign worth it for small businesses?
 
-For small businesses with websites older than 2 years, redesign delivers measurable ROI in 3–6 months. The three drivers are: 30–60% conversion improvement on mobile (when going from broken to fast), 20–40% lower Google Ads costs (through better Quality Score), and 4–12 weeks to first AI citations (which bring qualified leads at near-zero acquisition cost).
+For small businesses with websites older than 2 years, redesign typically recovers its cost within 12 months through three channels: higher conversion on mobile (performance directly affects conversion rate), lower Google Ads costs (Quality Score rewards fast, relevant pages), and new AI citation traffic through better rankings.
 
 Skip the redesign if your site passes all 5 signs above. Focus on content and backlinks instead. Redesign is for sites that are technically blocking growth — not for sites that are merely plain-looking.
 

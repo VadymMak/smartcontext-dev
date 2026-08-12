@@ -1,7 +1,8 @@
 ---
 title: "What is GEO Optimization and How Does It Work in 2026?"
-description: "GEO (Generative Engine Optimization) is SEO for AI search. Learn how to make your website cited by ChatGPT, Perplexity, and Google AI Overviews using structured data and the Quick Answer pattern."
+description: "What actually drives AI citation in 2026: rank, concrete facts in visible copy, and freshness. Evidence from Fischman 2026 and SIGIR 2026 (252,000 trials). No schema magic."
 datePublished: "2026-03-10"
+dateModified: "2026-08-12"
 author: "Vadym Mak"
 coverImage: "/blog/what-is-geo-optimization-2026/cover.jpg"
 coverOg: "/blog/what-is-geo-optimization-2026/cover.jpg"
@@ -18,10 +19,10 @@ In 2026, people search through two fundamentally different channels: traditional
 
 ### Quick Answer: GEO Optimization in 2026
 
-GEO increases AI citation probability by 37% with specific numbers in the first 150 words (Princeton KDD 2024).
-AI search now drives 527% more referral traffic than 5 months ago (Previsible, 2025).
-93% of AI Mode queries end without a click — your content must answer directly on the AI results page.
-Implementation timeline: first AI citations typically appear 4–6 weeks after publishing GEO-optimized content.
+Rank is the primary AI-citation driver — position 1 gets cited in ~43% of queries, position 7 in ~5% (Fischman 2026).
+Concrete facts in visible text — specific prices, dates, counts — act as secondary citation gatekeepers (SIGIR 2026, 252,000 trials, six models).
+93% of AI Mode queries end without a click — your content must answer directly on the AI results page (Semrush, 2025).
+Implementation timeline: first AI citations typically appear 4–12 weeks after content improvements on established, ranking pages.
 
 ---
 
@@ -40,7 +41,6 @@ The data shows a structural shift in how people find information:
 | Metric                            | Data              | Source             |
 | --------------------------------- | ----------------- | ------------------ |
 | AI Mode zero-click rate           | 93% of queries    | Semrush, 2025      |
-| AI referral traffic growth        | +527% in 5 months | Previsible, 2025   |
 | Click reduction from AI Overviews | -58%              | Ahrefs, Feb 2026   |
 | Traditional search decline        | -25% by 2026      | Gartner, 2024      |
 | AI tool users globally            | ~1 billion        | Industry estimates |
@@ -51,7 +51,7 @@ For businesses, this means: if your website is not cited by AI, you are invisibl
 
 AI search engines cite content based on three factors: specificity (concrete numbers vs vague statements), structure (can the AI extract a clean answer), and trust signals (author credentials, schema markup).
 
-According to Princeton GEO research (KDD 2024), content with specific numbers is cited 37% more often than equivalent content with general statements:
+SIGIR 2026 (252,000 controlled trials across six models) confirmed that concrete facts in visible text act as citation gatekeepers, while formatting-only changes had no measurable effect. The pattern holds across content types:
 
 | Low Citation Probability        | High Citation Probability                                |
 | ------------------------------- | -------------------------------------------------------- |
@@ -104,7 +104,7 @@ Rules for question headings:
 
 JSON-LD schemas tell AI exactly what your content claims and who is behind it. Four schemas are essential:
 
-**FAQPage** — auto-generated from question headings. Every H2/H3 ending in `?` becomes a FAQ item. Enables expandable Q&A in Google SERP and direct citation in AI.
+**FAQPage** — auto-generated from question headings. Every H2/H3 ending in `?` becomes a FAQ item. Enables expandable Q&A in Google SERP (rich results); no measurable effect on AI citation rates in controlled experiments.
 
 **Article** — with enhanced author fields: `author.image`, `author.jobTitle`, `author.description` (with years and projects), `author.sameAs` (social profile links). AI evaluates author credibility before citing.
 

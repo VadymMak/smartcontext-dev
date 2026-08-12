@@ -2,6 +2,7 @@
 title: "How to Build a Fast Next.js Website in 2026?"
 description: "A practical guide to building production-ready Next.js websites with Lighthouse 95–100, SEO 100, and GEO optimization. Real techniques from 5 production sites."
 datePublished: "2026-02-15"
+dateModified: "2026-08-12"
 author: "Vadym Mak"
 coverImage: "/blog/how-to-build-fast-nextjs-website-2026/cover.jpg"
 coverOg: "/blog/how-to-build-fast-nextjs-website-2026/cover.jpg"
@@ -77,14 +78,14 @@ Never load fonts via `<link rel="stylesheet">` in the HTML head. The next/font a
 
 Structured data (JSON-LD) serves two audiences: Google and AI search engines (ChatGPT, Perplexity, Google AI Overviews). In 2026, ~1 billion users search via AI assistants — optimizing only for Google means losing this audience.
 
-According to Princeton GEO research (KDD 2024), specific numbers in the first 150 words are cited 37% more often by AI than general statements.
+Within ranked pages, visible prices and concrete dates act as secondary citation gatekeepers — cited more than vague statements (SIGIR 2026, 252,000 controlled trials, six models).
 
 | Schema Type           | Page                 | Effect                     |
 | --------------------- | -------------------- | -------------------------- |
 | WebSite               | Homepage             | Site identity for AI       |
 | Person / Organization | Homepage             | E-E-A-T trust signals      |
 | Article               | Blog posts           | News/blog indexing         |
-| FAQPage               | Service pages + blog | Rich results + AI citation |
+| FAQPage               | Service pages + blog | Rich results in Google SERP |
 | Service               | Service pages        | Local/business search      |
 
 ## What is the pre-launch Lighthouse checklist?
