@@ -23,6 +23,7 @@ const NAV_LINKS = [
   { href: "/services", key: "services" },
   { href: "/blog", key: "blog" },
   { href: "/about", key: "about" },
+  { href: "/for-agencies", key: "agencies" },
   { href: "/contact", key: "contact" },
 ] as const;
 
