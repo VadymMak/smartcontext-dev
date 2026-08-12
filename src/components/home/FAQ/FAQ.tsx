@@ -3,7 +3,6 @@
 // src/components/home/FAQ/FAQ.tsx
 // Accordion — Variant A (chosen for main page)
 // FAQPage schema auto-generated from questions inline
-// GEO: specific numbers in answers = +37% AI citation
 // ============================================================
 import { useState } from "react";
 import styles from "./FAQ.module.css";
@@ -11,19 +10,19 @@ import styles from "./FAQ.module.css";
 const FAQ_ITEMS = [
   {
     q: "How much does a Next.js website cost in 2026?",
-    a: "A professional Next.js site starts at $1,200 for a Starter package (2 weeks, 2 languages, Lighthouse 95+). Business sites with AI features and 6 languages start at $2,500, delivered in 4 weeks. Monthly retainer starts at $800/mo.",
+    a: "A multilingual Next.js site starts at $1,200 (2–6 weeks, up to 6 languages, server-rendered structured data). AI integration (RAG assistant or MCP server) starts at $3,000, delivered in 2–4 weeks. Growth retainer from $800/month — minimum three months, because nothing moves faster than that.",
   },
   {
     q: "How long does it take to build a website?",
     a: "Starter sites take 2 weeks. Business sites with multilingual routing, AI chat, and blog take 4–6 weeks. Timeline depends on content readiness — the faster you provide copy and assets, the faster we ship.",
   },
   {
-    q: "Do you integrate AI features like chatbots?",
-    a: "Yes — OpenAI-powered chat widgets, email auto-replies, and Telegram notifications are available as add-ons from $500. Integration takes 1–2 weeks and includes a custom knowledge base trained on your content.",
+    q: "Do you build AI integrations like RAG assistants and MCP servers?",
+    a: "Yes — both are in production on this site and on client projects. A RAG assistant answers visitor questions from your own content. An MCP server exposes your business systems to Claude, Cursor and Windsurf so they can operate them in natural language. AI integration starts from $3,000 and includes abuse protection: honeypot, reCAPTCHA v3, and per-IP rate limiting before any model call.",
   },
   {
-    q: "What is GEO optimization and why does it matter?",
-    a: "GEO (Generative Engine Optimization) makes your content cited by ChatGPT, Perplexity, and Google AI — not just ranked by Google. AI referrals grew +527% in 2025. Every site I build includes structured data, FAQ schema, and Quick Answer blocks optimized for AI citation.",
+    q: "What actually drives AI citation — schema markup or ranking?",
+    a: "Ranking is the primary driver. Position 1 gets cited in roughly 43% of queries where the page appears; position 7 in about 5%. Schema markup has no measurable effect in controlled experiments — most AI pipelines strip markup before the model sees it. Concrete facts in visible text and freshness dates act as secondary gatekeepers.",
   },
   {
     q: "Do you offer ongoing support and maintenance?",

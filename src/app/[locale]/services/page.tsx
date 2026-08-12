@@ -8,63 +8,40 @@ import { FAQ } from "@/components/ui";
 import { ScrollReveal } from "@/components/ui";
 import { serviceFaqs } from "@/data/serviceFaqs";
 import { CTABand } from "@/components/home";
+import { alternatesFor } from "@/lib/seo";
 import styles from "./services.module.css";
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://smartctx.dev";
+interface ServicesPageProps {
+  params: Promise<{ locale: string }>;
+}
 
-export const metadata: Metadata = {
-  title: "Services — SmartContext",
-  description:
-    "Next.js web development from $1,200. AI chat integration from $500. SEO & GEO optimization from $600. Fast delivery, Lighthouse 95–100.",
-  alternates: {
-    canonical: `${BASE_URL}/services`,
-  },
-};
+export async function generateMetadata({
+  params,
+}: ServicesPageProps): Promise<Metadata> {
+  const { locale } = await params;
+  return {
+    title: "Services — SmartContext",
+    description:
+      "AI integration (RAG, MCP) from $3,000. Multilingual Next.js development from $1,200. SEO & AI visibility from $600. Fixed prices, real timelines.",
+    alternates: alternatesFor(locale, "/services"),
+  };
+}
 
+// Order: most expensive first, so $1,200 reads as entry option not anchor.
 const SERVICES = [
   {
-    slug: "web-development",
-    title: "Next.js Web Development",
-    price: "from $1,200",
-    timeline: "2–6 weeks",
-    desc: "Fast, SEO-ready websites built on Next.js + TypeScript. Lighthouse 95+, mobile-first, AI-ready architecture. From landing pages to full B2B platforms with blog and multilingual support.",
-    features: [
-      "Next.js 15 + TypeScript",
-      "Lighthouse 95–100",
-      "MDX blog system",
-      "Contact form + spam protection",
-      "Structured data (JSON-LD)",
-      "Multilingual (up to 6 languages)",
-    ],
-  },
-  {
     slug: "ai-chat",
-    title: "AI Chat Integration",
-    price: "from $500",
-    timeline: "1–2 weeks",
-    desc: "RAG-powered assistant trained on your content. Answers client questions 24/7 with streaming responses. Accurate, brand-consistent answers — no hallucinations about your business.",
+    title: "AI Integration (RAG + MCP)",
+    price: "from $3,000",
+    timeline: "2–4 weeks",
+    desc: "A retrieval-augmented assistant answering from your own content, or an MCP server that lets Claude, Cursor and Windsurf operate your business systems in natural language. Both are running in production on this platform, not in a demo. An AI endpoint costs money per request, so abuse protection is not optional — honeypot, reCAPTCHA v3, and per-IP rate limit before any model call.",
     features: [
-      "OpenAI GPT-4o-mini",
-      "RAG with embeddings",
+      "RAG over your content with embeddings",
+      "MCP server + tool schema, auth and rate limiting",
+      "Honeypot + reCAPTCHA v3 + heuristic filter before any model call",
+      "max_tokens cap and per-IP rate limit",
+      "Prompt-prefix caching to hold cost down",
       "Streaming responses",
-      "Trained on your content",
-      "~$1–2/month running cost",
-      "3-layer spam protection",
-    ],
-  },
-  {
-    slug: "seo",
-    title: "SEO & GEO Optimization",
-    price: "from $600",
-    timeline: "1–3 weeks",
-    desc: "Rank in Google and get cited by ChatGPT. Technical SEO audit, structured data implementation, and GEO optimization based on Princeton KDD 2024 research.",
-    features: [
-      "Lighthouse SEO 100",
-      "FAQPage + Article JSON-LD",
-      "GEO/AEO optimization",
-      "Core Web Vitals",
-      "Sitemap + robots.txt",
-      "Google Search Console setup",
     ],
   },
   {
@@ -72,7 +49,7 @@ const SERVICES = [
     title: "MCP Integration",
     price: "from $2,000",
     timeline: "1–3 weeks",
-    desc: "Build Model Context Protocol endpoints that expose your business systems to AI agents like Claude Desktop, Cursor, and Windsurf. I built a production MCP server with 9 tools for a multi-tenant SaaS commerce platform — store owners manage products and orders via natural language.",
+    desc: "Build Model Context Protocol endpoints that expose your business systems to AI agents like Claude Desktop, Cursor, and Windsurf. Production MCP server with 9 tools for a multi-tenant SaaS commerce platform — store owners manage products and orders via natural language.",
     features: [
       "Custom MCP server + tool schema",
       "Auth & rate limiting",
@@ -82,10 +59,41 @@ const SERVICES = [
       "Tool discovery documentation",
     ],
   },
+  {
+    slug: "web-development",
+    title: "Multilingual Next.js Site",
+    price: "from $1,200",
+    timeline: "2–6 weeks",
+    desc: "Next.js and TypeScript. Correct hreflang via a manual sitemap route handler (the Next.js generator silently drops alternates in v14–16). Server-rendered structured data, programmatic landing pages for the queries your buyers actually type. Two production German-language platforms delivered.",
+    features: [
+      "Next.js 15 + TypeScript strict",
+      "Correct hreflang (manual sitemap — Next.js drops alternates)",
+      "MDX blog with reading time",
+      "Contact form + multi-layer spam protection",
+      "Server-rendered JSON-LD",
+      "Multilingual (up to 6 languages)",
+    ],
+  },
+  {
+    slug: "seo",
+    title: "SEO & AI Visibility",
+    price: "from $600",
+    timeline: "1–3 weeks",
+    desc: "Ranking is the main driver of AI citation — position 1 gets cited in roughly 43% of queries where the page appears, position 7 in about 5%. So classic SEO is most of the work, not a separate line item. On top of that: concrete facts in visible text and visible freshness dates, which controlled experiments show act as citation gatekeepers. I will not sell you schema markup as an AI-visibility trick — the controlled studies find no effect, and most AI pipelines strip markup before the model sees it.",
+    features: [
+      "Technical audit + Core Web Vitals",
+      "Correct hreflang (manual sitemap — Next.js drops alternates)",
+      "Concrete facts and freshness dates in visible copy",
+      "Structured data for rich results and entity identity",
+      "AI visibility baseline across 5 platforms + 90-day retest",
+      "Search Console + GA4 with developer-IP filter",
+    ],
+  },
 ];
 
-export default function ServicesPage() {
-  const faqs = serviceFaqs["web-development"]?.["en"] ?? [];
+export default async function ServicesPage({ params }: ServicesPageProps) {
+  const { locale } = await params;
+  const faqs = serviceFaqs["web-development"]?.[locale] ?? serviceFaqs["web-development"]?.["en"] ?? [];
 
   return (
     <>
@@ -94,8 +102,7 @@ export default function ServicesPage() {
           <section className={styles.header}>
             <h1 className={styles.title}>Services</h1>
             <p className={styles.subtitle}>
-              Full-stack web development, AI integration, and SEO optimization.
-              Fixed prices, real timelines, measurable results.
+              Fixed prices, real timelines, and an honest position on what works.
             </p>
           </section>
         </ScrollReveal>

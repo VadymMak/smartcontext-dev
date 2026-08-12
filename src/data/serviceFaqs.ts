@@ -62,9 +62,9 @@ export const serviceFaqs: AllServiceFAQs = {
           "I build AI chat assistants with RAG (Retrieval-Augmented Generation) using OpenAI GPT-4o-mini. The chatbot answers visitor questions based on your site content — services, pricing, process — 24/7 with streaming responses.",
       },
       {
-        question: "How much does an AI chat widget cost?",
+        question: "How much does AI integration cost?",
         answer:
-          "AI chat integration starts from $500 as an add-on to any existing site, or is included in the full project packages. OpenAI API usage costs approximately $1–2/month at typical traffic levels.",
+          "AI integration (RAG assistant or MCP server) starts from $3,000. This includes the full stack: embeddings, retrieval layer, abuse protection (honeypot + reCAPTCHA v3 + per-IP rate limit), and streaming UI. OpenAI API usage typically costs $1–2/month at moderate traffic.",
       },
       {
         question: "How long does AI chat integration take?",
@@ -94,27 +94,27 @@ export const serviceFaqs: AllServiceFAQs = {
       {
         question: "What SEO services do you offer?",
         answer:
-          "Technical SEO audit, structured data (JSON-LD) implementation, sitemap and robots.txt setup, Core Web Vitals optimisation, and GEO/AEO optimisation for AI citation — based on Princeton KDD 2024 research.",
+          "Technical audit, Core Web Vitals, correct hreflang via manual sitemap (the Next.js generator silently drops alternates), structured data for rich results and entity identity, concrete facts and freshness dates in visible copy, AI visibility baseline across 5 platforms with 90-day retest.",
       },
       {
         question: "How long before I see SEO results?",
         answer:
-          "Technical SEO improvements (speed, structured data) are visible in Google Search Console within days. Ranking improvements typically take 2–4 months depending on competition.",
+          "Technical improvements are visible in Google Search Console within days. Ranking improvements typically take 2–4 months. The AI visibility baseline (before-state measurement) is recorded at the start so progress is measurable.",
       },
       {
-        question: "What is GEO and AEO optimisation?",
+        question: "What actually drives AI citation?",
         answer:
-          "GEO (Generative Engine Optimization) and AEO (Answer Engine Optimization) prepare your content to be cited by AI search engines like ChatGPT, Perplexity, and Google AI Mode. Pages with specific numbers and FAQ structure are cited 37% more often (Princeton, KDD 2024).",
+          "Ranking is the primary driver — position 1 gets cited in roughly 43% of queries where the page appears, position 7 in about 5%. Schema markup has no measurable effect in controlled experiments; most AI pipelines strip it before the model sees it. Concrete facts and freshness dates in visible text act as secondary citation gatekeepers.",
       },
       {
-        question: "How much does SEO optimisation cost?",
+        question: "How much does SEO & AI visibility cost?",
         answer:
-          "SEO & GEO optimisation starts from $600 for a technical audit and implementation. Timeline: 1–3 weeks. Ongoing SEO support is available from $800/month as part of the Growth package.",
+          "SEO & AI visibility starts from $600 for a technical audit and implementation. Timeline: 1–3 weeks. Ongoing support is available from $800/month as part of the Growth retainer.",
       },
       {
-        question: "Do you have proven SEO results?",
+        question: "Do you measure AI visibility before and after?",
         answer:
-          "Yes. akillustrator.com — built and maintained by SmartContext — achieves Lighthouse SEO 100, has 40+ indexed URLs across 5 languages, and is verified in both Google Search Console and Yandex Webmaster.",
+          "Yes — that is the differentiator. Three buyer queries are run across Google AI Overviews, ChatGPT, Perplexity, Copilot and Claude in fresh sessions before any change, recorded verbatim, retested at 90 days. This creates an honest before/after rather than an assumed improvement.",
       },
     ],
   },

@@ -1,27 +1,26 @@
 // ============================================================
 // src/components/home/Hero/Hero.tsx
 // Editorial Dark — conversion-first
-// Princeton GEO KDD 2024: prices + numbers in first 150 words = +37% citation
-// NNG: 57% viewing time above fold
-// Prismic: ONE primary CTA per section
+// Quick Answer block: concrete prices and delivery times in visible text.
+// SIGIR 2026 (252,000 controlled trials, six models) found visible price and
+// recency act as citation gatekeepers, while formatting-only changes did nothing.
 // ============================================================
 
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { TypedText } from "@/components/ui";
 import styles from "./Hero.module.css";
 
 const PRICING_CARDS = [
-  { key: "starter", i: 0 },
-  { key: "business", i: 1 },
+  { key: "ai", i: 0 },
+  { key: "site", i: 1 },
   { key: "growth", i: 2 },
 ] as const;
 
 const TRUST_ITEMS = [
-  { key: "trust_projects", value: "6+" },
-  { key: "trust_score", value: "98" },
+  { key: "trust_projects", value: "8" },
   { key: "trust_langs", value: "6" },
-  { key: "trust_seo", value: "100" },
+  { key: "trust_location", value: "100" },
+  { key: "trust_eu", value: "EU" },
 ] as const;
 
 export function Hero() {
@@ -31,18 +30,16 @@ export function Hero() {
   return (
     <section className={styles.section} aria-label="Hero">
       {/* Quick Answer — SSR, AI crawlers index on first load */}
-      {/* Princeton GEO: prices in first 150 words = +37% citation probability */}
       <div className={styles.quickAnswer}>
         <p>
-          <strong>Quick Answer:</strong> Full-stack web development from $1,200.
-          Delivery: 2–6 weeks. Lighthouse 95–100. AI integration available.
+          <strong>Quick Answer:</strong> {t("quick_answer")}
         </p>
       </div>
 
       {/* Eyebrow — availability badge */}
       <div className={styles.eyebrow}>
         <span className={styles.availDot} aria-hidden="true" />
-        <span className={styles.availText}>Available for projects</span>
+        <span className={styles.availText}>{t("available")}</span>
         <span className={styles.eyebrowDivider} aria-hidden="true">
           ·
         </span>
@@ -69,10 +66,10 @@ export function Hero() {
             className={`${styles.card} ${styles[`card_${key}`]}`}
             style={{ "--i": i } as React.CSSProperties}
           >
-            {key === "business" && (
-              <span className={styles.badge}>Popular</span>
+            {key === "ai" && (
+              <span className={styles.badge}>{tp("popular")}</span>
             )}
-            <div className={styles.cardFrom}>from</div>
+            <div className={styles.cardFrom}>{tp("from")}</div>
             <p className={styles.cardPrice}>{tp(`${key}_price`)}</p>
             <p className={styles.cardTitle}>{tp(`${key}_title`)}</p>
             <p className={styles.cardDesc}>{tp(`${key}_desc`)}</p>
@@ -80,7 +77,7 @@ export function Hero() {
         ))}
       </div>
 
-      {/* Trust metrics — Omniconvert/NNG: near CTA = +42% conversion */}
+      {/* Trust metrics */}
       <div className={styles.trustBar}>
         {TRUST_ITEMS.map(({ key, value }) => (
           <div key={key} className={styles.trustItem}>
@@ -90,7 +87,7 @@ export function Hero() {
         ))}
       </div>
 
-      {/* ONE primary CTA — Prismic: multiple CTAs = -266% conversion */}
+      {/* ONE primary CTA */}
       <div className={styles.actions}>
         <Link href="/contact" className={styles.primaryCta}>
           {t("cta_primary")}

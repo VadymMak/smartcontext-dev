@@ -19,19 +19,20 @@ export async function GET() {
 
   const content = `# SmartContext
 
-> Next.js development studio specializing in AI integration, MCP servers, and GEO-optimized web platforms. 6+ production sites with Lighthouse 95–100. Founded by Vadym Mak, full-stack developer based in Europe.
+> AI integration and multilingual web development for European companies. RAG assistants, MCP servers, and Next.js sites. Founded by Vadym Mak, full-stack developer based in Slovakia, 100 km from Vienna.
 
 ## About
 
-- [About Vadym Mak](${BASE_URL}/about): Full-stack developer since 2019 with 6+ production sites, specializing in Next.js since 2022. Specialties: AI integration, MCP servers, GEO optimization.
-- [Contact](${BASE_URL}/contact): Book a free 30-minute discovery call. Response within 24 hours.
+- [About Vadym Mak](${BASE_URL}/about): Full-stack developer since 2019. React Native (iOS/Android) and Next.js. AI integration (RAG, MCP servers), multilingual sites, EU invoice with reverse charge.
+- [Contact](${BASE_URL}/contact): Book a free 30-minute call. Response within 24 hours.
+- [For agencies](${BASE_URL}/for-agencies): Next.js overflow capacity. White-label, EU VAT, Central European timezone.
 
 ## Services
 
-- [Next.js Web Development](${BASE_URL}/services/web-development): Custom Next.js 15 sites with TypeScript, CSS Modules, MDX blog, Lighthouse 95–100. From $1,200.
-- [AI Chat Integration](${BASE_URL}/services/ai-chat): RAG-powered assistants trained on your content. OpenAI GPT-4o-mini, streaming, ~$1–2/month running cost. From $500.
-- [MCP Integration](${BASE_URL}/services/mcp-integration): Production Model Context Protocol endpoints for Claude Desktop, Cursor, and Windsurf. Custom tools, auth, rate limiting. From $2,000.
-- [SEO & GEO Optimization](${BASE_URL}/services/seo): Lighthouse SEO 100, structured data, AI citation strategy based on Princeton KDD 2024 research. From $600.
+- [AI Integration (RAG + MCP)](${BASE_URL}/services/ai-chat): Retrieval-augmented assistant over your own data, or an MCP server for Claude, Cursor and Windsurf. Abuse protection included. From $3,000.
+- [MCP Integration](${BASE_URL}/services/mcp-integration): Model Context Protocol endpoints exposing your business systems to AI agents. Custom tools, auth, rate limiting. From $2,000.
+- [Multilingual Next.js Site](${BASE_URL}/services/web-development): Next.js 15 + TypeScript. Correct hreflang via manual sitemap, server-rendered structured data, up to 6 languages. From $1,200.
+- [SEO & AI Visibility](${BASE_URL}/services/seo): Classic SEO is the primary AI-citation driver. Baseline across 5 platforms with 90-day retest. From $600.
 
 ## Blog Posts
 

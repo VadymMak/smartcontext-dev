@@ -5,18 +5,26 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { alternatesFor } from "@/lib/seo";
 import styles from "./about.module.css";
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://smartctx.dev";
 
-export const metadata: Metadata = {
-  title: "About Vadym Mak — SmartContext",
-  description:
-    "Full-stack developer since 2019 with 6+ production sites. React Native (iOS/Android), Next.js, enterprise CRM systems. AI integration, MCP servers. Lighthouse 95–100.",
-  alternates: {
-    canonical: `${BASE_URL}/about`,
-  },
-};
+interface AboutPageProps {
+  params: Promise<{ locale: string }>;
+}
+
+export async function generateMetadata({
+  params,
+}: AboutPageProps): Promise<Metadata> {
+  const { locale } = await params;
+  return {
+    title: "About Vadym Mak — SmartContext",
+    description:
+      "Full-stack developer since 2019. React Native (iOS/Android), Next.js, AI integration, MCP servers. Two production German-language transfer platforms. Based in Slovakia, 100 km from Vienna.",
+    alternates: alternatesFor(locale, "/about"),
+  };
+}
 
 const STACK = [
   "Next.js 15",
@@ -34,8 +42,7 @@ const STACK = [
 
 const STATS = [
   { value: "6+", label: "Years of experience" },
-  { value: "6+", label: "Production sites live" },
-  { value: "95–100", label: "Lighthouse score" },
+  { value: "8+", label: "Production sites live" },
   { value: "6", label: "Languages per site" },
   { value: "1", label: "MCP endpoint in production" },
 ];
@@ -44,7 +51,7 @@ const TIMELINE = [
   {
     year: "2026",
     title: "SmartContext.dev launched + Lead Web Developer role",
-    desc: "Full rebrand and v6.0 boilerplate with GEO/AEO optimization for AI search engines. Joined UB Market LTD as Lead Web Developer, leading B2B platform development.",
+    desc: "Full rebrand with RAG chat, MCP endpoint, and AI visibility baseline. Joined UB Market LTD as Lead Web Developer, leading B2B platform development.",
   },
   {
     year: "2025",
@@ -54,7 +61,7 @@ const TIMELINE = [
   {
     year: "2024",
     title: "Next.js production sites",
-    desc: "akillustrator.com, ub-market.com, formaink.com — all Lighthouse 95+.",
+    desc: "akillustrator.com, ub-market.com, formaink.com — delivered and live.",
   },
   {
     year: "2023",
@@ -78,7 +85,9 @@ const TIMELINE = [
   },
 ];
 
-export default function AboutPage() {
+export default async function AboutPage({ params }: AboutPageProps) {
+  await params; // satisfy Next.js dynamic API requirement
+
   const personJsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -86,23 +95,27 @@ export default function AboutPage() {
     url: BASE_URL,
     jobTitle: "Full-Stack Developer & AI Integrator",
     description:
-      "Full-stack developer since 2019. React Native (iOS/Android) — CRM systems, enterprise apps. Next.js developer with 6+ production sites. Lighthouse 95–100. AI integration, MCP servers, and GEO optimization.",
+      "Full-stack developer since 2019. React Native (iOS/Android) — CRM systems, enterprise apps. Next.js with 8+ production sites across six languages. AI integration (RAG, MCP servers). Based in Slovakia, 100 km from Vienna.",
     knowsAbout: [
       "Next.js",
       "TypeScript",
       "React",
       "OpenAI API",
       "SEO",
-      "GEO Optimization",
+      "Retrieval-Augmented Generation",
+      "Model Context Protocol",
       "Web Performance",
-      "RAG",
+      "Multilingual web development",
     ],
     worksFor: {
       "@type": "Organization",
       name: "SmartContext.dev",
       url: BASE_URL,
     },
-    sameAs: ["https://github.com/VadymMak", "https://www.linkedin.com/in/vadymmakevytss/"],
+    sameAs: [
+      "https://github.com/VadymMak",
+      "https://www.linkedin.com/in/vadymmakevytss/",
+    ],
   };
 
   return (
@@ -133,16 +146,15 @@ export default function AboutPage() {
             <h1 className={styles.name}>Vadym Mak</h1>
             <p className={styles.role}>Full-Stack Developer & AI Integrator</p>
             <p className={styles.location}>
-              📍 Based in Europe · Remote worldwide
+              📍 Slovakia · 100 km from Vienna · Remote worldwide
             </p>
             <p className={styles.bio}>
-              In 2026, Google SEO is not enough — 93% of AI Mode searches end
-              without a click. I build sites that rank on Google AND get cited
-              by ChatGPT, Perplexity, and Google AI Overviews. This approach is
-              GEO (Generative Engine Optimization) and AEO (Answer Engine
-              Optimization), based on Princeton University research (KDD 2024).
-              Developer since 2019, with 4+ years focused on multilingual
-              Next.js websites for European SMBs.
+              Developer since 2019. I build multilingual Next.js sites for
+              European companies and connect business systems to AI — RAG
+              assistants trained on your own content, and MCP servers that let
+              Claude, Cursor and Windsurf operate your systems in natural
+              language. Two production transfer platforms in German (Austrian
+              corridor). Invoiced from the EU with reverse charge.
             </p>
             <div className={styles.heroActions}>
               <Link href="/contact" className={styles.ctaPrimary}>
@@ -183,25 +195,28 @@ export default function AboutPage() {
             <div className={styles.whatCard}>
               <h3>Next.js Development</h3>
               <p>
-                Full-stack sites on Next.js 15 + TypeScript. App Router, CSS
-                Modules, MDX blog, contact forms with spam protection. Every
-                site ships with Lighthouse 95+ out of the box.
+                Multilingual sites on Next.js 15 + TypeScript. App Router, CSS
+                Modules, MDX blog, contact forms with spam protection. Correct
+                hreflang via manual sitemap — the Next.js generator silently
+                drops alternates.
               </p>
             </div>
             <div className={styles.whatCard}>
               <h3>AI Integration</h3>
               <p>
                 RAG-powered chat assistants trained on your content. Streaming
-                responses, cosine similarity search, OpenAI API. ~$1–2/month
-                running cost at typical traffic.
+                responses, cosine similarity search, OpenAI API. Honeypot +
+                reCAPTCHA v3 + per-IP rate limit before any model call — because
+                an unprotected AI endpoint passes the cost to the client.
               </p>
             </div>
             <div className={styles.whatCard}>
-              <h3>SEO & GEO</h3>
+              <h3>SEO & AI Visibility</h3>
               <p>
-                Technical SEO + GEO optimization for AI search engines (ChatGPT,
-                Perplexity). FAQPage schema, structured data, Princeton KDD 2024
-                methodology. Proven: SEO 100 on all sites.
+                Classic SEO is the primary AI-citation driver — position 1 is
+                cited in ~43% of queries, position 7 in ~5%. On top of that:
+                concrete facts and freshness dates in visible copy, which
+                controlled experiments show act as citation gatekeepers.
               </p>
             </div>
             <div className={styles.whatCard}>

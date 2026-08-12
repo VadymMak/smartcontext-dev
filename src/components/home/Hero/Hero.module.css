@@ -3,7 +3,7 @@
    Editorial Dark — conversion-first hero
    ============================================================ */
 
-/* fadeIn only — no translateY to avoid CLS (was 0.123) */
+/* fadeIn only — no translateY to avoid CLS */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -22,7 +22,6 @@
 
 /* --- Quick Answer ------------------------------------------ */
 /* SSR block — AI crawlers index prices on first load          */
-/* Princeton GEO KDD 2024: +37% citation with numbers above fold */
 .quickAnswer {
   display: inline-block;
   padding: var(--space-sm) var(--space-md);
@@ -132,18 +131,18 @@
   border-color: var(--accent);
 }
 
-/* Starter — subtle blue tint */
-.card_starter {
-  border-color: color-mix(in srgb, var(--accent) 25%, var(--border));
-}
-
-/* Business — accent border, highlighted */
-.card_business {
+/* AI Integration — accent border, highlighted (flagship) */
+.card_ai {
   border-color: var(--accent);
   background-color: var(--accent-subtle);
 }
 
-/* Growth — purple/muted tint */
+/* Multilingual Site — subtle tint */
+.card_site {
+  border-color: color-mix(in srgb, var(--accent) 25%, var(--border));
+}
+
+/* Growth Retainer — muted tint */
 .card_growth {
   border-color: color-mix(in srgb, var(--accent) 15%, var(--border));
 }
@@ -195,7 +194,6 @@
 }
 
 /* --- Trust bar --------------------------------------------- */
-/* Omniconvert/NNG: trust signals near CTA = +42% conversion   */
 .trustBar {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -229,7 +227,7 @@
 }
 
 /* --- Actions ----------------------------------------------- */
-/* ONE primary CTA — Prismic: multiple CTAs = -266% conversion */
+/* ONE primary CTA */
 .actions {
   display: flex;
   flex-wrap: wrap;
